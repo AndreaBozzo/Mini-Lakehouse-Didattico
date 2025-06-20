@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: mart_finanza_locale
+    description: "Tabella aggregata bilanci per comune e anno con flag di anomalia"
+    columns:
+      - name: codice_comune
+        description: "Codice ISTAT del comune"
+      - name: nome_comune
+        description: "Denominazione ufficiale"
+      - name: anno
+        description: "Anno di esercizio"
+      - name: entrate
+        description: "Entrate totali registrate"
+      - name: spese
+        description: "Spese totali registrate"
+      - name: saldo
+        description: "Differenza entrate - spese"
+      - name: flag_anomalia
+        description: "True se presente almeno una anomalia audit"
