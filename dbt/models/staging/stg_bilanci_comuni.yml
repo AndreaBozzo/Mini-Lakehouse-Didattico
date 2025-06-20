@@ -1,0 +1,67 @@
+version: 2
+
+sources:
+  - name: raw
+    tables:
+      - name: bilanci_comuni_cassa
+
+models:
+  - name: stg_bilanci_comuni_cassa
+    description: "Staging per bilanci comunali - gestione cassa"
+    columns:
+      - name: anno
+        description: "Anno di riferimento"
+        tests: [not_null]
+      - name: cod_ente
+        description: "Codice identificativo ente"
+        tests: [not_null]
+      - name: denominazione_ente
+        description: "Nome dell'ente locale"
+      - name: cod_voce
+        description: "Codice della voce di bilancio"
+        tests: [not_null]
+      - name: descrizione_voce
+        description: "Descrizione voce bilancio"
+      - name: importo
+        description: "Valore monetario"
+        tests: [not_null]
+
+  - name: stg_bilanci_comuni_competenza
+    description: "Staging per bilanci comunali - gestione competenza"
+    columns:
+      - name: anno
+        description: "Anno di riferimento"
+        tests: [not_null]
+      - name: cod_ente
+        description: "Codice identificativo ente"
+        tests: [not_null]
+      - name: denominazione_ente
+        description: "Nome dell'ente locale"
+      - name: cod_voce
+        description: "Codice della voce di bilancio"
+        tests: [not_null]
+      - name: descrizione_voce
+        description: "Descrizione voce bilancio"
+      - name: importo
+        description: "Valore monetario"
+        tests: [not_null]
+
+  - name: stg_bilanci_comuni_residui
+    description: "Staging per bilanci comunali - gestione residui"
+    columns:
+      - name: anno
+        description: "Anno di riferimento"
+        tests: [not_null]
+      - name: cod_ente
+        description: "Codice identificativo ente"
+        tests: [not_null]
+      - name: denominazione_ente
+        description: "Nome dell'ente locale"
+      - name: cod_voce
+        description: "Codice della voce di bilancio"
+        tests: [not_null]
+      - name: descrizione_voce
+        description: "Descrizione voce bilancio"
+      - name: importo
+        description: "Valore monetario"
+        tests: [not_null]
