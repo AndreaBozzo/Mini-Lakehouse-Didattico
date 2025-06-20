@@ -2,21 +2,46 @@
 __pycache__/
 *.py[cod]
 *.pyd
+*.so
+*.egg-info/
+*.egg
 
 # Environments
 .venv/
 .env/
+.env.*
 
 # DuckDB
 *.duckdb
+*.duckdb.wal
 
-# VSCode
+# dbt
+dbt/logs/
+dbt/target/
+dbt/dbt_packages/
+dbt/package-lock.yml
+dbt/profiles.yml  # se locale e non versionato intenzionalmente
+
+# VSCode / IDE
 .vscode/
+.idea/
+*.code-workspace
 
 # Jupyter
 .ipynb_checkpoints/
+*.ipynb
 
 # Poetry
 poetry.lock
-# Pytest
+# Pipenv
+Pipfile.lock
+
+# Pytest / Testing
 .cache/
+.coverage
+htmlcov/
+.tox/
+
+# OS generated
+.DS_Store
+Thumbs.db
