@@ -70,7 +70,7 @@ poetry run dbt deps
 poetry run dbt run
 poetry run dbt test
 
-
+'''shell
 mini-lakehouse/
 ├── data/
 │   └── raw/                    # CSV simulati
@@ -82,8 +82,8 @@ mini-lakehouse/
 ├── dbt_project.yml
 ├── pyproject.toml
 └── README.md
-
-
+'''
+'''
 📌 Roadmap
  Setup iniziale con DuckDB + dbt-core
 
@@ -97,10 +97,12 @@ mini-lakehouse/
 
  Validazioni statistiche (es. distribuzioni importi, outlier)
 
-
+'''
  📄 Licenza
 Questo progetto è distribuito sotto licenza MIT.
+'''
 
+'''
 🙋‍♂️ Contatti
 Andrea Bozzo
 📧 andreabozzo92@gmail.com
