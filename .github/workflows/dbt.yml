@@ -25,11 +25,24 @@ jobs:
     - name: Install dependencies
       run: poetry install
 
+    - name: Create dbt profile for DuckDB
+      run: |
+        mkdir -p ~/.dbt
+        echo "default:
+  outputs:
+    dev:
+      type: duckdb
+      path: ':memory:'
+  target: dev" > ~/.dbt/profiles.yml
+
     - name: Run dbt deps
       run: poetry run dbt deps
+      working-directory: dbt
 
     - name: Run dbt run
       run: poetry run dbt run
+      working-directory: dbt
 
     - name: Run dbt test
       run: poetry run dbt test
+      working-directory: dbt
