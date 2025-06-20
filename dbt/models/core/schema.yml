@@ -2,8 +2,7 @@ version: 2
 
 models:
   - name: core_bilanci_comuni
-    description: >
-      Modello core con i bilanci dei comuni italiani, validato e ripulito.
+    description: Modello core con i bilanci dei comuni italiani, validato e ripulito.
     columns:
       - name: codice_comune
         tests:
@@ -23,10 +22,14 @@ models:
       - name: entrate
         tests:
           - not_null
-          - dbt_expectations.expect_column_values_to_be_greater_than:
-              value: 0
       - name: spese
         tests:
           - not_null
-          - dbt_expectations.expect_column_values_to_be_greater_than:
-              value: 0
+
+    tests:
+      - dbt_expectations.expect_column_values_to_be_greater_than:
+          column: entrate
+          value: 0
+      - dbt_expectations.expect_column_values_to_be_greater_than:
+          column: spese
+          value: 0
