@@ -1,8 +1,6 @@
-FROM {{ ref('stg_bilanci_comuni') }}
-
 SELECT
     CAST(codice_comune AS INT) AS codice_comune,
-    INITCAP(TRIM(nome_comune)) AS nome_comune,  -- sostituire con safe_polars in futuro
+    TRIM(nome_comune) AS nome_comune,
     CAST(anno AS INT) AS anno,
     CAST(entrate_tributarie AS BIGINT) AS entrate,
     CAST(spese_correnti AS BIGINT) AS spese
