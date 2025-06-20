@@ -1,13 +1,14 @@
-with fonte as (
-    select
-        codice_comune,
-        nome_comune,  -- rimosso initcap
-        anno,
-        entrate_tributarie,
-        spese_correnti,
-        entrate_tributarie - spese_correnti as saldo_corrente
-    from {{ ref('stg_bilanci_comuni') }}
-    where anno >= 2000
-)
+FROM {{ ref('stg_bilanci_comuni') }}
 
-select * from fonte
+SELECT
+    CAST(codice_comune AS INT) AS codice_comune,
+    INITCAP(TRIM(nome_comune)) AS nome_comune,  -- sostituire con safe_polars in futuro
+    CAST(anno AS INT) AS anno,
+    CAST(entrate_tributarie AS BIGINT) AS entrate,
+    CAST(spese_correnti AS BIGINT) AS spese
+FROM {{ ref('stg_bilanci_comuni') }}
+WHERE 
+    codice_comune IS NOT NULL
+    AND anno IS NOT NULL
+    AND entrate_tributarie IS NOT NULL
+    AND spese_correnti IS NOT NULL
