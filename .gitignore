@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+
+# Environments
+.venv/
+.env/
+
+# DuckDB
+*.duckdb
+
+# VSCode
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Poetry
+poetry.lock
+# Pytest
+.cache/
