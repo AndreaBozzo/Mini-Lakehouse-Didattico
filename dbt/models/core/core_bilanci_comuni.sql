@@ -1,13 +1,10 @@
 SELECT
+    {{ dbt_utils.generate_surrogate_key(['codice_comune', 'anno']) }} AS id_hash,
     CAST(codice_comune AS INT) AS codice_comune,
-    TRIM(nome_comune) AS nome_comune,
+    nome_comune,
     CAST(anno AS INT) AS anno,
     CAST(entrate_tributarie AS BIGINT) AS entrate,
-    CAST(spese_correnti AS BIGINT) AS spese,
-    md5(
-        CAST(codice_comune AS TEXT) || '-' || 
-        CAST(anno AS TEXT)
-    ) AS id_hash
+    CAST(spese_correnti AS BIGINT) AS spese
 FROM {{ ref('stg_bilanci_comuni') }}
 WHERE 
     codice_comune IS NOT NULL
