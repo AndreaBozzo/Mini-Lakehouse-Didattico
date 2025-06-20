@@ -9,7 +9,7 @@ packages = [{ include = "ingest" }]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-dbt-core = "*"
+dbt-core = "1.9.3"
 jupyter = "*"
 rich = "*"
 duckdb-engine = "^0.17.0"

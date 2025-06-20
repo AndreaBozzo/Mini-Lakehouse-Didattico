@@ -595,33 +595,30 @@ test = ["hypothesis (>=6.87,<7.0)", "pytest (>=7.3,<8.0)", "pytest-cov (>=4.1,<5
 
 [[package]]
 name = "dbt-core"
-version = "1.10.1"
+version = "1.9.3"
 description = "With dbt, data analysts and engineers can build analytics the way engineers build applications."
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "dbt_core-1.10.1-py3-none-any.whl", hash = "sha256:050bf2ffde4d0c450ca0cf2c86864149bdc89f640b4d8a5a504890efaac43732"},
-    {file = "dbt_core-1.10.1.tar.gz", hash = "sha256:3fa47bc0243bc028ce61bc8ab336f7b89c8f8ecccd99368f82fd1dee533276de"},
+    {file = "dbt_core-1.9.3-py3-none-any.whl", hash = "sha256:cd1c7d379f43f8c7914798041bf5062af0070261dabb148775d77c62733bc5e5"},
+    {file = "dbt_core-1.9.3.tar.gz", hash = "sha256:f02aa336721e7ff7beae86b8269d0c81290e36aa1126dc6d7b52c327de8c94af"},
 ]
 
 [package.dependencies]
 agate = ">=1.7.0,<1.10"
 click = ">=8.0.2,<9.0"
 daff = ">=1.3.46"
-dbt-adapters = ">=1.15.2,<2.0"
-dbt-common = ">=1.22.0,<2.0"
+dbt-adapters = ">=1.10.1,<2.0"
+dbt-common = ">=1.13.0,<2.0"
 dbt-extractor = ">=0.5.0,<=0.6"
-dbt-protos = ">=1.0.315,<2.0"
-dbt-semantic-interfaces = ">=0.8.3,<0.9"
+dbt-semantic-interfaces = ">=0.7.4,<0.8"
 Jinja2 = ">=3.1.3,<4"
-jsonschema = ">=4.19.1,<5.0"
 mashumaro = {version = ">=3.9,<3.15", extras = ["msgpack"]}
 networkx = ">=2.3,<4.0"
 packaging = ">20.9"
 pathspec = ">=0.9,<0.13"
 protobuf = ">=5.0,<6.0"
-pydantic = "<2"
 pytz = ">=2015.7"
 pyyaml = ">=6.0"
 requests = "<3.0.0"
@@ -694,20 +691,20 @@ protobuf = ">=3.17.1"
 
 [[package]]
 name = "dbt-semantic-interfaces"
-version = "0.8.4"
+version = "0.7.4"
 description = "The shared semantic layer definitions that dbt-core and MetricFlow use"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "dbt_semantic_interfaces-0.8.4-py3-none-any.whl", hash = "sha256:b25d2e6bf8a2208a666fa6c94ca549cdae790c520e7cd461045508d792444770"},
-    {file = "dbt_semantic_interfaces-0.8.4.tar.gz", hash = "sha256:ccf3f8ad35d41ac92e6009e608ab733980cfc39e16b7e964fd9e2a897086433a"},
+    {file = "dbt_semantic_interfaces-0.7.4-py3-none-any.whl", hash = "sha256:63965478ef27056f20a8c9a0f59b1355ebbc15133c1a6f0d368d93996a31dd5d"},
+    {file = "dbt_semantic_interfaces-0.7.4.tar.gz", hash = "sha256:dcedda6702ecabb633aa4e8ab3b1eb7f9c4301dcc0026076a4a0ef64f9e59cf0"},
 ]
 
 [package.dependencies]
 click = ">=7.0,<9.0"
-importlib-metadata = ">=6.0,<9"
-jinja2 = ">=3.1.6,<4"
+importlib-metadata = ">=6.0,<7"
+jinja2 = ">=3.1.3,<4"
 jsonschema = ">=4.0,<5"
 more-itertools = ">=8.0,<11.0"
 pydantic = ">=1.10,<3"
@@ -1063,27 +1060,23 @@ all = ["flake8 (>=7.1.1)", "mypy (>=1.11.2)", "pytest (>=8.3.2)", "ruff (>=0.6.2
 
 [[package]]
 name = "importlib-metadata"
-version = "8.7.0"
+version = "6.11.0"
 description = "Read metadata from Python packages"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "importlib_metadata-8.7.0-py3-none-any.whl", hash = "sha256:e5dd1551894c77868a30651cef00984d50e1002d06942a7101d34870c5f02afd"},
-    {file = "importlib_metadata-8.7.0.tar.gz", hash = "sha256:d13b81ad223b890aa16c5471f2ac3056cf76c5f10f82d6f9292f0b415f389000"},
+    {file = "importlib_metadata-6.11.0-py3-none-any.whl", hash = "sha256:f0afba6205ad8f8947c7d338b5342d5db2afbfd82f9cbef7879a9539cc12eb9b"},
+    {file = "importlib_metadata-6.11.0.tar.gz", hash = "sha256:1231cf92d825c9e03cfc4da076a16de6422c863558229ea0b22b675657463443"},
 ]
 
 [package.dependencies]
-zipp = ">=3.20"
+zipp = ">=0.5"
 
 [package.extras]
-check = ["pytest-checkdocs (>=2.4)", "pytest-ruff (>=0.2.1) ; sys_platform != \"cygwin\""]
-cover = ["pytest-cov"]
-doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-lint"]
-enabler = ["pytest-enabler (>=2.2)"]
+docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (<7.2.5)", "sphinx (>=3.5)", "sphinx-lint"]
 perf = ["ipython"]
-test = ["flufl.flake8", "importlib_resources (>=1.3) ; python_version < \"3.9\"", "jaraco.test (>=5.4)", "packaging", "pyfakefs", "pytest (>=6,!=8.1.*)", "pytest-perf (>=0.9.2)"]
-type = ["pytest-mypy"]
+testing = ["flufl.flake8", "importlib-resources (>=1.3) ; python_version < \"3.9\"", "packaging", "pyfakefs", "pytest (>=6)", "pytest-black (>=0.3.7) ; platform_python_implementation != \"PyPy\"", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-mypy (>=0.9.1) ; platform_python_implementation != \"PyPy\"", "pytest-perf (>=0.9.2)", "pytest-ruff"]
 
 [[package]]
 name = "iniconfig"
@@ -3715,4 +3708,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.9"
-content-hash = "3a8323139dc3509478519d06bbd6dbcf1012504217eaf6fa4c6fcbf6a1ec6f86"
+content-hash = "574156f78191e3ab120a0aaa8f7451766bcb91cd9ba2c2f95d55d15b7aca888e"

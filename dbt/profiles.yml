@@ -3,5 +3,4 @@ mini_lakehouse:
   outputs:
     dev:
       type: duckdb
-      path: "C:/Users/Andrea/Documents/Mini Lakehouse Didattico/data/warehouse/warehouse.duckdb"
-      threads: 1
+      path: ../data/warehouse/warehouse.duckdb

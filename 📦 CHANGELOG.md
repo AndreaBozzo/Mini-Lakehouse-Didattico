@@ -1,67 +1,48 @@
-# 📦 CHANGELOG
+## 📦 Changelog v0.2.0 (in sviluppo)
 
-## [v0.1.0] - 2025-06-20
+### ✅ Fix principali
 
-Versione iniziale stabile del progetto **Mini Lakehouse Didattico**, focalizzata su modellazione dati, audit SQL e struttura replicabile tramite `dbt + DuckDB`.
+* **Corretto bug critico su `packages.yml`**: il file conteneva campi `name:` non supportati da `dbt-core 1.9.x`. Questo causava fallimenti persistenti in `dbt deps` con errore di validazione YAML.
 
----
+  * Sintassi corretta:
 
-### 🚀 Added
+    ```yaml
+    packages:
+      - package: dbt-labs/dbt_utils
+        version: 1.3.0
+      - package: metaplane/dbt_expectations
+        version: 0.10.9
+      - package: godatadriven/dbt_date
+        version: 0.14.1
+    ```
 
-#### ▶️ Staging
-- `stg_bilanci_comuni.sql`: normalizzazione del dataset raw dei bilanci comunali simulati
-- `stg_bilanci_comuni.yml`: schema YAML con descrizioni e test `not_null`
+* **Risolto errore `No dbt_project.yml` nel CI**: dovuto a posizione errata del file `dbt_project.yml` rispetto alla root del repository GitHub. Aggiunto `cwd: ./dbt` nel workflow GitHub Actions.
 
-#### ▶️ Core
-- `core_bilanci_comuni.sql`: calcolo saldo per comune e anno (`entrate - spese`)
-- `core_audit_flags.sql`: identificazione automatica anomalie con macro personalizzate:
-  - variazioni percentuali fuori soglia
-  - saldo negativo
-  - valori nulli in colonne chiave
+* **Blocco file su Windows**: dbt non riusciva a rinominare `dbt_packages/dbt-utils-1.3.0` a causa di file `integration_tests` ancora in uso. Risolto chiudendo processi e usando `rm -Force` mirato.
 
-#### ▶️ Marts
-- `mart_audit_log.sql`: log di tutti i record con almeno un flag di anomalia attivo
-- `mart_finanza_locale.sql`: vista riassuntiva comune/anno con saldo e flag di anomalia
+* **Errori `NoneType` su `dbt_project.yml`**: generati da zip parzialmente corrotti o da sostituzioni errate dei file YAML.
 
-#### ▶️ Altro
-- `Makefile`: automazioni base per setup, esecuzione dbt, e pulizia ambiente
-- `README.md`: documentazione minimale coerente con architettura e obiettivi
-- `pyproject.toml`: gestione ambiente e dipendenze con Poetry
-- `packages.yml`: pacchetti dbt esterni (`dbt-utils`, `dbt-expectations`, `dbt-date`)
+* **Reimpostata struttura del progetto dbt**:
 
----
+  * `dbt_project.yml` e `profiles.yml` correttamente validati.
+  * `dbt clean` e `dbt deps` funzionano senza errori.
+  * `dbt run` eseguito con successo: tutti i 7 modelli compilati correttamente.
 
-### ✏️ Changed
+### 🔄 Migliorie DevEx
 
-- Inizialmente previsti tre modelli `stg_bilanci_comuni_{cassa,competenza,residui}`: consolidati in uno solo per semplicità e coerenza con dataset attuale
-- Obiettivi didattici adattati a un workflow minimale ma completo, per massimizzare comprensibilità e replicabilità
+* Aggiunta procedura consigliata per risoluzione problemi su Windows:
 
----
+  * `poetry run dbt clean`
+  * `Remove-Item -Recurse -Force dbt_packages .dbt package-lock.yml target`
+  * Controllare che `packages.yml` non contenga campi `name:`
 
-### 🛠 Fixed
+* Usato `Get-FileHash` per verifica differenze effettive tra versioni del file `packages.yml`.
 
-- Rimozione test `dbt_utils.expression_is_true` e `row_count` non compatibili con DuckDB
-- Corretto schema YAML `stg_bilanci_comuni.yml` dopo errori di parsing e ref non risolti
-- Gestione macro non risolte in `core_audit_flags` tramite fallback a macro locali
+### 📌 Note
 
----
-
-### 🧪 Test & Validazione
-
-- ✅ 15 test automatici attivi (`not_null`, macro expectations)
-- ✅ Esecuzione locale verificata su DuckDB con `dbt run` e `dbt test`
-- ✅ Tutti i modelli compilano e generano view/table correttamente
+* Il problema è stato amplificato dal fatto che dbt carica **qualsiasi** `packages.yml` anche se `packages.yaml` era corretto.
+* dbt < 1.10 **non supporta `name:` nei pacchetti**, nonostante documentazione ambigua.
 
 ---
 
-### 🔍 Note
-
-- La versione `v0.1.0` rappresenta una base stabile e leggibile per l'evoluzione del progetto
-- Ideale per studio e formazione su: staging, audit logico, qualità dati
-- Pronta per estensioni future (più fonti, test incrociati, documentazione dbt, ecc.)
-
----
-
-## 🪪 Licenza
-
-MIT License
+Prossimo step: chiudere questa sezione nel changelog solo al momento del merge su `main`.

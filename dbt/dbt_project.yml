@@ -1,16 +1,7 @@
-name: "mini_lakehouse"
-version: "1.0"
+name: 'mini_lakehouse'
+version: '1.0'
 config-version: 2
 
-profile: "mini_lakehouse"
+profile: 'mini_lakehouse'
 
 model-paths: ["models"]
-
-models:
-  mini_lakehouse:
-    staging:
-      +materialized: view
-    core:
-      +materialized: view
-    marts:
-      +materialized: table
