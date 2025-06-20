@@ -1,7 +1,4 @@
-# === FILE: data/raw/bilanci_comunali_sample.csv ===
-"""
 codice_comune,nome_comune,anno,entrate_tributarie,spese_correnti
 001,Roma,2021,3500000000,2800000000
 002,Milano,2021,2000000000,1700000000
 003,Napoli,2021,1500000000,1400000000
-"""
