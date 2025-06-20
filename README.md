@@ -1,5 +1,3 @@
-# === FILE: README.md ===
-"""
 # Mini Lakehouse Didattico
 
 Data Lakehouse minimale locale con stack moderno e focalizzazione didattica su:

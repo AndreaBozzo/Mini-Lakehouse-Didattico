@@ -1,0 +1,25 @@
+{
+  "table": "raw_bilanci",
+  "checks": [
+    {
+      "column": "anno",
+      "type": "not_null"
+    },
+    {
+      "column": "entrate_tributarie",
+      "type": "positive"
+    },
+    {
+      "column": "spese_correnti",
+      "type": "positive"
+    },
+    {
+      "column": "codice_comune",
+      "type": "not_null"
+    },
+    {
+      "column": "nome_comune",
+      "type": "not_null"
+    }
+  ]
+}
