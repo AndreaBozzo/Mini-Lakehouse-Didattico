@@ -1,1 +1,1 @@
-{"_invocation_id": "bc672c4f-b526-435e-a307-f7160075ccd9", "linked": {"0": {"name": "model.mini_lakehouse.stg_bilanci_comuni", "type": "model"}}}
+{"_invocation_id": "980a3731-5602-42cb-ac16-ef70e1d57e6b", "linked": {"0": {"name": "model.mini_lakehouse.stg_bilanci_comuni", "type": "model", "succ": [1]}, "1": {"name": "model.mini_lakehouse.core_bilanci_comuni", "type": "model"}}}

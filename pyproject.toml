@@ -9,7 +9,6 @@ packages = [{ include = "ingest" }]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-polars = "*"
 dbt-core = "*"
 jupyter = "*"
 rich = "*"

@@ -9,6 +9,8 @@ model-paths: ["models"]
 models:
   mini_lakehouse:
     staging:
-      materialized: view
+      +materialized: view
+    core:
+      +materialized: view
     marts:
       materialized: table

@@ -2,22 +2,27 @@ import duckdb
 import polars as pl
 from pathlib import Path
 
-# Autodifesa contro moduli falsi
-if not hasattr(duckdb, "connect"):
-    raise ImportError("Modulo duckdb non valido: manca 'connect'. Verifica conflitti nel progetto.")
-
-# Path coerenti
 RAW_PATH = Path("data/raw/bilanci_comunali_sample.csv")
 DB_PATH = Path("data/warehouse/warehouse.duckdb")
 
-# Ingestione CSV in DuckDB
+if not hasattr(duckdb, "connect"):
+    raise ImportError("Modulo duckdb non valido: manca 'connect'. Verifica conflitti nel progetto.")
+
+# Funzione di capitalizzazione tipo title case
+def to_title_case(nome: str) -> str:
+    return " ".join(word.capitalize() for word in nome.lower().split())
+
 if __name__ == "__main__":
     df = pl.read_csv(RAW_PATH)
     df = df.rename({col: col.lower() for col in df.columns})
+
+    df = df.with_columns([
+        pl.col("nome_comune").map_elements(to_title_case).alias("nome_comune")
+    ])
+
     con = duckdb.connect(str(DB_PATH))
     con.execute("CREATE OR REPLACE TABLE raw_bilanci AS SELECT * FROM df")
 
-    # ✅ Debug: verifica contenuto
     print("\n✅ Verifica: tabelle nel DB")
     tables = con.sql("SHOW TABLES").fetchall()
     print("Tabelle trovate:", tables)
