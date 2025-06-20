@@ -16,7 +16,7 @@ run:
 	poetry run python ingest/ingest_csv.py
 
 dbt-run:
-	poetry run dbt run --project-dir dbt
+	poetry run dbt run --project-dir dbt --profiles-dir dbt
 
 format:
 	poetry run black . && poetry run isort . && poetry run ruff check .

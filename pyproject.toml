@@ -15,6 +15,9 @@ jupyter = "*"
 rich = "*"
 duckdb-engine = "^0.17.0"
 duckdb = "^1.3.1"
+pyarrow = "^20.0.0"
+dbt-duckdb = "^1.9.3"
+pandas = "^2.3.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "*"
