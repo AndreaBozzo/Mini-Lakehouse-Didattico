@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: mart_audit_log
+    description: "Contiene solo i record di bilanci comunali con almeno una anomalia (delta eccessivo, saldo negativo o valori nulli)"
+    columns:
+      - name: codice_comune
+        description: "Codice ISTAT del comune"
+      - name: anno
+        description: "Anno di riferimento"
+      - name: flag_var_entrate
+        description: "True se variazione entrate > soglia"
+      - name: flag_var_spese
+        description: "True se variazione spese > soglia"
+      - name: flag_saldo_negativo
+        description: "True se saldo < 0"
+      - name: flag_valori_nulli
+        description: "True se entrate o spese sono null"
