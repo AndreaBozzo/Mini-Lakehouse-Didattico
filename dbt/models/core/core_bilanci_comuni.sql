@@ -3,7 +3,11 @@ SELECT
     TRIM(nome_comune) AS nome_comune,
     CAST(anno AS INT) AS anno,
     CAST(entrate_tributarie AS BIGINT) AS entrate,
-    CAST(spese_correnti AS BIGINT) AS spese
+    CAST(spese_correnti AS BIGINT) AS spese,
+    md5(
+        CAST(codice_comune AS TEXT) || '-' || 
+        CAST(anno AS TEXT)
+    ) AS id_hash
 FROM {{ ref('stg_bilanci_comuni') }}
 WHERE 
     codice_comune IS NOT NULL

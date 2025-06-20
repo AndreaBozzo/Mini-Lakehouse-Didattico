@@ -1901,3 +1901,1184 @@ drop table if exists "warehouse"."main"."fatti_bilanci__dbt_backup" cascade
 [0m13:16:55.083676 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291DD5F2B50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291DD5F1ED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291DD5F3090>]}
 [0m13:16:55.083676 [debug] [MainThread]: Flushing usage events
 [0m13:16:55.582154 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:12:40.237318 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200C8EE4710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200C8F203D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200C8F20310>]}
+
+
+============================== 14:12:40.276119 | 38ab2dff-a447-40c2-a19c-893a2e24ab5b ==============================
+[0m14:12:40.276119 [info ] [MainThread]: Running with dbt=1.10.1
+[0m14:12:40.278380 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'dbt\\logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt test --project-dir dbt --profiles-dir dbt', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m14:12:41.567245 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '38ab2dff-a447-40c2-a19c-893a2e24ab5b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200C8F06650>]}
+[0m14:12:41.726924 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '38ab2dff-a447-40c2-a19c-893a2e24ab5b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200C5BC9650>]}
+[0m14:12:41.866299 [info ] [MainThread]: Registered adapter: duckdb=1.9.3
+[0m14:12:42.475468 [debug] [MainThread]: checksum: 2c026f85d539c10c69b093157526ce33d0bf5533489eafb07fe5172434ec7740, vars: {}, profile: , target: , version: 1.10.1
+[0m14:12:43.132288 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 2 files added, 0 files changed.
+[0m14:12:43.133349 [debug] [MainThread]: Partial parsing: added file: mini_lakehouse://models\core\schema.yml
+[0m14:12:43.134359 [debug] [MainThread]: Partial parsing: added file: mini_lakehouse://models\staging\schema.yml
+[0m14:12:43.228889 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found two schema.yml entries for the same resource named core_bilanci_comuni. Resources and their associated columns may only be described a single time. To fix this, remove the resource entry for core_bilanci_comuni in one of these files:
+   - models\core\schema.yml
+  models\core\core_bilanci_comuni.yml
+[0m14:12:43.230972 [debug] [MainThread]: Command `dbt test` failed at 14:12:43.230972 after 3.09 seconds
+[0m14:12:43.231973 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200C8F58890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200C8F5A990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200C93EBD90>]}
+[0m14:12:43.232973 [debug] [MainThread]: Flushing usage events
+[0m14:12:43.954529 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:14:49.433057 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291BAA265D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291BAA25D50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291BAA24F50>]}
+
+
+============================== 14:14:49.438083 | 4772cd8d-04b3-4072-a9c0-58fb386c4263 ==============================
+[0m14:14:49.438083 [info ] [MainThread]: Running with dbt=1.10.1
+[0m14:14:49.440070 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': 'dbt\\logs', 'fail_fast': 'False', 'profiles_dir': 'dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt test --project-dir dbt --profiles-dir dbt', 'send_anonymous_usage_stats': 'True'}
+[0m14:14:49.769422 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '4772cd8d-04b3-4072-a9c0-58fb386c4263', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291BAA8A1D0>]}
+[0m14:14:49.842137 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '4772cd8d-04b3-4072-a9c0-58fb386c4263', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291B76BDB10>]}
+[0m14:14:49.858303 [info ] [MainThread]: Registered adapter: duckdb=1.9.3
+[0m14:14:50.161770 [debug] [MainThread]: checksum: 2c026f85d539c10c69b093157526ce33d0bf5533489eafb07fe5172434ec7740, vars: {}, profile: , target: , version: 1.10.1
+[0m14:14:50.335560 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 2 files added, 0 files changed.
+[0m14:14:50.335560 [debug] [MainThread]: Partial parsing: added file: mini_lakehouse://models\core\schema.yml
+[0m14:14:50.336559 [debug] [MainThread]: Partial parsing: added file: mini_lakehouse://models\staging\schema.yml
+[0m14:14:50.918900 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '4772cd8d-04b3-4072-a9c0-58fb386c4263', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291B9BE16D0>]}
+[0m14:14:51.005702 [debug] [MainThread]: Wrote artifact WritableManifest to dbt\target\manifest.json
+[0m14:14:51.057133 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt\target\semantic_manifest.json
+[0m14:14:53.977019 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '4772cd8d-04b3-4072-a9c0-58fb386c4263', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291BD7B5390>]}
+[0m14:14:53.979020 [info ] [MainThread]: Found 4 models, 7 data tests, 428 macros
+[0m14:14:53.981019 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4772cd8d-04b3-4072-a9c0-58fb386c4263', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291BC35E550>]}
+[0m14:14:53.987176 [info ] [MainThread]: 
+[0m14:14:53.989162 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m14:14:53.991165 [info ] [MainThread]: 
+[0m14:14:53.995162 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m14:14:54.029469 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse_main'
+[0m14:14:54.330739 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m14:14:54.331740 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m14:14:54.332739 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:14:58.927039 [debug] [ThreadPool]: SQL status: OK in 4.594 seconds
+[0m14:14:58.928042 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m14:14:58.928042 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'warehouse'
+  
+[0m14:14:59.218952 [debug] [ThreadPool]: SQL status: OK in 0.290 seconds
+[0m14:14:59.233613 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m14:14:59.247091 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m14:14:59.248091 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m14:14:59.254259 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4772cd8d-04b3-4072-a9c0-58fb386c4263', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291BBF96850>]}
+[0m14:14:59.257387 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:14:59.258388 [debug] [MainThread]: On master: BEGIN
+[0m14:14:59.260388 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:14:59.262385 [debug] [MainThread]: SQL status: OK in 0.002 seconds
+[0m14:14:59.264547 [debug] [MainThread]: On master: COMMIT
+[0m14:14:59.265560 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:14:59.267549 [debug] [MainThread]: On master: COMMIT
+[0m14:14:59.269548 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m14:14:59.271698 [debug] [MainThread]: On master: Close
+[0m14:14:59.337443 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14
+[0m14:14:59.339443 [info ] [Thread-1 (]: 1 of 7 START test not_null_core_bilanci_comuni_anno ............................ [RUN]
+[0m14:14:59.343643 [debug] [Thread-1 (]: Acquiring new duckdb connection 'test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14'
+[0m14:14:59.344643 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14
+[0m14:14:59.396182 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14"
+[0m14:14:59.398189 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14
+[0m14:14:59.429487 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14"
+[0m14:14:59.431563 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14"
+[0m14:14:59.433561 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14: BEGIN
+[0m14:14:59.434561 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:14:59.436561 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m14:14:59.437643 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14"
+[0m14:14:59.438644 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select anno
+from "warehouse"."main"."core_bilanci_comuni"
+where anno is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:59.495416 [debug] [Thread-1 (]: SQL status: OK in 0.055 seconds
+[0m14:14:59.501518 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14: ROLLBACK
+[0m14:14:59.502518 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14'
+[0m14:14:59.503515 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14: Close
+[0m14:14:59.504517 [info ] [Thread-1 (]: 1 of 7 PASS not_null_core_bilanci_comuni_anno .................................. [[32mPASS[0m in 0.16s]
+[0m14:14:59.505515 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14
+[0m14:14:59.507615 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed
+[0m14:14:59.508617 [info ] [Thread-1 (]: 2 of 7 START test not_null_core_bilanci_comuni_codice_comune ................... [RUN]
+[0m14:14:59.510616 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14, now test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed)
+[0m14:14:59.511615 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed
+[0m14:14:59.520731 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed"
+[0m14:14:59.523797 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed
+[0m14:14:59.529899 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed"
+[0m14:14:59.531897 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed"
+[0m14:14:59.532897 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed: BEGIN
+[0m14:14:59.533897 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:14:59.534896 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:14:59.536896 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed"
+[0m14:14:59.537895 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select codice_comune
+from "warehouse"."main"."core_bilanci_comuni"
+where codice_comune is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:59.539895 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:14:59.542895 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed: ROLLBACK
+[0m14:14:59.543895 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed'
+[0m14:14:59.545892 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed: Close
+[0m14:14:59.546892 [info ] [Thread-1 (]: 2 of 7 PASS not_null_core_bilanci_comuni_codice_comune ......................... [[32mPASS[0m in 0.04s]
+[0m14:14:59.549894 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed
+[0m14:14:59.550891 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e
+[0m14:14:59.551891 [info ] [Thread-1 (]: 3 of 7 START test not_null_stg_bilanci_comuni_anno ............................. [RUN]
+[0m14:14:59.553891 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed, now test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e)
+[0m14:14:59.556890 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e
+[0m14:14:59.564888 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e"
+[0m14:14:59.566887 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e
+[0m14:14:59.579882 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e"
+[0m14:14:59.584880 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e"
+[0m14:14:59.586879 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e: BEGIN
+[0m14:14:59.587880 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:14:59.588879 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:14:59.590873 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e"
+[0m14:14:59.591874 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select anno
+from "warehouse"."main"."stg_bilanci_comuni"
+where anno is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:59.593874 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:14:59.596872 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e: ROLLBACK
+[0m14:14:59.596872 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e'
+[0m14:14:59.597959 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e: Close
+[0m14:14:59.598961 [info ] [Thread-1 (]: 3 of 7 PASS not_null_stg_bilanci_comuni_anno ................................... [[32mPASS[0m in 0.05s]
+[0m14:14:59.599959 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e
+[0m14:14:59.600960 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9
+[0m14:14:59.600960 [info ] [Thread-1 (]: 4 of 7 START test not_null_stg_bilanci_comuni_codice_comune .................... [RUN]
+[0m14:14:59.602959 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e, now test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9)
+[0m14:14:59.603958 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9
+[0m14:14:59.608956 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9"
+[0m14:14:59.610955 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9
+[0m14:14:59.618035 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9"
+[0m14:14:59.620034 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9"
+[0m14:14:59.621034 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9: BEGIN
+[0m14:14:59.622034 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:14:59.622034 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:14:59.624034 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9"
+[0m14:14:59.624034 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select codice_comune
+from "warehouse"."main"."stg_bilanci_comuni"
+where codice_comune is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:59.626033 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:14:59.628032 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9: ROLLBACK
+[0m14:14:59.629031 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9'
+[0m14:14:59.629031 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9: Close
+[0m14:14:59.630031 [info ] [Thread-1 (]: 4 of 7 PASS not_null_stg_bilanci_comuni_codice_comune .......................... [[32mPASS[0m in 0.03s]
+[0m14:14:59.632031 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9
+[0m14:14:59.633031 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e
+[0m14:14:59.634031 [info ] [Thread-1 (]: 5 of 7 START test not_null_stg_bilanci_comuni_entrate_tributarie ............... [RUN]
+[0m14:14:59.635030 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9, now test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e)
+[0m14:14:59.636031 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e
+[0m14:14:59.643028 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e"
+[0m14:14:59.646122 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e
+[0m14:14:59.650120 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e"
+[0m14:14:59.652121 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e"
+[0m14:14:59.653120 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e: BEGIN
+[0m14:14:59.654120 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:14:59.655120 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:14:59.656120 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e"
+[0m14:14:59.657119 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select entrate_tributarie
+from "warehouse"."main"."stg_bilanci_comuni"
+where entrate_tributarie is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:59.660118 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:14:59.662118 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e: ROLLBACK
+[0m14:14:59.664117 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e'
+[0m14:14:59.664117 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e: Close
+[0m14:14:59.667211 [info ] [Thread-1 (]: 5 of 7 PASS not_null_stg_bilanci_comuni_entrate_tributarie ..................... [[32mPASS[0m in 0.03s]
+[0m14:14:59.668211 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e
+[0m14:14:59.669210 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3
+[0m14:14:59.669210 [info ] [Thread-1 (]: 6 of 7 START test not_null_stg_bilanci_comuni_spese_correnti ................... [RUN]
+[0m14:14:59.670209 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e, now test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3)
+[0m14:14:59.671209 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3
+[0m14:14:59.676207 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3"
+[0m14:14:59.678207 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3
+[0m14:14:59.682206 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3"
+[0m14:14:59.684205 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3"
+[0m14:14:59.684205 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3: BEGIN
+[0m14:14:59.685206 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:14:59.687239 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:14:59.688299 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3"
+[0m14:14:59.689298 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select spese_correnti
+from "warehouse"."main"."stg_bilanci_comuni"
+where spese_correnti is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:59.691298 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:14:59.695380 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3: ROLLBACK
+[0m14:14:59.695380 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3'
+[0m14:14:59.696379 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3: Close
+[0m14:14:59.697379 [info ] [Thread-1 (]: 6 of 7 PASS not_null_stg_bilanci_comuni_spese_correnti ......................... [[32mPASS[0m in 0.03s]
+[0m14:14:59.699381 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3
+[0m14:14:59.700380 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65
+[0m14:14:59.702378 [info ] [Thread-1 (]: 7 of 7 START test unique_core_bilanci_comuni_id_hash ........................... [RUN]
+[0m14:14:59.704377 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3, now test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65)
+[0m14:14:59.705378 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65
+[0m14:14:59.714458 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65"
+[0m14:14:59.717458 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65
+[0m14:14:59.723456 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65"
+[0m14:14:59.725455 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65"
+[0m14:14:59.726456 [debug] [Thread-1 (]: On test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65: BEGIN
+[0m14:14:59.727454 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:14:59.728454 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m14:14:59.729540 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65"
+[0m14:14:59.730540 [debug] [Thread-1 (]: On test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    id_hash as unique_field,
+    count(*) as n_records
+
+from "warehouse"."main"."core_bilanci_comuni"
+where id_hash is not null
+group by id_hash
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:59.884800 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    id_hash as unique_field,
+    count(*) as n_records
+
+from "warehouse"."main"."core_bilanci_comuni"
+where id_hash is not null
+group by id_hash
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:14:59.888799 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m14:14:59.891984 [debug] [Thread-1 (]: On test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65: ROLLBACK
+[0m14:15:00.058543 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65'
+[0m14:15:00.060543 [debug] [Thread-1 (]: On test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65: Close
+[0m14:15:00.063625 [debug] [Thread-1 (]: Runtime Error in test unique_core_bilanci_comuni_id_hash (models\core\schema.yml)
+  Binder Error: Referenced column "id_hash" not found in FROM clause!
+  Candidate bindings: "spese"
+  
+  LINE 19: where id_hash is not null
+                 ^
+[0m14:15:00.064625 [error] [Thread-1 (]: 7 of 7 ERROR unique_core_bilanci_comuni_id_hash ................................ [[31mERROR[0m in 0.36s]
+[0m14:15:00.066624 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65
+[0m14:15:00.066624 [debug] [Thread-4 (]: Marking all children of 'test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65' to be skipped because of status 'error'.  Reason: Runtime Error in test unique_core_bilanci_comuni_id_hash (models\core\schema.yml)
+  Binder Error: Referenced column "id_hash" not found in FROM clause!
+  Candidate bindings: "spese"
+  
+  LINE 19: where id_hash is not null
+                 ^.
+[0m14:15:00.068623 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:15:00.069693 [debug] [MainThread]: On master: BEGIN
+[0m14:15:00.069693 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m14:15:00.070694 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m14:15:00.071694 [debug] [MainThread]: On master: COMMIT
+[0m14:15:00.072694 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:15:00.073692 [debug] [MainThread]: On master: COMMIT
+[0m14:15:00.074693 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m14:15:00.075692 [debug] [MainThread]: On master: Close
+[0m14:15:00.077691 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:15:00.078692 [debug] [MainThread]: Connection 'list_warehouse_main' was properly closed.
+[0m14:15:00.079691 [debug] [MainThread]: Connection 'test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65' was properly closed.
+[0m14:15:00.079691 [info ] [MainThread]: 
+[0m14:15:00.081691 [info ] [MainThread]: Finished running 7 data tests in 0 hours 0 minutes and 6.09 seconds (6.09s).
+[0m14:15:00.084772 [debug] [MainThread]: Command end result
+[0m14:15:00.126956 [debug] [MainThread]: Wrote artifact WritableManifest to dbt\target\manifest.json
+[0m14:15:00.129955 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt\target\semantic_manifest.json
+[0m14:15:00.138032 [debug] [MainThread]: Wrote artifact RunExecutionResult to dbt\target\run_results.json
+[0m14:15:00.139117 [info ] [MainThread]: 
+[0m14:15:00.140118 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m14:15:00.141118 [info ] [MainThread]: 
+[0m14:15:00.142117 [error] [MainThread]: [31mFailure in test unique_core_bilanci_comuni_id_hash (models\core\schema.yml)[0m
+[0m14:15:00.143116 [error] [MainThread]:   Runtime Error in test unique_core_bilanci_comuni_id_hash (models\core\schema.yml)
+  Binder Error: Referenced column "id_hash" not found in FROM clause!
+  Candidate bindings: "spese"
+  
+  LINE 19: where id_hash is not null
+                 ^
+[0m14:15:00.144116 [info ] [MainThread]: 
+[0m14:15:00.145116 [info ] [MainThread]:   compiled code at target\compiled\mini_lakehouse\models\core\schema.yml\unique_core_bilanci_comuni_id_hash.sql
+[0m14:15:00.147210 [info ] [MainThread]: 
+[0m14:15:00.148209 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=7
+[0m14:15:00.152208 [debug] [MainThread]: Command `dbt test` failed at 14:15:00.152208 after 10.81 seconds
+[0m14:15:00.153208 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291BAA3A710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291BAA38610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000291B7692E50>]}
+[0m14:15:00.155207 [debug] [MainThread]: Flushing usage events
+[0m14:15:00.673831 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:16:11.286834 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002456A044750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002456A045090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002456A045850>]}
+
+
+============================== 14:16:11.291917 | 2113c0f3-0943-4e20-936e-e8ac8d18677b ==============================
+[0m14:16:11.291917 [info ] [MainThread]: Running with dbt=1.10.1
+[0m14:16:11.292917 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'dbt\\logs', 'profiles_dir': 'dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt run --project-dir dbt --profiles-dir dbt', 'send_anonymous_usage_stats': 'True'}
+[0m14:16:11.565184 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2113c0f3-0943-4e20-936e-e8ac8d18677b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002456A1AF7D0>]}
+[0m14:16:11.639877 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2113c0f3-0943-4e20-936e-e8ac8d18677b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024566D3DA50>]}
+[0m14:16:11.656044 [info ] [MainThread]: Registered adapter: duckdb=1.9.3
+[0m14:16:11.958631 [debug] [MainThread]: checksum: 2c026f85d539c10c69b093157526ce33d0bf5533489eafb07fe5172434ec7740, vars: {}, profile: , target: , version: 1.10.1
+[0m14:16:12.621860 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m14:16:12.622871 [debug] [MainThread]: Partial parsing: updated file: mini_lakehouse://models\core\core_bilanci_comuni.sql
+[0m14:16:13.097106 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '2113c0f3-0943-4e20-936e-e8ac8d18677b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002456A297D50>]}
+[0m14:16:13.193065 [debug] [MainThread]: Wrote artifact WritableManifest to dbt\target\manifest.json
+[0m14:16:13.198159 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt\target\semantic_manifest.json
+[0m14:16:13.233593 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '2113c0f3-0943-4e20-936e-e8ac8d18677b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002456B7EDD50>]}
+[0m14:16:13.234596 [info ] [MainThread]: Found 4 models, 7 data tests, 428 macros
+[0m14:16:13.235595 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2113c0f3-0943-4e20-936e-e8ac8d18677b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002456B92EA50>]}
+[0m14:16:13.238594 [info ] [MainThread]: 
+[0m14:16:13.239591 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m14:16:13.240680 [info ] [MainThread]: 
+[0m14:16:13.242682 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m14:16:13.256759 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse'
+[0m14:16:13.445415 [debug] [ThreadPool]: Using duckdb connection "list_warehouse"
+[0m14:16:13.446414 [debug] [ThreadPool]: On list_warehouse: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"warehouse"'
+    
+  
+  
+[0m14:16:13.446414 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:16:13.481547 [debug] [ThreadPool]: SQL status: OK in 0.034 seconds
+[0m14:16:13.482571 [debug] [ThreadPool]: On list_warehouse: Close
+[0m14:16:13.484639 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_warehouse, now create_warehouse_main)
+[0m14:16:13.506546 [debug] [ThreadPool]: Creating schema "database: "warehouse"
+schema: "main"
+"
+[0m14:16:13.513642 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m14:16:13.514641 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='warehouse'
+        and type='sqlite'
+    
+  
+[0m14:16:13.515631 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m14:16:13.516641 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m14:16:13.518641 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m14:16:13.518718 [debug] [ThreadPool]: On create_warehouse_main: BEGIN
+[0m14:16:13.519718 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m14:16:13.519718 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m14:16:13.520728 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+    
+        create schema if not exists "warehouse"."main"
+    
+[0m14:16:13.576266 [debug] [ThreadPool]: SQL status: OK in 0.054 seconds
+[0m14:16:13.581513 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m14:16:13.585512 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m14:16:13.587511 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m14:16:13.591511 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m14:16:13.593509 [debug] [ThreadPool]: On create_warehouse_main: Close
+[0m14:16:13.600988 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse_main'
+[0m14:16:13.625520 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m14:16:13.626520 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m14:16:13.628519 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:16:13.630665 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m14:16:13.631674 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m14:16:13.633664 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'warehouse'
+  
+[0m14:16:13.680652 [debug] [ThreadPool]: SQL status: OK in 0.045 seconds
+[0m14:16:13.682651 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m14:16:13.683650 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m14:16:13.684650 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m14:16:13.686760 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2113c0f3-0943-4e20-936e-e8ac8d18677b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002456B93FCD0>]}
+[0m14:16:13.687759 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:16:13.687759 [debug] [MainThread]: On master: BEGIN
+[0m14:16:13.688750 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:16:13.689759 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m14:16:13.690758 [debug] [MainThread]: On master: COMMIT
+[0m14:16:13.691750 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:16:13.691750 [debug] [MainThread]: On master: COMMIT
+[0m14:16:13.692837 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m14:16:13.693837 [debug] [MainThread]: On master: Close
+[0m14:16:13.697836 [debug] [Thread-1 (]: Began running node model.mini_lakehouse.stg_bilanci_comuni
+[0m14:16:13.698929 [info ] [Thread-1 (]: 1 of 4 START sql view model main.stg_bilanci_comuni ............................ [RUN]
+[0m14:16:13.700931 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.mini_lakehouse.stg_bilanci_comuni'
+[0m14:16:13.700931 [debug] [Thread-1 (]: Began compiling node model.mini_lakehouse.stg_bilanci_comuni
+[0m14:16:13.716023 [debug] [Thread-1 (]: Writing injected SQL for node "model.mini_lakehouse.stg_bilanci_comuni"
+[0m14:16:13.718021 [debug] [Thread-1 (]: Began executing node model.mini_lakehouse.stg_bilanci_comuni
+[0m14:16:13.758159 [debug] [Thread-1 (]: Writing runtime sql for node "model.mini_lakehouse.stg_bilanci_comuni"
+[0m14:16:13.759159 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.stg_bilanci_comuni"
+[0m14:16:13.760158 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_bilanci_comuni: BEGIN
+[0m14:16:13.761232 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:16:13.762243 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:13.762243 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.stg_bilanci_comuni"
+[0m14:16:13.763243 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_bilanci_comuni: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.stg_bilanci_comuni"} */
+
+  
+  create view "warehouse"."main"."stg_bilanci_comuni__dbt_tmp" as (
+    
+
+SELECT
+  codice_comune,
+  nome_comune,
+  anno,
+  entrate_tributarie,
+  spese_correnti,
+  entrate_tributarie - spese_correnti AS saldo
+FROM raw_bilanci
+  );
+
+[0m14:16:13.768360 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m14:16:13.776441 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.stg_bilanci_comuni"
+[0m14:16:13.777439 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_bilanci_comuni: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.stg_bilanci_comuni"} */
+alter view "warehouse"."main"."stg_bilanci_comuni" rename to "stg_bilanci_comuni__dbt_backup"
+[0m14:16:13.864096 [debug] [Thread-1 (]: SQL status: OK in 0.086 seconds
+[0m14:16:13.879530 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.stg_bilanci_comuni"
+[0m14:16:13.882522 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_bilanci_comuni: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.stg_bilanci_comuni"} */
+alter view "warehouse"."main"."stg_bilanci_comuni__dbt_tmp" rename to "stg_bilanci_comuni"
+[0m14:16:13.887782 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:13.923445 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_bilanci_comuni: COMMIT
+[0m14:16:13.924444 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.stg_bilanci_comuni"
+[0m14:16:13.925434 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_bilanci_comuni: COMMIT
+[0m14:16:14.077497 [debug] [Thread-1 (]: SQL status: OK in 0.151 seconds
+[0m14:16:14.104218 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.stg_bilanci_comuni"
+[0m14:16:14.106219 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_bilanci_comuni: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.stg_bilanci_comuni"} */
+drop view if exists "warehouse"."main"."stg_bilanci_comuni__dbt_backup" cascade
+[0m14:16:14.139562 [debug] [Thread-1 (]: SQL status: OK in 0.032 seconds
+[0m14:16:14.147719 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_bilanci_comuni: Close
+[0m14:16:14.154851 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2113c0f3-0943-4e20-936e-e8ac8d18677b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002456B7A5AD0>]}
+[0m14:16:14.158041 [info ] [Thread-1 (]: 1 of 4 OK created sql view model main.stg_bilanci_comuni ....................... [[32mOK[0m in 0.45s]
+[0m14:16:14.161759 [debug] [Thread-1 (]: Finished running node model.mini_lakehouse.stg_bilanci_comuni
+[0m14:16:14.163758 [debug] [Thread-1 (]: Began running node model.mini_lakehouse.core_bilanci_comuni
+[0m14:16:14.167017 [info ] [Thread-1 (]: 2 of 4 START sql view model main.core_bilanci_comuni ........................... [RUN]
+[0m14:16:14.170015 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.mini_lakehouse.stg_bilanci_comuni, now model.mini_lakehouse.core_bilanci_comuni)
+[0m14:16:14.173184 [debug] [Thread-1 (]: Began compiling node model.mini_lakehouse.core_bilanci_comuni
+[0m14:16:14.192182 [debug] [Thread-1 (]: Writing injected SQL for node "model.mini_lakehouse.core_bilanci_comuni"
+[0m14:16:14.193171 [debug] [Thread-1 (]: Began executing node model.mini_lakehouse.core_bilanci_comuni
+[0m14:16:14.204293 [debug] [Thread-1 (]: Writing runtime sql for node "model.mini_lakehouse.core_bilanci_comuni"
+[0m14:16:14.206426 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.core_bilanci_comuni"
+[0m14:16:14.207425 [debug] [Thread-1 (]: On model.mini_lakehouse.core_bilanci_comuni: BEGIN
+[0m14:16:14.208424 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:16:14.210426 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m14:16:14.214519 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.core_bilanci_comuni"
+[0m14:16:14.217516 [debug] [Thread-1 (]: On model.mini_lakehouse.core_bilanci_comuni: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.core_bilanci_comuni"} */
+
+  
+  create view "warehouse"."main"."core_bilanci_comuni__dbt_tmp" as (
+    SELECT
+    CAST(codice_comune AS INT) AS codice_comune,
+    TRIM(nome_comune) AS nome_comune,
+    CAST(anno AS INT) AS anno,
+    CAST(entrate_tributarie AS BIGINT) AS entrate,
+    CAST(spese_correnti AS BIGINT) AS spese,
+    md5(
+        CAST(codice_comune AS TEXT) || '-' || 
+        CAST(anno AS TEXT)
+    ) AS id_hash
+FROM "warehouse"."main"."stg_bilanci_comuni"
+WHERE 
+    codice_comune IS NOT NULL
+    AND anno IS NOT NULL
+    AND entrate_tributarie IS NOT NULL
+    AND spese_correnti IS NOT NULL
+  );
+
+[0m14:16:14.219601 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:14.224601 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.core_bilanci_comuni"
+[0m14:16:14.225599 [debug] [Thread-1 (]: On model.mini_lakehouse.core_bilanci_comuni: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.core_bilanci_comuni"} */
+alter view "warehouse"."main"."core_bilanci_comuni" rename to "core_bilanci_comuni__dbt_backup"
+[0m14:16:14.226600 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m14:16:14.230599 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.core_bilanci_comuni"
+[0m14:16:14.231598 [debug] [Thread-1 (]: On model.mini_lakehouse.core_bilanci_comuni: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.core_bilanci_comuni"} */
+alter view "warehouse"."main"."core_bilanci_comuni__dbt_tmp" rename to "core_bilanci_comuni"
+[0m14:16:14.232597 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m14:16:14.234597 [debug] [Thread-1 (]: On model.mini_lakehouse.core_bilanci_comuni: COMMIT
+[0m14:16:14.235596 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.core_bilanci_comuni"
+[0m14:16:14.235596 [debug] [Thread-1 (]: On model.mini_lakehouse.core_bilanci_comuni: COMMIT
+[0m14:16:14.261156 [debug] [Thread-1 (]: SQL status: OK in 0.025 seconds
+[0m14:16:14.265155 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.core_bilanci_comuni"
+[0m14:16:14.265155 [debug] [Thread-1 (]: On model.mini_lakehouse.core_bilanci_comuni: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.core_bilanci_comuni"} */
+drop view if exists "warehouse"."main"."core_bilanci_comuni__dbt_backup" cascade
+[0m14:16:14.289548 [debug] [Thread-1 (]: SQL status: OK in 0.023 seconds
+[0m14:16:14.291552 [debug] [Thread-1 (]: On model.mini_lakehouse.core_bilanci_comuni: Close
+[0m14:16:14.292551 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2113c0f3-0943-4e20-936e-e8ac8d18677b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002456B665CD0>]}
+[0m14:16:14.293551 [info ] [Thread-1 (]: 2 of 4 OK created sql view model main.core_bilanci_comuni ...................... [[32mOK[0m in 0.12s]
+[0m14:16:14.294551 [debug] [Thread-1 (]: Finished running node model.mini_lakehouse.core_bilanci_comuni
+[0m14:16:14.295635 [debug] [Thread-1 (]: Began running node model.mini_lakehouse.audit_base
+[0m14:16:14.295635 [info ] [Thread-1 (]: 3 of 4 START sql view model main.audit_base .................................... [RUN]
+[0m14:16:14.296636 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.mini_lakehouse.core_bilanci_comuni, now model.mini_lakehouse.audit_base)
+[0m14:16:14.297636 [debug] [Thread-1 (]: Began compiling node model.mini_lakehouse.audit_base
+[0m14:16:14.301634 [debug] [Thread-1 (]: Writing injected SQL for node "model.mini_lakehouse.audit_base"
+[0m14:16:14.302732 [debug] [Thread-1 (]: Began executing node model.mini_lakehouse.audit_base
+[0m14:16:14.308730 [debug] [Thread-1 (]: Writing runtime sql for node "model.mini_lakehouse.audit_base"
+[0m14:16:14.311730 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.audit_base"
+[0m14:16:14.312729 [debug] [Thread-1 (]: On model.mini_lakehouse.audit_base: BEGIN
+[0m14:16:14.313730 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:16:14.314730 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:14.315729 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.audit_base"
+[0m14:16:14.317511 [debug] [Thread-1 (]: On model.mini_lakehouse.audit_base: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.audit_base"} */
+
+  
+  create view "warehouse"."main"."audit_base__dbt_tmp" as (
+    SELECT
+    codice_comune,
+    anno,
+    COUNT(*) AS n_righe
+FROM "warehouse"."main"."core_bilanci_comuni"
+GROUP BY codice_comune, anno
+HAVING COUNT(*) > 1
+ORDER BY n_righe DESC
+  );
+
+[0m14:16:14.343232 [debug] [Thread-1 (]: SQL status: OK in 0.025 seconds
+[0m14:16:14.348233 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.audit_base"
+[0m14:16:14.349233 [debug] [Thread-1 (]: On model.mini_lakehouse.audit_base: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.audit_base"} */
+alter view "warehouse"."main"."audit_base" rename to "audit_base__dbt_backup"
+[0m14:16:14.350244 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m14:16:14.353243 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.audit_base"
+[0m14:16:14.354243 [debug] [Thread-1 (]: On model.mini_lakehouse.audit_base: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.audit_base"} */
+alter view "warehouse"."main"."audit_base__dbt_tmp" rename to "audit_base"
+[0m14:16:14.355231 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m14:16:14.357242 [debug] [Thread-1 (]: On model.mini_lakehouse.audit_base: COMMIT
+[0m14:16:14.357242 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.audit_base"
+[0m14:16:14.358310 [debug] [Thread-1 (]: On model.mini_lakehouse.audit_base: COMMIT
+[0m14:16:14.384615 [debug] [Thread-1 (]: SQL status: OK in 0.026 seconds
+[0m14:16:14.388705 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.audit_base"
+[0m14:16:14.389705 [debug] [Thread-1 (]: On model.mini_lakehouse.audit_base: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.audit_base"} */
+drop view if exists "warehouse"."main"."audit_base__dbt_backup" cascade
+[0m14:16:14.414844 [debug] [Thread-1 (]: SQL status: OK in 0.024 seconds
+[0m14:16:14.416844 [debug] [Thread-1 (]: On model.mini_lakehouse.audit_base: Close
+[0m14:16:14.417843 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2113c0f3-0943-4e20-936e-e8ac8d18677b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002456BDBC610>]}
+[0m14:16:14.418842 [info ] [Thread-1 (]: 3 of 4 OK created sql view model main.audit_base ............................... [[32mOK[0m in 0.12s]
+[0m14:16:14.419842 [debug] [Thread-1 (]: Finished running node model.mini_lakehouse.audit_base
+[0m14:16:14.421919 [debug] [Thread-1 (]: Began running node model.mini_lakehouse.fatti_bilanci
+[0m14:16:14.422917 [info ] [Thread-1 (]: 4 of 4 START sql table model main.fatti_bilanci ................................ [RUN]
+[0m14:16:14.423917 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.mini_lakehouse.audit_base, now model.mini_lakehouse.fatti_bilanci)
+[0m14:16:14.424918 [debug] [Thread-1 (]: Began compiling node model.mini_lakehouse.fatti_bilanci
+[0m14:16:14.428999 [debug] [Thread-1 (]: Writing injected SQL for node "model.mini_lakehouse.fatti_bilanci"
+[0m14:16:14.430998 [debug] [Thread-1 (]: Began executing node model.mini_lakehouse.fatti_bilanci
+[0m14:16:14.489342 [debug] [Thread-1 (]: Writing runtime sql for node "model.mini_lakehouse.fatti_bilanci"
+[0m14:16:14.491424 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.fatti_bilanci"
+[0m14:16:14.492423 [debug] [Thread-1 (]: On model.mini_lakehouse.fatti_bilanci: BEGIN
+[0m14:16:14.493423 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:16:14.495422 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m14:16:14.496422 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.fatti_bilanci"
+[0m14:16:14.497504 [debug] [Thread-1 (]: On model.mini_lakehouse.fatti_bilanci: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.fatti_bilanci"} */
+
+  
+    
+    
+
+    create  table
+      "warehouse"."main"."fatti_bilanci__dbt_tmp"
+  
+    as (
+      SELECT
+    codice_comune,
+    nome_comune,
+    anno,
+    SUM(entrate) AS totale_entrate,
+    SUM(spese) AS totale_spese,
+    SUM(entrate - spese) AS saldo
+FROM "warehouse"."main"."core_bilanci_comuni"
+GROUP BY codice_comune, nome_comune, anno
+ORDER BY anno, codice_comune
+    );
+  
+  
+[0m14:16:14.883298 [debug] [Thread-1 (]: SQL status: OK in 0.384 seconds
+[0m14:16:14.897703 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.fatti_bilanci"
+[0m14:16:14.900902 [debug] [Thread-1 (]: On model.mini_lakehouse.fatti_bilanci: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.fatti_bilanci"} */
+alter table "warehouse"."main"."fatti_bilanci" rename to "fatti_bilanci__dbt_backup"
+[0m14:16:14.929442 [debug] [Thread-1 (]: SQL status: OK in 0.027 seconds
+[0m14:16:14.938446 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.fatti_bilanci"
+[0m14:16:14.940446 [debug] [Thread-1 (]: On model.mini_lakehouse.fatti_bilanci: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.fatti_bilanci"} */
+alter table "warehouse"."main"."fatti_bilanci__dbt_tmp" rename to "fatti_bilanci"
+[0m14:16:14.942580 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:14.954685 [debug] [Thread-1 (]: On model.mini_lakehouse.fatti_bilanci: COMMIT
+[0m14:16:14.955791 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.fatti_bilanci"
+[0m14:16:14.957795 [debug] [Thread-1 (]: On model.mini_lakehouse.fatti_bilanci: COMMIT
+[0m14:16:15.048916 [debug] [Thread-1 (]: SQL status: OK in 0.089 seconds
+[0m14:16:15.066565 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.fatti_bilanci"
+[0m14:16:15.069563 [debug] [Thread-1 (]: On model.mini_lakehouse.fatti_bilanci: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.fatti_bilanci"} */
+drop table if exists "warehouse"."main"."fatti_bilanci__dbt_backup" cascade
+[0m14:16:15.093851 [debug] [Thread-1 (]: SQL status: OK in 0.021 seconds
+[0m14:16:15.114843 [debug] [Thread-1 (]: On model.mini_lakehouse.fatti_bilanci: Close
+[0m14:16:15.120075 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2113c0f3-0943-4e20-936e-e8ac8d18677b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002456B594B90>]}
+[0m14:16:15.122075 [info ] [Thread-1 (]: 4 of 4 OK created sql table model main.fatti_bilanci ........................... [[32mOK[0m in 0.70s]
+[0m14:16:15.126181 [debug] [Thread-1 (]: Finished running node model.mini_lakehouse.fatti_bilanci
+[0m14:16:15.131183 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:16:15.132179 [debug] [MainThread]: On master: BEGIN
+[0m14:16:15.133181 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m14:16:15.135178 [debug] [MainThread]: SQL status: OK in 0.002 seconds
+[0m14:16:15.136181 [debug] [MainThread]: On master: COMMIT
+[0m14:16:15.138180 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:16:15.139176 [debug] [MainThread]: On master: COMMIT
+[0m14:16:15.141177 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m14:16:15.143176 [debug] [MainThread]: On master: Close
+[0m14:16:15.146174 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:16:15.147175 [debug] [MainThread]: Connection 'create_warehouse_main' was properly closed.
+[0m14:16:15.148174 [debug] [MainThread]: Connection 'list_warehouse_main' was properly closed.
+[0m14:16:15.149174 [debug] [MainThread]: Connection 'model.mini_lakehouse.fatti_bilanci' was properly closed.
+[0m14:16:15.150173 [info ] [MainThread]: 
+[0m14:16:15.151174 [info ] [MainThread]: Finished running 1 table model, 3 view models in 0 hours 0 minutes and 1.91 seconds (1.91s).
+[0m14:16:15.154171 [debug] [MainThread]: Command end result
+[0m14:16:15.203455 [debug] [MainThread]: Wrote artifact WritableManifest to dbt\target\manifest.json
+[0m14:16:15.206455 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt\target\semantic_manifest.json
+[0m14:16:15.214534 [debug] [MainThread]: Wrote artifact RunExecutionResult to dbt\target\run_results.json
+[0m14:16:15.215534 [info ] [MainThread]: 
+[0m14:16:15.216533 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:16:15.217533 [info ] [MainThread]: 
+[0m14:16:15.217533 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
+[0m14:16:15.219609 [debug] [MainThread]: Command `dbt run` succeeded at 14:16:15.219609 after 4.02 seconds
+[0m14:16:15.220609 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002456360A050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024563871ED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024569D0FB50>]}
+[0m14:16:15.220609 [debug] [MainThread]: Flushing usage events
+[0m14:16:15.776209 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:16:27.356298 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028709DAD2D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028709DCBF10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028709B76910>]}
+
+
+============================== 14:16:27.361146 | c7d36dac-5fdd-4cd0-9768-2186b4966313 ==============================
+[0m14:16:27.361146 [info ] [MainThread]: Running with dbt=1.10.1
+[0m14:16:27.363230 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'dbt\\logs', 'debug': 'False', 'profiles_dir': 'dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt test --project-dir dbt --profiles-dir dbt', 'send_anonymous_usage_stats': 'True'}
+[0m14:16:27.647207 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c7d36dac-5fdd-4cd0-9768-2186b4966313', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028709E44E50>]}
+[0m14:16:27.723912 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'c7d36dac-5fdd-4cd0-9768-2186b4966313', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028706A6D610>]}
+[0m14:16:27.742303 [info ] [MainThread]: Registered adapter: duckdb=1.9.3
+[0m14:16:28.088845 [debug] [MainThread]: checksum: 2c026f85d539c10c69b093157526ce33d0bf5533489eafb07fe5172434ec7740, vars: {}, profile: , target: , version: 1.10.1
+[0m14:16:28.267639 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:16:28.268639 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:16:28.316033 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'c7d36dac-5fdd-4cd0-9768-2186b4966313', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028709E13710>]}
+[0m14:16:28.411973 [debug] [MainThread]: Wrote artifact WritableManifest to dbt\target\manifest.json
+[0m14:16:28.414982 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt\target\semantic_manifest.json
+[0m14:16:28.455346 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'c7d36dac-5fdd-4cd0-9768-2186b4966313', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002870B576210>]}
+[0m14:16:28.456346 [info ] [MainThread]: Found 4 models, 7 data tests, 428 macros
+[0m14:16:28.457345 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c7d36dac-5fdd-4cd0-9768-2186b4966313', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002870A288250>]}
+[0m14:16:28.459434 [info ] [MainThread]: 
+[0m14:16:28.460436 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m14:16:28.461433 [info ] [MainThread]: 
+[0m14:16:28.462434 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m14:16:28.471432 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse_main'
+[0m14:16:28.572142 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m14:16:28.573141 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m14:16:28.573141 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:16:28.603332 [debug] [ThreadPool]: SQL status: OK in 0.030 seconds
+[0m14:16:28.603332 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m14:16:28.604332 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'warehouse'
+  
+[0m14:16:28.630603 [debug] [ThreadPool]: SQL status: OK in 0.025 seconds
+[0m14:16:28.633680 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m14:16:28.635681 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m14:16:28.635681 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m14:16:28.637679 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c7d36dac-5fdd-4cd0-9768-2186b4966313', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000287096E5150>]}
+[0m14:16:28.638678 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:16:28.639679 [debug] [MainThread]: On master: BEGIN
+[0m14:16:28.639679 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:16:28.641761 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m14:16:28.642760 [debug] [MainThread]: On master: COMMIT
+[0m14:16:28.643760 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:16:28.644760 [debug] [MainThread]: On master: COMMIT
+[0m14:16:28.645760 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m14:16:28.646845 [debug] [MainThread]: On master: Close
+[0m14:16:28.652843 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14
+[0m14:16:28.653932 [info ] [Thread-1 (]: 1 of 7 START test not_null_core_bilanci_comuni_anno ............................ [RUN]
+[0m14:16:28.655932 [debug] [Thread-1 (]: Acquiring new duckdb connection 'test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14'
+[0m14:16:28.656932 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14
+[0m14:16:28.688915 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14"
+[0m14:16:28.690914 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14
+[0m14:16:28.721122 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14"
+[0m14:16:28.723121 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14"
+[0m14:16:28.724211 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14: BEGIN
+[0m14:16:28.726211 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:16:28.727211 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m14:16:28.729210 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14"
+[0m14:16:28.730294 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select anno
+from "warehouse"."main"."core_bilanci_comuni"
+where anno is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:16:28.733293 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m14:16:28.740385 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14: ROLLBACK
+[0m14:16:28.741386 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14'
+[0m14:16:28.742384 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14: Close
+[0m14:16:28.743384 [info ] [Thread-1 (]: 1 of 7 PASS not_null_core_bilanci_comuni_anno .................................. [[32mPASS[0m in 0.09s]
+[0m14:16:28.745474 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14
+[0m14:16:28.746472 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed
+[0m14:16:28.747472 [info ] [Thread-1 (]: 2 of 7 START test not_null_core_bilanci_comuni_codice_comune ................... [RUN]
+[0m14:16:28.748472 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_core_bilanci_comuni_anno.78df115c14, now test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed)
+[0m14:16:28.749473 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed
+[0m14:16:28.759656 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed"
+[0m14:16:28.761655 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed
+[0m14:16:28.768653 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed"
+[0m14:16:28.771652 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed"
+[0m14:16:28.774652 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed: BEGIN
+[0m14:16:28.775651 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:16:28.776652 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:28.776652 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed"
+[0m14:16:28.780650 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select codice_comune
+from "warehouse"."main"."core_bilanci_comuni"
+where codice_comune is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:16:28.782648 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:28.784648 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed: ROLLBACK
+[0m14:16:28.785648 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed'
+[0m14:16:28.787647 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed: Close
+[0m14:16:28.788647 [info ] [Thread-1 (]: 2 of 7 PASS not_null_core_bilanci_comuni_codice_comune ......................... [[32mPASS[0m in 0.04s]
+[0m14:16:28.790647 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed
+[0m14:16:28.790647 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e
+[0m14:16:28.793743 [info ] [Thread-1 (]: 3 of 7 START test not_null_stg_bilanci_comuni_anno ............................. [RUN]
+[0m14:16:28.795741 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_core_bilanci_comuni_codice_comune.9d6e36b0ed, now test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e)
+[0m14:16:28.796743 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e
+[0m14:16:28.802740 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e"
+[0m14:16:28.805738 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e
+[0m14:16:28.810736 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e"
+[0m14:16:28.812736 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e"
+[0m14:16:28.814736 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e: BEGIN
+[0m14:16:28.814736 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:16:28.815735 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:28.816734 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e"
+[0m14:16:28.817734 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select anno
+from "warehouse"."main"."stg_bilanci_comuni"
+where anno is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:16:28.818734 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:28.820733 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e: ROLLBACK
+[0m14:16:28.821733 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e'
+[0m14:16:28.822732 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e: Close
+[0m14:16:28.823732 [info ] [Thread-1 (]: 3 of 7 PASS not_null_stg_bilanci_comuni_anno ................................... [[32mPASS[0m in 0.03s]
+[0m14:16:28.824732 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e
+[0m14:16:28.826732 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9
+[0m14:16:28.827731 [info ] [Thread-1 (]: 4 of 7 START test not_null_stg_bilanci_comuni_codice_comune .................... [RUN]
+[0m14:16:28.828731 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_bilanci_comuni_anno.a19cd8463e, now test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9)
+[0m14:16:28.828731 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9
+[0m14:16:28.833729 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9"
+[0m14:16:28.835729 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9
+[0m14:16:28.840726 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9"
+[0m14:16:28.843727 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9"
+[0m14:16:28.844726 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9: BEGIN
+[0m14:16:28.845726 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:16:28.846724 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:28.847724 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9"
+[0m14:16:28.848725 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select codice_comune
+from "warehouse"."main"."stg_bilanci_comuni"
+where codice_comune is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:16:28.851724 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:28.853723 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9: ROLLBACK
+[0m14:16:28.856722 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9'
+[0m14:16:28.858722 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9: Close
+[0m14:16:28.859722 [info ] [Thread-1 (]: 4 of 7 PASS not_null_stg_bilanci_comuni_codice_comune .......................... [[32mPASS[0m in 0.03s]
+[0m14:16:28.863719 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9
+[0m14:16:28.864719 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e
+[0m14:16:28.866720 [info ] [Thread-1 (]: 5 of 7 START test not_null_stg_bilanci_comuni_entrate_tributarie ............... [RUN]
+[0m14:16:28.867719 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_bilanci_comuni_codice_comune.2f8b871ab9, now test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e)
+[0m14:16:28.869719 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e
+[0m14:16:28.877717 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e"
+[0m14:16:28.878715 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e
+[0m14:16:28.883714 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e"
+[0m14:16:28.884713 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e"
+[0m14:16:28.885713 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e: BEGIN
+[0m14:16:28.886713 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:16:28.887712 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:28.887712 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e"
+[0m14:16:28.888711 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select entrate_tributarie
+from "warehouse"."main"."stg_bilanci_comuni"
+where entrate_tributarie is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:16:28.890712 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m14:16:28.892710 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e: ROLLBACK
+[0m14:16:28.893709 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e'
+[0m14:16:28.894709 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e: Close
+[0m14:16:28.895709 [info ] [Thread-1 (]: 5 of 7 PASS not_null_stg_bilanci_comuni_entrate_tributarie ..................... [[32mPASS[0m in 0.03s]
+[0m14:16:28.897709 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e
+[0m14:16:28.898710 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3
+[0m14:16:28.899710 [info ] [Thread-1 (]: 6 of 7 START test not_null_stg_bilanci_comuni_spese_correnti ................... [RUN]
+[0m14:16:28.900708 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_bilanci_comuni_entrate_tributarie.4e6a97484e, now test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3)
+[0m14:16:28.901707 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3
+[0m14:16:28.908705 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3"
+[0m14:16:28.910705 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3
+[0m14:16:28.915704 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3"
+[0m14:16:28.918703 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3"
+[0m14:16:28.919703 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3: BEGIN
+[0m14:16:28.920702 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:16:28.922701 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m14:16:28.924701 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3"
+[0m14:16:28.925700 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select spese_correnti
+from "warehouse"."main"."stg_bilanci_comuni"
+where spese_correnti is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:16:28.927699 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:28.929699 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3: ROLLBACK
+[0m14:16:28.931699 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3'
+[0m14:16:28.933698 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3: Close
+[0m14:16:28.934698 [info ] [Thread-1 (]: 6 of 7 PASS not_null_stg_bilanci_comuni_spese_correnti ......................... [[32mPASS[0m in 0.03s]
+[0m14:16:28.935697 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3
+[0m14:16:28.936696 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65
+[0m14:16:28.937696 [info ] [Thread-1 (]: 7 of 7 START test unique_core_bilanci_comuni_id_hash ........................... [RUN]
+[0m14:16:28.938696 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_bilanci_comuni_spese_correnti.ca2af9ffe3, now test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65)
+[0m14:16:28.939696 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65
+[0m14:16:28.947692 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65"
+[0m14:16:28.948693 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65
+[0m14:16:28.951691 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65"
+[0m14:16:28.953772 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65"
+[0m14:16:28.954773 [debug] [Thread-1 (]: On test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65: BEGIN
+[0m14:16:28.955772 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:16:28.956772 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:16:28.957771 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65"
+[0m14:16:28.959771 [debug] [Thread-1 (]: On test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65: /* {"app": "dbt", "dbt_version": "1.10.1", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    id_hash as unique_field,
+    count(*) as n_records
+
+from "warehouse"."main"."core_bilanci_comuni"
+where id_hash is not null
+group by id_hash
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:16:29.011272 [debug] [Thread-1 (]: SQL status: OK in 0.050 seconds
+[0m14:16:29.013271 [debug] [Thread-1 (]: On test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65: ROLLBACK
+[0m14:16:29.014270 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65'
+[0m14:16:29.014270 [debug] [Thread-1 (]: On test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65: Close
+[0m14:16:29.015366 [info ] [Thread-1 (]: 7 of 7 PASS unique_core_bilanci_comuni_id_hash ................................. [[32mPASS[0m in 0.08s]
+[0m14:16:29.016511 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65
+[0m14:16:29.018514 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:16:29.018514 [debug] [MainThread]: On master: BEGIN
+[0m14:16:29.019514 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m14:16:29.020513 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m14:16:29.020513 [debug] [MainThread]: On master: COMMIT
+[0m14:16:29.021606 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:16:29.021606 [debug] [MainThread]: On master: COMMIT
+[0m14:16:29.022606 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m14:16:29.023605 [debug] [MainThread]: On master: Close
+[0m14:16:29.023605 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:16:29.024605 [debug] [MainThread]: Connection 'list_warehouse_main' was properly closed.
+[0m14:16:29.024605 [debug] [MainThread]: Connection 'test.mini_lakehouse.unique_core_bilanci_comuni_id_hash.101f0dcd65' was properly closed.
+[0m14:16:29.025606 [info ] [MainThread]: 
+[0m14:16:29.026604 [info ] [MainThread]: Finished running 7 data tests in 0 hours 0 minutes and 0.56 seconds (0.56s).
+[0m14:16:29.029697 [debug] [MainThread]: Command end result
+[0m14:16:29.067787 [debug] [MainThread]: Wrote artifact WritableManifest to dbt\target\manifest.json
+[0m14:16:29.071792 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt\target\semantic_manifest.json
+[0m14:16:29.081786 [debug] [MainThread]: Wrote artifact RunExecutionResult to dbt\target\run_results.json
+[0m14:16:29.082786 [info ] [MainThread]: 
+[0m14:16:29.083785 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:16:29.083785 [info ] [MainThread]: 
+[0m14:16:29.084865 [info ] [MainThread]: Done. PASS=7 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=7
+[0m14:16:29.087111 [debug] [MainThread]: Command `dbt test` succeeded at 14:16:29.087111 after 1.83 seconds
+[0m14:16:29.087111 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028703542B50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028703541ED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028703543090>]}
+[0m14:16:29.088112 [debug] [MainThread]: Flushing usage events
+[0m14:16:29.559863 [debug] [MainThread]: An error was encountered while trying to flush usage events
