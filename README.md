@@ -82,28 +82,29 @@ mini-lakehouse/
 ├── dbt_project.yml
 ├── pyproject.toml
 └── README.md
-'''
-'''
-📌 Roadmap
- Setup iniziale con DuckDB + dbt-core
+```
 
- Modellazione bilanci pubblici simulati
+---
 
- Audit con flag anomalie + validazioni dbt
+## 📌 Roadmap
 
- Estensione a dati reali (bilanci ISTAT / SIOPE)
+- Setup iniziale con DuckDB + dbt-core
+- Modellazione bilanci pubblici simulati
+- Audit con flag anomalie + validazioni dbt
+- Estensione a dati reali (bilanci ISTAT / SIOPE)
+- Dashboard leggibile da CSV / parquet prodotti
+- Validazioni statistiche (es. distribuzioni importi, outlier)
 
- Dashboard leggibile da CSV / parquet prodotti
+---
 
- Validazioni statistiche (es. distribuzioni importi, outlier)
+## 📄 Licenza
 
-'''
- 📄 Licenza
 Questo progetto è distribuito sotto licenza MIT.
-'''
 
-'''
-🙋‍♂️ Contatti
-Andrea Bozzo
-📧 andreabozzo92@gmail.com
+---
+
+## 🙋‍♂️ Contatti
+
+Andrea Bozzo  
+📧 andreabozzo92@gmail.com  
 [🔗 GitHub Profile](https://github.com/AndreaBozzo)
