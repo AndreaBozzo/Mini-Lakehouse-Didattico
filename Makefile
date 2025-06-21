@@ -7,6 +7,8 @@ help:
 	@echo "  make dbt-run        → Esegue dbt run"
 	@echo "  make dbt-test       → Esegue dbt test"
 	@echo "  make dbt-clean      → Rimuove target e cache dbt"
+	@echo "  make check          → Lint, format check e sicurezza"
+	@echo "  make format         → Applica black, isort e ruff"
 	@echo "  make activate       → Mostra path attivazione venv"
 	@echo "  make clean          → Rimuove cache e __pycache__"
 
@@ -25,9 +27,20 @@ dbt-test:
 dbt-clean:
 	poetry run dbt clean --project-dir dbt --profiles-dir dbt
 
+check:
+	poetry run ruff check .
+	poetry run black --check .
+	poetry run isort --check-only .
+	poetry run safety check || true
+
+format:
+	poetry run black .
+	poetry run isort .
+	poetry run ruff check --fix .
+
 activate:
 	@echo "Per attivare virtualenv:"
 	@poetry env info --path
 
 clean:
-	rm -rf __pycache__ .ruff_cache .pytest_cache .mypy_cache
+	rm -rf __pycache__ .ruff_cache .pytest_cache .mypy_cache .venv .dbt_modules

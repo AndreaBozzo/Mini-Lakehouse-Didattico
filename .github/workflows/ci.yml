@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, release/v0.2.0 ]
+  pull_request:
+    branches: [ main, release/v0.2.0 ]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Create dbt profile for DuckDB
+        run: |
+          mkdir -p ~/.dbt
+          cat > ~/.dbt/profiles.yml <<EOL
+          default:
+            outputs:
+              dev:
+                type: duckdb
+                path: ':memory:'
+            target: dev
+          EOL
+
+      - name: Install dbt dependencies
+        run: poetry run dbt deps
+        working-directory: dbt
+
+      - name: Run checks (lint, format, safety)
+        run: make check
+
+      - name: Run dbt tests
+        run: make test
