@@ -7,25 +7,26 @@ on:
     branches: [ main, release/v0.2.0 ]
 
 jobs:
-  ci:
+  build:
+    name: Mini Lakehouse CI
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: 🧾 Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: 🐍 Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
-      - name: Install Poetry
+      - name: 📦 Install Poetry
         run: pip install poetry
 
-      - name: Install dependencies
+      - name: 📥 Install dependencies
         run: poetry install
 
-      - name: Create dbt profile for DuckDB
+      - name: ⚙️ Create DuckDB profile for dbt
         run: |
           mkdir -p ~/.dbt
           cat > ~/.dbt/profiles.yml <<EOL
@@ -33,19 +34,19 @@ jobs:
             outputs:
               dev:
                 type: duckdb
-                path: ':memory:'
+                path: '${{ github.workspace }}/data/warehouse/warehouse.duckdb'
             target: dev
           EOL
 
-      - name: Install dbt dependencies
+      - name: 📚 Install dbt dependencies
         run: poetry run dbt deps
         working-directory: dbt
 
-      - name: Run checks (lint, format, safety)
+      - name: ✅ Run quality checks (lint, format, security)
         run: make check
 
-      - name: Ingest dati di esempio (genera DuckDB)
+      - name: 🏗️ Ingest CSV e genera DuckDB
         run: poetry run python ingest/ingest_csv.py
 
-      - name: Run dbt tests
+      - name: 🧪 Run dbt tests
         run: make test
