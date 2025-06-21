@@ -2,11 +2,20 @@ version: 2
 
 models:
   - name: core_bilanci_comuni
-    description: Modello core con i bilanci dei comuni italiani, validato e ripulito.
+    description: >
+      Modello core che rappresenta i bilanci aggregati dei comuni italiani. Include
+      informazioni su entrate e spese annuali, validati e armonizzati dalle fonti ISTAT.
+    meta:
+      fonte_dati: "ISTAT - Conti dei Comuni"
+      tags: ["bilanci", "enti_locali", "finanza_pubblica"]
+      sensibile: false
+
     columns:
       - name: codice_comune
+        description: Codice ISTAT identificativo del comune
         tests:
           - not_null
+          - unique
 
       - name: nome_comune
         description: Nome formattato del comune
@@ -15,14 +24,20 @@ models:
           - dbt_utils.not_empty_string
 
       - name: anno
-        description: Anno di riferimento del bilancio
+        description: Anno di riferimento del bilancio (YYYY)
         tests:
           - not_null
 
       - name: entrate
+        description: Totale delle entrate comunali nell'anno (in euro)
         tests:
           - not_null
+          - dbt_utils.expression_is_true:
+              expression: "entrate >= 0"
 
       - name: spese
+        description: Totale delle spese comunali nell'anno (in euro)
         tests:
           - not_null
+          - dbt_utils.expression_is_true:
+              expression: "spese >= 0"

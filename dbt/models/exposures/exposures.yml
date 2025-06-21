@@ -1,0 +1,17 @@
+version: 2
+
+exposures:
+- name: bilanci_comuni_dashboard
+  type: dashboard
+  description: Dashboard analitica basata sui dati dei bilanci comunali aggregati
+    dal modello core_bilanci_comuni.
+  depends_on:
+  - ref('core_bilanci_comuni')
+  owner:
+    name: Andrea Bozzo
+    email: andrea@example.com
+  maturity: medium
+  meta:
+    tool: duckdb + parquet
+    dataset_sensibile: false
+  url: http://localhost:8501/bilanci

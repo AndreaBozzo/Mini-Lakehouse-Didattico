@@ -2,47 +2,68 @@
 
 ### ✅ Fix principali
 
-* **Corretto bug critico su `packages.yml`**: il file conteneva campi `name:` non supportati da `dbt-core 1.9.x`. Questo causava fallimenti persistenti in `dbt deps` con errore di validazione YAML.
+- **Corretto bug critico su `packages.yml`**: causava fallimenti in `dbt deps` per uso errato del campo `name:` non supportato da `dbt-core 1.9.x`.
 
-  * Sintassi corretta:
+  ```yaml
+  packages:
+    - package: dbt-labs/dbt_utils
+      version: 1.3.0
+    - package: metaplane/dbt_expectations
+      version: 0.10.9
+    - package: godatadriven/dbt_date
+      version: 0.14.1
+  ```
 
-    ```yaml
-    packages:
-      - package: dbt-labs/dbt_utils
-        version: 1.3.0
-      - package: metaplane/dbt_expectations
-        version: 0.10.9
-      - package: godatadriven/dbt_date
-        version: 0.14.1
-    ```
+- Risolto errore `No dbt_project.yml` nel CI: causato da directory di esecuzione sbagliata. Corretto con `--project-dir dbt --profiles-dir dbt` e `working-directory: dbt` in GitHub Actions.
+- Fix blocco file su Windows (dbt-utils): errore nel rename della cartella `dbt-utils-1.3.0` dovuto a file in uso. Risolto chiudendo i processi e forzando la rimozione.
+- Fix `NoneType` su `dbt_project.yml`: causato da archivi zip corrotti o configurazioni YAML errate. Ripristinato file e validazione.
 
-* **Risolto errore `No dbt_project.yml` nel CI**: dovuto a posizione errata del file `dbt_project.yml` rispetto alla root del repository GitHub. Aggiunto `cwd: ./dbt` nel workflow GitHub Actions.
+**Struttura dbt ripristinata e funzionante:**
 
-* **Blocco file su Windows**: dbt non riusciva a rinominare `dbt_packages/dbt-utils-1.3.0` a causa di file `integration_tests` ancora in uso. Risolto chiudendo processi e usando `rm -Force` mirato.
+- `dbt_project.yml` e `profiles.yml` validi.
+- `dbt clean`, `dbt deps`, `dbt run`, `dbt test` eseguibili senza errori.
+- Tutti i modelli (raw, stg, core, marts, audit) compilano correttamente.
 
-* **Errori `NoneType` su `dbt_project.yml`**: generati da zip parzialmente corrotti o da sostituzioni errate dei file YAML.
+**CI corretta per DuckDB + dbt:**
 
-* **Reimpostata struttura del progetto dbt**:
+- `warehouse.duckdb` ora generato correttamente durante il job.
+- Corretto path assoluto nel `profiles.yml` CI.
+- Fase `dbt run` ora precede `dbt test`, evitando `table does not exist`.
 
-  * `dbt_project.yml` e `profiles.yml` correttamente validati.
-  * `dbt clean` e `dbt deps` funzionano senza errori.
-  * `dbt run` eseguito con successo: tutti i 7 modelli compilati correttamente.
+### 🔄 Migliorie Developer Experience
 
-### 🔄 Migliorie DevEx
+**Nuovo Makefile con target chiari e coerenti:**
 
-* Aggiunta procedura consigliata per risoluzione problemi su Windows:
+- `check`, `format`, `run`, `install`, `dbt-run`, `dbt-test`, `dbt-clean`, `activate`, `clean`
 
-  * `poetry run dbt clean`
-  * `Remove-Item -Recurse -Force dbt_packages .dbt package-lock.yml target`
-  * Controllare che `packages.yml` non contenga campi `name:`
+**Aggiornato .vscode/settings.json:**
 
-* Usato `Get-FileHash` per verifica differenze effettive tra versioni del file `packages.yml`.
+- Import di `polars` risolto.
+- Auto-detect ambiente virtuale Poetry.
+- Formatter SQL `innoverio.vscode-dbt-power-user`.
+
+**Rifinito pyproject.toml:**
+
+- Dipendenze aggiornate: `dbt-core`, `dbt-duckdb`, `duckdb`, `polars`, `pyarrow`.
+- Inclusi tool di qualità: `black`, `isort`, `ruff`, `pytest`, `safety`.
+- Configurazioni coerenti per `black`, `ruff`, `isort`.
+
+**Fallback strategy Windows documentata:**
+
+```powershell
+poetry run dbt clean
+Remove-Item -Recurse -Force dbt_packages .dbt package-lock.yml target
+poetry run dbt deps
+```
+
+**Verifica con hash per packages.yml:**
+
+```powershell
+Get-FileHash -Algorithm SHA256 packages.yml
+```
 
 ### 📌 Note
 
-* Il problema è stato amplificato dal fatto che dbt carica **qualsiasi** `packages.yml` anche se `packages.yaml` era corretto.
-* dbt < 1.10 **non supporta `name:` nei pacchetti**, nonostante documentazione ambigua.
-
----
-
-Prossimo step: chiudere questa sezione nel changelog solo al momento del merge su `main`.
+- dbt considera qualsiasi file `packages.yml`, anche se `packages.yaml` è corretto.
+- dbt < 1.10 non supporta `name:` nei pacchetti, nonostante la documentazione ambigua.
+- I path relativi nel profilo DuckDB devono essere risolti dal punto di vista della CI, non della macchina locale.
