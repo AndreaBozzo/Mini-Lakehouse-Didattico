@@ -19,13 +19,13 @@ run:
 	poetry run python ingest/ingest_csv.py
 
 dbt-run:
-	poetry run dbt run --project-dir dbt --profiles-dir dbt
+	poetry run dbt run --project-dir dbt
 
-test:
-	poetry run dbt test --project-dir dbt --profiles-dir dbt
+dbt-test:
+	poetry run dbt test --project-dir dbt
 
-clean-db:
-	poetry run dbt clean --project-dir dbt --profiles-dir dbt
+dbt-clean:
+	poetry run dbt clean --project-dir dbt
 
 check:
 	poetry run ruff check .

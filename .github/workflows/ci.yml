@@ -29,7 +29,7 @@ jobs:
         run: |
           mkdir -p ~/.dbt
           cat > ~/.dbt/profiles.yml <<EOL
-          default:
+          mini_lakehouse:
             outputs:
               dev:
                 type: duckdb
@@ -45,10 +45,10 @@ jobs:
         run: make check
 
       - name: Ingest dati di esempio (genera DuckDB)
-        run: poetry run python ingest/ingest_csv.py
+        run: make run
 
       - name: Costruisci modelli dbt
         run: make dbt-run
 
-      - name: Esegui test dbt
-        run: make test
+      - name: Esegui dbt test
+        run: make dbt-test
