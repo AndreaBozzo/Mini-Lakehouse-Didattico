@@ -34,7 +34,7 @@ jobs:
             outputs:
               dev:
                 type: duckdb
-                path: 'data/warehouse/warehouse.duckdb'
+                path: "${{ github.workspace }}/data/warehouse/warehouse.duckdb"
             target: dev
           EOL
 
