@@ -21,10 +21,10 @@ run:
 dbt-run:
 	poetry run dbt run --project-dir dbt --profiles-dir dbt
 
-dbt-test:
+test:
 	poetry run dbt test --project-dir dbt --profiles-dir dbt
 
-dbt-clean:
+clean-db:
 	poetry run dbt clean --project-dir dbt --profiles-dir dbt
 
 check:
