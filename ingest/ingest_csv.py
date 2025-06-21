@@ -3,8 +3,10 @@ from pathlib import Path
 import duckdb
 import polars as pl
 
-RAW_PATH = Path("data/raw/bilanci_comunali_sample.csv")
-DB_PATH = Path("data/warehouse/warehouse.duckdb")
+ROOT = Path(__file__).resolve().parents[1]
+RAW_PATH = ROOT / "dbt" / "data" / "raw" / "bilanci_comunali_sample.csv"
+DB_PATH = ROOT / "dbt" / "data" / "warehouse" / "warehouse.duckdb"
+
 
 if not hasattr(duckdb, "connect"):
     raise ImportError(
