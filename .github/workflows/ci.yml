@@ -26,17 +26,20 @@ jobs:
       - name: 📥 Install dependencies
         run: poetry install
 
-      - name: ⚙️ Create DuckDB profile for dbt
+      - name: ⚙️ Create dbt profile with correct DuckDB path
         run: |
           mkdir -p ~/.dbt
+          echo "Resolved working dir: $(pwd)"
           cat > ~/.dbt/profiles.yml <<EOL
           default:
             outputs:
               dev:
                 type: duckdb
-                path: "${{ github.workspace }}/data/warehouse/warehouse.duckdb"
+                path: "$(pwd)/data/warehouse/warehouse.duckdb"
             target: dev
           EOL
+          echo "🔍 Profilo creato:"
+          cat ~/.dbt/profiles.yml
 
       - name: 📚 Install dbt dependencies
         run: poetry run dbt deps
@@ -47,6 +50,11 @@ jobs:
 
       - name: 🏗️ Ingest CSV e genera DuckDB
         run: poetry run python ingest/ingest_csv.py
+
+      - name: 🔍 Verifica file DB generato
+        run: |
+          echo "Contenuto in $(pwd)/data/warehouse:"
+          ls -al data/warehouse || echo "⚠️ Cartella vuota o mancante"
 
       - name: 🧪 Run dbt tests
         run: make test
