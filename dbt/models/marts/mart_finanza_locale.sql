@@ -6,9 +6,9 @@ with bilanci as (
         codice_comune,
         nome_comune,
         anno,
-        entrate,
-        spese,
-        entrate - spese as saldo
+        entrate_tributarie,
+        spese_correnti,
+        entrate_tributarie - spese_correnti as saldo
     from {{ ref('core_bilanci_comuni') }}
 
 ),
@@ -34,8 +34,8 @@ finale as (
         b.codice_comune,
         b.nome_comune,
         b.anno,
-        b.entrate,
-        b.spese,
+        b.entrate_tributarie,
+        b.spese_correnti,
         b.saldo,
         coalesce(a.flag_anomalia, false) as flag_anomalia
     from bilanci b

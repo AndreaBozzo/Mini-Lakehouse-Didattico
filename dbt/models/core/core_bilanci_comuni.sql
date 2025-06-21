@@ -3,8 +3,8 @@ SELECT
     CAST(codice_comune AS INT) AS codice_comune,
     nome_comune,
     CAST(anno AS INT) AS anno,
-    CAST(entrate_tributarie AS BIGINT) AS entrate,
-    CAST(spese_correnti AS BIGINT) AS spese
+    CAST(entrate_tributarie AS BIGINT) AS entrate_tributarie,
+    CAST(spese_correnti AS BIGINT) AS spese_correnti
 FROM {{ ref('stg_bilanci_comuni') }}
 WHERE 
     codice_comune IS NOT NULL

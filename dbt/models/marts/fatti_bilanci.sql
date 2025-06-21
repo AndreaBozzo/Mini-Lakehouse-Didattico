@@ -2,9 +2,9 @@ SELECT
     codice_comune,
     nome_comune,
     anno,
-    SUM(entrate) AS totale_entrate,
-    SUM(spese) AS totale_spese,
-    SUM(entrate - spese) AS saldo
+    SUM(entrate_tributarie) AS totale_entrate,
+    SUM(spese_correnti) AS totale_spese,
+    SUM(entrate_tributarie - spese_correnti) AS saldo
 FROM {{ ref('core_bilanci_comuni') }}
 GROUP BY codice_comune, nome_comune, anno
 ORDER BY anno, codice_comune
