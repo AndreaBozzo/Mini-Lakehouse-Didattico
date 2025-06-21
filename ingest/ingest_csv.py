@@ -23,17 +23,14 @@ if __name__ == "__main__":
 
     df = df.with_columns(
         [
-            pl.col("nome_comune").map_elements(
-                to_title_case,
-                return_dtype=pl.Utf8
-            ).alias("nome_comune")
+            pl.col("nome_comune")
+            .map_elements(to_title_case, return_dtype=pl.Utf8)
+            .alias("nome_comune")
         ]
     )
 
     con = duckdb.connect(str(DB_PATH))
-    con.execute(
-        "CREATE OR REPLACE TABLE raw_bilanci AS SELECT * FROM df"
-    )
+    con.execute("CREATE OR REPLACE TABLE raw_bilanci AS SELECT * FROM df")
 
     print("\n✅ Verifica: tabelle nel DB")
     tables = con.sql("SHOW TABLES").fetchall()
