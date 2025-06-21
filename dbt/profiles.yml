@@ -3,6 +3,7 @@ mini_lakehouse:
   outputs:
     dev:
       type: duckdb
-      path: "/home/runner/work/Mini-Lakehouse-Didattico/Mini-Lakehouse-Didattico/data/warehouse/warehouse.duckdb"
+      path: "data/warehouse/warehouse.duckdb"
+
 
 
