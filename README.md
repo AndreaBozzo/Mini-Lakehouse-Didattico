@@ -3,7 +3,7 @@
 > 📊 **Data Lakehouse minimale in locale** per progetti educativi e prototipazione rapida.  
 > 🎯 Focus su **modellazione a livelli**, **validazione automatica** e **audit trasparente** con `dbt + DuckDB`.
 
-![dbt CI](https://github.com/AndreaBozzo/Mini-Lakehouse-Didattico/actions/workflows/dbt.yml/badge.svg)
+![dbt CI](https://github.com/AndreaBozzo/Mini-Lakehouse-Didattico/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.11-blue?logo=python&style=flat)
 ![DuckDB](https://img.shields.io/badge/duckdb-local-yellow?logo=duckdb&style=flat)
 ![dbt-core](https://img.shields.io/badge/dbt-core-orange?logo=dbt&style=flat)
