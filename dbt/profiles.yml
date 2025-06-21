@@ -3,4 +3,5 @@ mini_lakehouse:
   outputs:
     dev:
       type: duckdb
-      path: ../data/warehouse/warehouse.duckdb
+      path: "$(pwd)/data/warehouse/warehouse.duckdb"
+
