@@ -17,6 +17,7 @@ pandas = "^2.3.0"
 pyarrow = "^20.0.0"
 jupyter = "*"
 rich = "*"
+polars = "^1.31.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"
@@ -34,6 +35,8 @@ profile = "black"
 
 [tool.ruff]
 line-length = 88
+
+[tool.ruff.lint]
 select = ["E", "F", "I"]
 exclude = ["dbt", ".venv", "build"]
 
