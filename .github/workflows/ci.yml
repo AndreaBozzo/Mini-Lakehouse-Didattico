@@ -2,59 +2,53 @@ name: CI
 
 on:
   push:
-    branches: [ main, release/v0.2.0 ]
+    branches: [main, release/v0.2.0]
   pull_request:
-    branches: [ main, release/v0.2.0 ]
+    branches: [main, release/v0.2.0]
 
 jobs:
-  build:
-    name: Mini Lakehouse CI
+  ci:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🧾 Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🐍 Setup Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
-      - name: 📦 Install Poetry
+      - name: Install Poetry
         run: pip install poetry
 
-      - name: 📥 Install dependencies
+      - name: Install dependencies
         run: poetry install
 
-      - name: ⚙️ Create dbt profile with correct DuckDB path
+      - name: Create dbt profile for DuckDB
         run: |
           mkdir -p ~/.dbt
-          echo "Resolved working dir: $(pwd)"
           cat > ~/.dbt/profiles.yml <<EOL
           default:
             outputs:
               dev:
                 type: duckdb
-                path: "$(pwd)/data/warehouse/warehouse.duckdb"
+                path: data/warehouse/warehouse.duckdb
             target: dev
           EOL
-          echo "🔍 Profilo creato:"
-          cat ~/.dbt/profiles.yml
 
-      - name: 📚 Install dbt dependencies
+      - name: Install dbt dependencies
         run: poetry run dbt deps
         working-directory: dbt
 
-      - name: ✅ Run quality checks (lint, format, security)
+      - name: Run checks (lint, format, safety)
         run: make check
 
-      - name: 🏗️ Ingest CSV e genera DuckDB
+      - name: Ingest dati di esempio (genera DuckDB)
         run: poetry run python ingest/ingest_csv.py
 
-      - name: 🔍 Verifica file DB generato
-        run: |
-          echo "Contenuto in $(pwd)/data/warehouse:"
-          ls -al data/warehouse || echo "⚠️ Cartella vuota o mancante"
+      - name: Costruisci modelli dbt
+        run: make dbt-run
 
-      - name: 🧪 Run dbt tests
+      - name: Esegui test dbt
         run: make test
