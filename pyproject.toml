@@ -9,15 +9,19 @@ packages = [{ include = "ingest" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+
+# Core
 dbt-core = "1.9.3"
 dbt-duckdb = "^1.9.3"
 duckdb = "^1.3.1"
 duckdb-engine = "^0.17.0"
+polars = "^1.31.0"
 pandas = "^2.3.0"
 pyarrow = "^20.0.0"
-jupyter = "*"
 rich = "*"
-polars = "^1.31.0"
+
+# Dev/Notebook
+jupyter = "*"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"
@@ -39,6 +43,9 @@ line-length = 88
 [tool.ruff.lint]
 select = ["E", "F", "I"]
 exclude = ["dbt", ".venv", "build"]
+
+[tool.ruff.lint.per-file-ignores]
+"dbt/**" = ["E402", "F401", "F841"]
 
 [build-system]
 requires = ["poetry-core"]
