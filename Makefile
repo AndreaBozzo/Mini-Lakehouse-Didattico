@@ -3,7 +3,6 @@
 help:
 	@echo "Comandi disponibili:"
 	@echo "  make install        → Installa dipendenze con Poetry"
-	@echo "  make run            → Esegue ingest_csv.py via Poetry"
 	@echo "  make dbt-run        → Esegue dbt run"
 	@echo "  make dbt-test       → Esegue dbt test"
 	@echo "  make dbt-clean      → Rimuove target e cache dbt"
@@ -14,9 +13,6 @@ help:
 
 install:
 	poetry install
-
-run:
-	poetry run python ingest/ingest_csv.py
 
 dbt-run:
 	poetry run dbt run --project-dir dbt
