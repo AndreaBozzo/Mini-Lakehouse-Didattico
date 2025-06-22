@@ -5,7 +5,7 @@ description = "Mini data lakehouse locale didattico con DuckDB, dbt-core, Polars
 authors = ["Andrea Bozzo"]
 license = "MIT"
 readme = "README.md"
-packages = [{ include = "ingest" }]
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.11"
