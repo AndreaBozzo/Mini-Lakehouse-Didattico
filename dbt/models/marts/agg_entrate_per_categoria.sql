@@ -1,16 +1,23 @@
 {{ config(materialized='table') }}
 
-with base as (
+with joined as (
     select
-        anno,
-        codice_comune,
-        nome_comune,
-        codice_siope,
-        descrizione_siope,
-        sum(valore) as totale_entrate
-    from {{ ref('core_movimenti_bilancio') }}
-    where tipologia = 'entrata'
-    group by 1, 2, 3, 4, 5
+        mv.codice_comune,
+        mv.anno,
+        mv.tipologia    as categoria,
+        mv.descrizione  as descrizione,
+        cb.entrate_tributarie
+    from {{ ref('core_movimenti_bilancio') }} as mv
+    join {{ ref('core_bilanci_comuni') }} as cb
+      on mv.codice_comune = cb.codice_comune
+     and mv.anno = cb.anno
 )
 
-select * from base
+select
+    categoria,
+    descrizione,
+    count(*)               as numero_movimenti,
+    sum(entrate_tributarie) as totale_entrate
+from joined
+group by categoria, descrizione
+order by totale_entrate desc

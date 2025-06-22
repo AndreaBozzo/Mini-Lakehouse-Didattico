@@ -6,4 +6,4 @@ SELECT
   anno,
   codice_siope,
   descrizione_siope
-FROM {{ ref('raw_bilanci_voci') }}
+FROM {{ ref('bilanci_voci_sample') }}
