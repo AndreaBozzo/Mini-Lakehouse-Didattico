@@ -33,28 +33,31 @@ jobs:
             outputs:
               dev:
                 type: duckdb
-                path: dbt/data/warehouse/warehouse.duckdb
+                path: data/warehouse/warehouse.duckdb
             target: dev
           EOF
 
-      - name: dbt clean
-        run: poetry run dbt clean --project-dir dbt --profiles-dir dbt
+      - name: Clean dbt artifacts
+        working-directory: dbt
+        run: |
+          poetry run dbt clean
 
       - name: Install dbt dependencies
-        run: poetry run dbt deps --project-dir dbt --profiles-dir dbt
+        working-directory: dbt
+        run: poetry run dbt deps
 
       - name: Load seeds
-        run: poetry run dbt seed --project-dir dbt --profiles-dir dbt
-
-      - name: Build models
-        run: poetry run dbt build --project-dir dbt --profiles-dir dbt
-
-      - name: Run tests
-        run: poetry run dbt test --project-dir dbt --profiles-dir dbt
+        working-directory: dbt
+        run: poetry run dbt seed
 
       - name: Run lint & format checks
         run: |
-          poetry run ruff check .
-          poetry run black --check .
-          poetry run isort --check-only .
-          poetry run safety check || true
+          make check
+
+      - name: Build all models
+        working-directory: dbt
+        run: poetry run dbt build
+
+      - name: Run dbt tests
+        working-directory: dbt
+        run: poetry run dbt test
