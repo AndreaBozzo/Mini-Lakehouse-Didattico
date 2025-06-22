@@ -43,12 +43,7 @@ activate:
 	@poetry env info --path
 
 clean:
-	@python - <<'PYCODE'
-import shutil, pathlib
-paths = ['__pycache__', '.ruff_cache', '.pytest_cache', '.mypy_cache', '.venv', '.dbt_modules']
-for p in paths:
-    shutil.rmtree(pathlib.Path(p), ignore_errors=True)
-PYCODE
+	@python -c "import shutil; [shutil.rmtree(p, ignore_errors=True) for p in ['__pycache__', '.ruff_cache', '.pytest_cache', '.mypy_cache', '.venv', '.dbt_modules']]"
 
 audit-log:
 	poetry run python audit/audit_log.py
