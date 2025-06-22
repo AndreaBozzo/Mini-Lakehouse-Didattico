@@ -7,4 +7,4 @@ SELECT
   entrate_tributarie,
   spese_correnti,
   entrate_tributarie - spese_correnti AS saldo
-FROM raw_bilanci
+FROM {{ ref('raw_bilanci') }}

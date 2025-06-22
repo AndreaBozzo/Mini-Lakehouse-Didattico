@@ -1,0 +1,32 @@
+version: 2
+
+seeds:
+  - name: bilanci_comunali_sample
+    description: >
+      Sample dataset dei bilanci comunali con focus su entrate tributarie e spese correnti.
+    columns:
+      - name: codice_comune
+        description: Codice istat del comune
+      - name: nome_comune
+        description: Nome del comune
+      - name: anno
+        description: Anno di riferimento del bilancio
+      - name: entrate_tributarie
+        description: Totale entrate tributarie del comune
+      - name: spese_correnti
+        description: Totale spese correnti sostenute dal comune
+
+  - name: bilanci_voci_sample
+    description: >
+      Dettaglio delle voci di bilancio SIOPE per ogni comune e anno.
+    columns:
+      - name: codice_comune
+        description: Codice istat del comune
+      - name: nome_comune
+        description: Nome del comune
+      - name: anno
+        description: Anno di riferimento
+      - name: codice_siope
+        description: Codice SIOPE della voce di bilancio
+      - name: descrizione_siope
+        description: Descrizione estesa della voce SIOPE

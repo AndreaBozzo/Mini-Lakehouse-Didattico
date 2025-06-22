@@ -43,4 +43,7 @@ activate:
 	@poetry env info --path
 
 clean:
-	rm -rf __pycache__ .ruff_cache .pytest_cache .mypy_cache .venv .dbt_modules
+	@python -c "import shutil; [shutil.rmtree(p, ignore_errors=True) for p in ['__pycache__', '.ruff_cache', '.pytest_cache', '.mypy_cache', '.venv', '.dbt_modules']]"
+
+audit-log:
+	poetry run python audit/audit_log.py

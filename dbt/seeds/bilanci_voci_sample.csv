@@ -1,0 +1,16 @@
+codice_comune,nome_comune,anno,codice_siope,descrizione_siope,tipologia,valore
+1,Roma,2021,E10101,Addizionale IRPEF,entrata,800000000
+1,Roma,2021,E103,IMU,entrata,1200000000
+1,Roma,2021,E105,TARI,entrata,500000000
+1,Roma,2021,S20201,Spese per personale,spesa,900000000
+1,Roma,2021,S304,Acquisto beni e servizi,spesa,1100000000
+2,Milano,2021,E10101,Addizionale IRPEF,entrata,600000000
+2,Milano,2021,E103,IMU,entrata,900000000
+2,Milano,2021,E105,TARI,entrata,300000000
+2,Milano,2021,S20201,Spese per personale,spesa,700000000
+2,Milano,2021,S304,Acquisto beni e servizi,spesa,1000000000
+3,Napoli,2021,E10101,Addizionale IRPEF,entrata,500000000
+3,Napoli,2021,E103,IMU,entrata,700000000
+3,Napoli,2021,E105,TARI,entrata,300000000
+3,Napoli,2021,S20201,Spese per personale,spesa,600000000
+3,Napoli,2021,S304,Acquisto beni e servizi,spesa,800000000

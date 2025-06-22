@@ -1,4 +1,4 @@
-name: 'mini_lakehouse'
+name: 'main_seeds'
 version: '1.0'
 config-version: 2
 
@@ -14,8 +14,29 @@ snapshot-paths: ["snapshots"]
 target-path: "target"
 clean-targets: ["target", "dbt_packages"]
 
+seeds:
+  main_seeds:
+    +schema: seeds
+    +materialized: seed
+
+    bilanci_comunali_sample:
+      +column_types:
+        codice_comune: bigint
+        nome_comune:    text
+        anno:           bigint
+        entrate_tributarie: bigint
+        spese_correnti: bigint
+
+    bilanci_voci_sample:
+      +column_types:
+        codice_comune: bigint
+        nome_comune:    text
+        anno:           bigint
+        codice_siope:   text
+        descrizione_siope: text
+
 models:
-  mini_lakehouse:
+  main_seeds:
     +materialized: view
     staging:
       +schema: stg

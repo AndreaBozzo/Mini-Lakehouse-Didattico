@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: agg_entrate_per_categoria
+    description: "Aggregazione delle entrate per categoria SIOPE livello 1, per anno e comune."
+    columns:
+      - name: anno
+        description: "Anno di riferimento"
+      - name: id_comune_istat
+        description: "Codice ISTAT del comune"
+      - name: categoria_siope_liv1
+        description: "Categoria SIOPE di primo livello"
+      - name: totale_entrate
+        description: "Totale delle entrate per categoria"
