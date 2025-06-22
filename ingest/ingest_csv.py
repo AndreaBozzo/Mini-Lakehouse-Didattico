@@ -3,7 +3,6 @@ from pathlib import Path
 import duckdb
 import polars as pl
 
-
 ROOT = Path(__file__).resolve().parents[1]
 RAW_PATH = ROOT / "dbt" / "seeds" / "bilanci_comunali_sample.csv"
 DB_PATH = ROOT / "dbt" / "data" / "warehouse" / "warehouse.duckdb"
