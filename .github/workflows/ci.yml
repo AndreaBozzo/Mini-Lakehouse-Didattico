@@ -41,11 +41,11 @@ jobs:
         run: poetry run dbt deps
         working-directory: dbt
 
+      - name: Run dbt seed
+        run: poetry run dbt seed --project-dir dbt --profiles-dir dbt
+
       - name: Run checks (lint, format, safety)
         run: make check
-
-      - name: Ingest dati di esempio (genera DuckDB)
-        run: make run
 
       - name: Costruisci modelli dbt
         run: make dbt-run
