@@ -58,3 +58,25 @@ exclude = ["dbt", ".venv", "build"]
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.run]
+branch = true
+source = ["."]
+omit = [
+    "cli/pipeline.py",       # entrypoint CLI interattivo (non testabile in CI)
+    "audit/export_marts.py", # script standalone
+    "audit/audit_log.py",    # script standalone
+    "notebooks/*",           # ignoriamo notebook Jupyter
+    "dbt/**",                # esclude i file dbt non Python
+    "tests/*",               # ignora i file test nel calcolo coverage
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "@abstractmethod",
+    "raise NotImplementedError",
+]

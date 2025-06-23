@@ -1,4 +1,4 @@
-# Python
+# ───── Python artifacts ─────
 __pycache__/
 *.py[cod]
 *.pyd
@@ -6,42 +6,48 @@ __pycache__/
 *.egg-info/
 *.egg
 
-# Environments
+# ───── Virtual environments ─────
 .venv/
+.venv-dbt/
 .env/
 .env.*
+*.env
 
-# DuckDB
+# ───── DuckDB databases ─────
 *.duckdb
 *.duckdb.wal
 
-# dbt
+# ───── dbt generated folders ─────
 dbt/logs/
 dbt/target/
 dbt/dbt_packages/
 dbt/package-lock.yml
-dbt/profiles.yml  # se locale e non versionato intenzionalmente
+# Se locale e non da versionare:
+dbt/profiles.yml
 
-# VSCode / IDE
+# ───── IDE / Editor / OS ─────
 .vscode/
 .idea/
 *.code-workspace
+.DS_Store
+Thumbs.db
 
-# Jupyter
+# ───── Jupyter ─────
 .ipynb_checkpoints/
 *.ipynb
 
-# Poetry
+# ───── Poetry / Pipenv / tox ─────
 poetry.lock
-# Pipenv
 Pipfile.lock
-
-# Pytest / Testing
-.cache/
-.coverage
-htmlcov/
 .tox/
 
-# OS generated
-.DS_Store
-Thumbs.db
+# ───── Test / Coverage ─────
+.cache/
+.coverage
+coverage.xml
+htmlcov/
+pytestdebug.log
+
+# ───── Reports / Export ─────
+reports/
+export/

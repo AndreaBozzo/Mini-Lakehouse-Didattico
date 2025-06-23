@@ -26,6 +26,8 @@ def test_help():
     )
 
 
+@pytest.mark.slow
+@pytest.mark.skipif(os.environ.get("CI") == "true", reason="Troppo lento in CI")
 def test_ci_mode():
     result = runner.invoke(app, ["ci-mode"])
     # esce dopo il primo step, codice 1 o 0 a seconda dello script

@@ -97,8 +97,8 @@ docs:
 	poetry run dbt docs generate --project-dir $(DBTDIR) --profiles-dir $(PROFILESDIR)
 
 coverage:
-	@echo "[coverage] Running pytest with coverage…"
-	@mkdir -p reports/htmlcov
+	@echo [coverage] Running pytest with coverage...
+	@mkdir -p reports/htmlcov || powershell -Command "New-Item -ItemType Directory -Force -Path reports/htmlcov" >$null
 	@poetry run pytest --cov=. \
 		--cov-report=html:reports/htmlcov \
 		--cov-report=xml:reports/coverage.xml || true
