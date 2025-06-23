@@ -8,6 +8,7 @@
 ![DuckDB](https://img.shields.io/badge/duckdb-local-yellow?logo=duckdb&style=flat)
 ![dbt-core](https://img.shields.io/badge/dbt-core-orange?logo=dbt&style=flat)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+[![Docs](https://img.shields.io/badge/docs-online-success?style=flat&logo=readthedocs)](https://andreabozzo.github.io/Mini-Lakehouse-Didattico/)
 
 ---
 
