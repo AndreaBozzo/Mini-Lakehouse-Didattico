@@ -1,4 +1,4 @@
-# Makefile migliorato per workflow dbt + Poetry
+# Makefile – Mini Lakehouse Didattico
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Variabili
@@ -15,27 +15,35 @@ DBT_CLEAN    = poetry run dbt clean --project-dir $(DBTDIR) --profiles-dir $(PRO
 # Default target
 .DEFAULT_GOAL := help
 
-# ──────────────────────────────────────────────────────────────────────────────
-.PHONY: help install deps seed run test dbt-clean build \
-        check format activate clean audit-log export-marts
+.PHONY: help install deps seed run test dbt-clean build export-marts audit-log \
+        docs coverage quality-report check lint format all cli ci-pipeline \
+        activate clean
 
+# ──────────────────────────────────────────────────────────────────────────────
 help:
 	@echo ""
 	@echo "Mini Lakehouse Didattico – Makefile commands"
 	@echo ""
-	@echo "  make install         → Installa tutte le dipendenze (Poetry)"
-	@echo "  make deps            → Installa i package dbt (dbt deps)"
-	@echo "  make seed            → Carica i file seed in DuckDB (dbt seed)"
-	@echo "  make run             → Esegue dbt run (dipende da seed)"
-	@echo "  make test            → Esegue dbt test"
-	@echo "  make dbt-clean       → Pulisce target/ e dbt_packages/ (dbt clean)"
+	@echo "  make install         → Installa dipendenze"
+	@echo "  make deps            → dbt deps"
+	@echo "  make seed            → mkdir data/warehouse + dbt seed"
+	@echo "  make run             → dbt run (dipende da seed)"
+	@echo "  make test            → dbt test"
+	@echo "  make dbt-clean       → dbt clean + rimozione manuale"
 	@echo "  make build           → clean → deps → seed → run → test"
-	@echo "  make check           → Lint, format-check e security (ruff/black/isort/safety)"
-	@echo "  make format          → Applica black, isort, ruff --fix"
-	@echo "  make export-marts    → Esporta i marts in CSV/Parquet"
-	@echo "  make audit-log       → Esegue script audit/audit_log.py"
-	@echo "  make activate        → Mostra path del virtualenv Poetry"
-	@echo "  make clean           → Rimuove cache & __pycache__ locali"
+	@echo "  make export-marts    → esporta marts via script Python"
+	@echo "  make audit-log       → esegue audit_log.py"
+	@echo "  make docs            → dbt docs generate"
+	@echo "  make coverage        → pytest con coverage"
+	@echo "  make quality-report  → Ruff JSON report"
+	@echo "  make check           → ruff, black, isort, safety"
+	@echo "  make lint            → solo ruff"
+	@echo "  make format          → black, isort, ruff --fix"
+	@echo "  make all             → build → export-marts → audit-log → docs → check"
+	@echo "  make cli             → pipeline interattiva (typer)"
+	@echo "  make ci-pipeline     → pipeline in modalità CI"
+	@echo "  make activate        → mostra path venv Poetry"
+	@echo "  make clean           → pulisce cache locali"
 	@echo ""
 
 install:
@@ -46,6 +54,12 @@ deps:
 	$(DBT_DEPS)
 
 seed:
+	@echo "[seed] Ensuring data/warehouse exists…"
+	ifeq ($(OS),Windows_NT)
+		@mkdir data/warehouse
+	else
+		@mkdir -p data/warehouse
+	endif
 	@echo "[dbt seed] Loading seeds…"
 	$(DBT_SEED)
 
@@ -58,11 +72,41 @@ test:
 	$(DBT_TEST)
 
 dbt-clean:
-	@echo "[dbt clean] Cleaning…"
-	$(DBT_CLEAN)
+	@echo "[dbt clean] Automatic clean…"
+	-@$(DBT_CLEAN)
+	@echo "[dbt clean] Manual removal of target/ and dbt_packages/…"
+ifeq ($(OS),Windows_NT)
+	@powershell -NoProfile -Command "Remove-Item -Recurse -Force '$(DBTDIR)\target'; Remove-Item -Recurse -Force '$(DBTDIR)\dbt_packages'"
+else
+	@rm -rf $(DBTDIR)/target $(DBTDIR)/dbt_packages
+endif
 
 build: dbt-clean deps seed run test
 	@echo "[build] ✅ Build completo."
+
+export-marts:
+	@echo "[export-marts] Esportazione dati marts…"
+	poetry run python audit/export_marts.py
+
+audit-log:
+	@echo "[audit-log] Running audit/audit_log.py…"
+	poetry run python audit/audit_log.py
+
+docs:
+	@echo "[docs] Generazione documentazione dbt…"
+	poetry run dbt docs generate --project-dir $(DBTDIR) --profiles-dir $(PROFILESDIR)
+
+coverage:
+	@echo "[coverage] Running pytest with coverage…"
+	@mkdir -p reports/htmlcov
+	@poetry run pytest --cov=. \
+		--cov-report=html:reports/htmlcov \
+		--cov-report=xml:reports/coverage.xml || true
+
+quality-report:
+	@echo "[quality-report] Generating Ruff JSON report…"
+	@poetry run python -c "import os; os.makedirs('reports', exist_ok=True)"
+	@poetry run ruff check . --output-format json > reports/ruff.json
 
 check:
 	@echo "[check] Lint, format-check e security…"
@@ -71,29 +115,28 @@ check:
 	poetry run isort --check-only .
 	poetry run safety check || true
 
+lint:
+	@echo "[lint] Ruff only…"
+	poetry run ruff check .
+
 format:
 	@echo "[format] Applicazione formattazione…"
 	poetry run black .
 	poetry run isort .
-	poetry run ruff check --fix .
+	ruff format .
+	ruff check . --fix --show-fixes
+cli:
+	@echo "[cli] Avvio pipeline interattiva…"
+	poetry run python cli/pipeline.py interactive
 
-audit-log:
-	@echo "[audit-log] Eseguo audit/audit_log.py…"
-	poetry run python audit/audit_log.py
-
-export-marts:
-	@echo "[export-marts] Esportazione dati marts…"
-	poetry run python audit/export_marts.py
+ci-pipeline:
+	@echo "[ci-pipeline] Avvio pipeline CI…"
+	poetry run python cli/pipeline.py ci-mode
 
 activate:
-	@echo "[activate] Path virtualenv Poetry:"
+	@echo "[activate] Poetry venv path…"
 	poetry env info --path
 
 clean:
 	@echo "[clean] Rimozione cache locali…"
-	@python - <<'PYCODE'
-	import shutil, pathlib
-	paths = ['__pycache__', '.ruff_cache', '.pytest_cache', '.mypy_cache', '.venv', '.dbt_modules', 'export']
-	for p in paths:
-	    shutil.rmtree(pathlib.Path(p), ignore_errors=True)
-	PYCODE
+	@rm -rf __pycache__ .ruff_cache .pytest_cache .mypy_cache .venv .dbt_modules export reports

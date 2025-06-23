@@ -1,3 +1,5 @@
+# pyproject.toml
+
 [tool.poetry]
 name = "mini-lakehouse"
 version = "0.2.0"
@@ -18,7 +20,10 @@ duckdb-engine = "^0.17.0"
 polars = "^1.31.0"
 pandas = "^2.3.0"
 pyarrow = "^20.0.0"
-rich = "*"
+
+# CLI
+rich = "^13.7.1"
+typer = "^0.12.3"
 
 # Dev/Notebook
 jupyter = "*"
@@ -28,7 +33,10 @@ black = "^24.4.2"
 isort = "^5.13.2"
 ruff = "^0.4.3"
 pytest = "*"
+pytest-cov = "*"
+coverage = "*"
 safety = "*"
+pre-commit = "^4.2.0"
 
 [tool.black]
 line-length = 88

@@ -1,0 +1,4 @@
+codice_comune,nome_comune,anno,entrate_tributarie,spese_correnti,saldo,flag_anomalia
+1,Roma,2021,3500000000,2800000000,700000000,false
+2,Milano,2021,2000000000,1700000000,300000000,false
+3,Napoli,2021,1500000000,1400000000,100000000,false

@@ -1,0 +1,22 @@
+## .pre-commit-config.yaml
+## Configurazione per pre-commit
+## Questa configurazione include i seguenti strumenti:
+repos:
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+        language_version: python3.11
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.3
+    hooks:
+      - id: ruff
+        name: ruff-lint
+        additional_dependencies: []
+        language_version: python3.11
+
+      - id: ruff-format
+        name: ruff-format
+        additional_dependencies: []
+        language_version: python3.11
