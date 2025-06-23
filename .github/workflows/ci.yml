@@ -30,34 +30,25 @@ jobs:
           mkdir -p ~/.dbt
           cat > ~/.dbt/profiles.yml <<EOF
           mini_lakehouse:
+            target: dev
             outputs:
               dev:
                 type: duckdb
                 path: data/warehouse/warehouse.duckdb
-            target: dev
           EOF
 
-      - name: Clean dbt artifacts
+      - name: Full dbt build (clean → deps → seed → run → test)
         working-directory: dbt
         run: |
-          poetry run dbt clean
+          # Clean “inside” project so dbt clean works
+          dbt clean --profiles-dir .
+          dbt deps  --profiles-dir .
+          dbt seed  --profiles-dir .
+          dbt run   --profiles-dir .
+          dbt test  --profiles-dir .
 
-      - name: Install dbt dependencies
-        working-directory: dbt
-        run: poetry run dbt deps
+      - name: Export marts
+        run: poetry run python audit/export_marts.py
 
-      - name: Load seeds
-        working-directory: dbt
-        run: poetry run dbt seed
-
-      - name: Run lint & format checks
-        run: |
-          make check
-
-      - name: Build all models
-        working-directory: dbt
-        run: poetry run dbt build
-
-      - name: Run dbt tests
-        working-directory: dbt
-        run: poetry run dbt test
+      - name: Lint & format checks
+        run: make check

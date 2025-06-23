@@ -1,15 +1,9 @@
 version: 2
 
 models:
-  - name: core_bilanci_comuni
-    description: Dataset core con i bilanci comunali standardizzati.
+  - name: fact_bilanci_comunali
+    description: Fatti aggregati annuali per comune, con flag e indicatori di qualità.
     columns:
-      - name: id_hash
-        description: Chiave surrogata generata da codice_comune + anno.
-        tests:
-          - not_null
-          - unique
-
       - name: codice_comune
         description: Codice ISTAT del comune.
         tests:
@@ -25,18 +19,23 @@ models:
         tests:
           - not_null
 
-      - name: entrate_tributarie
-        description: Totale entrate tributarie.
+      - name: totale_entrate
+        description: Somma annuale delle entrate tributarie.
         tests:
           - not_null
 
-      - name: spese_correnti
-        description: Totale spese correnti.
+      - name: totale_spese
+        description: Somma annuale delle spese correnti.
+        tests:
+          - not_null
+
+      - name: saldo
+        description: Differenza tra entrate e spese.
         tests:
           - not_null
 
       - name: flag_dato_incompleto
-        description: Flag booleano che indica la presenza di dati mancanti per entrate o spese.
+        description: Flag booleano se mancano dati per entrate o spese.
         tests:
           - not_null
           - accepted_values:
