@@ -15,10 +15,10 @@
 - [⚙️ Stack](#️-stack)
 - [🎯 Obiettivi](#-obiettivi)
 - [📦 Dataset iniziale](#-dataset-iniziale)
-- [📐 Architettura v010](#-architettura-v010)
+- [🏗️ Architettura](#-architettura)
 - [🧪 Esecuzione base](#-esecuzione-base)
+- [🛠️ Comandi Makefile](#-comandi-makefile)
 - [📁 Struttura progetto](#-struttura-progetto)
-- [📌 Roadmap](#-roadmap)
 - [📄 Licenza](#-licenza)
 - [🙋‍♂️ Contatti](#-contatti)
 
@@ -28,79 +28,100 @@
 
 | Tecnologia | Descrizione |
 |------------|-------------|
-| [DuckDB](https://duckdb.org/) | Motore SQL OLAP embedded, veloce e leggero |
+| [DuckDB](https://duckdb.org/) | Motore SQL OLAP embedded |
 | [dbt-core](https://docs.getdbt.com/) | Modellazione e orchestrazione SQL |
-| [`dbt-utils`](https://hub.getdbt.com/dbt-labs/dbt_utils/) | Macro utili standard |
-| [`dbt-expectations`](https://hub.getdbt.com/calogica/dbt_expectations/) | Validazioni alla Great Expectations |
-| [`dbt-date`](https://hub.getdbt.com/dbt-labs/dbt_date/) | Funzioni temporali |
+| [`dbt-utils`](https://hub.getdbt.com/dbt-labs/dbt_utils/) | Macro standard |
+| [`dbt-date`](https://hub.getdbt.com/godatadriven/dbt_date/) | Macro temporali |
+| [Typer](https://typer.tiangolo.com/) + [Rich](https://rich.readthedocs.io/) | CLI interattiva avanzata |
+| [Ruff](https://docs.astral.sh/ruff/) | Linter e formatter veloce |
+| [Poetry](https://python-poetry.org/) | Gestione pacchetti Python |
 
 ---
 
 ## 🎯 Obiettivi
 
-- Implementare una pipeline **trasparente**, **replicabile**, e **validabile**
-- Modellazione a livelli: `staging → core → marts`
-- Validazioni automatiche e **audit semplificato**
-- Base flessibile per estensioni su altri dataset pubblici (ISTAT, OpenCUP, ecc.)
+- Pipeline trasparente, riproducibile e validabile
+- Modellazione a 3 livelli: `staging → core → marts`
+- Validazioni automatiche + audit semplificato
+- Base flessibile per dataset pubblici italiani (ISTAT, SIOPE, OpenCUP...)
+- Supporto a esportazioni intelligenti da `marts/`
+- CLI `pipeline.py` per uso locale o CI
 
 ---
 
 ## 📦 Dataset iniziale
 
-- Dati simulati da bilanci comunali italiani
-- Input: file `.csv` in `data/raw/`
-- Campi normalizzati: codice comune, voce, importo, anno
+- Dati simulati ispirati a bilanci comunali italiani
+- Input: file `.csv` in `seeds/main/`
+- Colonne chiave: codice comune, voce, importo, anno
 
 ---
 
-## 📐 Architettura v0.1.0
+## 🏗️ Architettura
 
 | Layer   | Modelli principali                          | Note |
 |---------|---------------------------------------------|------|
 | Staging | `stg_bilanci_comuni`                        | Pulizia, naming coerente |
 | Core    | `core_bilanci_comuni`, `core_audit_flags`   | Calcoli derivati + flag anomalie |
-| Marts   | `mart_finanza_locale`, `mart_audit_log`     | Output consolidati e log controllo |
+| Marts   | `mart_finanza_locale`, `mart_audit_log`     | Output consolidati e log controlli |
 
 ---
 
 ## 🧪 Esecuzione base
 
 ```bash
-poetry install
-poetry run dbt deps
-poetry run dbt run
-poetry run dbt test
+make install
+make build
+make check
+make export-marts
+make audit-log
+```
 
-'''shell
+Oppure via CLI:
+
+```bash
+poetry run python cli/pipeline.py
+```
+
+---
+
+## 🛠️ Comandi Makefile
+
+| Comando         | Descrizione |
+|----------------|-------------|
+| `make install` | Installa tutto con Poetry |
+| `make build`   | dbt deps + seed + run + test |
+| `make check`   | Lint e format con Ruff |
+| `make export-marts` | Esporta output intelligenti |
+| `make audit-log` | Log controlli qualità |
+| `make coverage` | Genera report copertura |
+| `make all`     | Build + export + check |
+| `make ci`      | Pipeline per CI |
+| `make clean`   | Pulisce cache e target |
+
+---
+
+## 📁 Struttura progetto
+
+```bash
 mini-lakehouse/
-├── data/
-│   └── raw/                    # CSV simulati
-├── models/
-│   ├── staging/                # Pulizia iniziale
-│   ├── core/                   # Derivazioni e controlli
-│   └── marts/                  # Output finale
-├── tests/                      # Test dbt personalizzati
-├── dbt_project.yml
+├── audit/                  # Script esterni dbt (es. export_marts.py)
+├── cli/                    # CLI pipeline interattiva con Typer
+├── dbt/                    # Progetto dbt completo
+├── models/                 # staging → core → marts
+├── seeds/main/            # CSV seed di input
+├── reports/               # coverage, log, audit
+├── tests/                 # pytest + test CLI + coverage
+├── Makefile
 ├── pyproject.toml
 └── README.md
 ```
 
 ---
 
-## 📌 Roadmap
-
-- Setup iniziale con DuckDB + dbt-core
-- Modellazione bilanci pubblici simulati
-- Audit con flag anomalie + validazioni dbt
-- Estensione a dati reali (bilanci ISTAT / SIOPE)
-- Dashboard leggibile da CSV / parquet prodotti
-- Validazioni statistiche (es. distribuzioni importi, outlier)
-
----
-
 ## 📄 Licenza
 
-Questo progetto è distribuito sotto licenza MIT.
+Distribuito sotto licenza MIT.
 
 ---
 
@@ -108,4 +129,4 @@ Questo progetto è distribuito sotto licenza MIT.
 
 Andrea Bozzo  
 📧 andreabozzo92@gmail.com  
-[🔗 GitHub Profile](https://github.com/AndreaBozzo)
+[🔗 GitHub](https://github.com/AndreaBozzo)

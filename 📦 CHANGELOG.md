@@ -1,3 +1,4 @@
+
 ## 📦 Changelog v0.2.0 (in sviluppo)
 
 ### ✅ Fix principali
@@ -52,7 +53,7 @@
 - Dipendenze confermate e aggiornate: `dbt-core`, `dbt-duckdb`, `duckdb`, `polars`, `pyarrow`.
 - Tool qualità: `black`, `isort`, `ruff`, `pytest`, `safety`.
 
-### 🆕 Step 4: Marts + Export & Audit
+### 📊 Marts + Export & Audit
 
 - Aggiunti `flag_dato_incompleto` e `indicatore_affidabilita` in `core_bilanci_comuni.sql` per auditabilità dei dati.
 - Propagazione dei flag e aggregazione score in `fact_bilanci_comunali.sql` con `BOOL_OR` e `AVG`.
