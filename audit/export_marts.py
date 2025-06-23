@@ -33,12 +33,8 @@ else:
 
         print(f"📤 Esportazione {table_name}...")
 
-        con.execute(
-            f"COPY {table_fqn} TO '{csv_path}' (HEADER, DELIMITER ',')"
-        )
-        con.execute(
-            f"COPY {table_fqn} TO '{parquet_path}' (FORMAT 'parquet')"
-        )
+        con.execute(f"COPY {table_fqn} TO '{csv_path}' (HEADER, DELIMITER ',')")
+        con.execute(f"COPY {table_fqn} TO '{parquet_path}' (FORMAT 'parquet')")
 
     resolved_csv = EXPORT_CSV.resolve()
     resolved_parquet = EXPORT_PARQUET.resolve()
