@@ -40,12 +40,13 @@ jobs:
       - name: Full dbt build (clean → deps → seed → run → test)
         working-directory: dbt
         run: |
+          mkdir -p data/warehouse
           poetry run dbt clean --profiles-dir .
           poetry run dbt deps  --profiles-dir .
           poetry run dbt seed  --profiles-dir .
           poetry run dbt run   --profiles-dir .
           poetry run dbt test  --profiles-dir .
-      
+
       - name: Run dbt docs generate
         run: poetry run dbt docs generate --profiles-dir .
       
