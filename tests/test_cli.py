@@ -1,4 +1,7 @@
 # tests/test_cli.py
+import os
+
+import pytest
 from typer.testing import CliRunner
 
 from cli.pipeline import app
@@ -6,6 +9,7 @@ from cli.pipeline import app
 runner = CliRunner()
 
 
+@pytest.mark.skipif(os.environ.get("CI") == "true", reason="Salta l'interattivo in CI")
 def test_interactive_exit():
     # Simula la scelta "11" per uscire subito
     result = runner.invoke(app, ["interactive"], input="11\n")

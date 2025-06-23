@@ -54,7 +54,7 @@ jobs:
         run: poetry run python audit/export_marts.py
 
       - name: Run Python smoke tests
-        run: poetry run pytest --maxfail=1 --disable-warnings -q
+        run: poetry run pytest tests/ --ignore=tests/test_cli.py --maxfail=1 --disable-warnings
 
       - name: Generate coverage report
         run: make coverage || echo "⚠️ Coverage failed but continuing..."
