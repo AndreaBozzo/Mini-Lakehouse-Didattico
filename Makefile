@@ -92,8 +92,8 @@ activate:
 clean:
 	@echo "[clean] Rimozione cache locali…"
 	@python - <<'PYCODE'
-import shutil, pathlib
-paths = ['__pycache__', '.ruff_cache', '.pytest_cache', '.mypy_cache', '.venv', '.dbt_modules', 'export']
-for p in paths:
-    shutil.rmtree(pathlib.Path(p), ignore_errors=True)
-PYCODE
+	import shutil, pathlib
+	paths = ['__pycache__', '.ruff_cache', '.pytest_cache', '.mypy_cache', '.venv', '.dbt_modules', 'export']
+	for p in paths:
+	    shutil.rmtree(pathlib.Path(p), ignore_errors=True)
+	PYCODE
