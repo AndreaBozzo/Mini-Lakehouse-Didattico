@@ -95,6 +95,8 @@ audit-log:
 docs:
 	@echo "[docs] Generazione documentazione dbt…"
 	poetry run dbt docs generate --project-dir $(DBTDIR) --profiles-dir $(PROFILESDIR)
+	@echo "[docs] Disabilitazione Jekyll per GitHub Pages…"
+	@touch $(DBTDIR)/docs/.nojekyll
 
 coverage:
 	@echo [coverage] Running pytest with coverage...
