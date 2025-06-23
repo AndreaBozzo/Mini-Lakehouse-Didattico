@@ -1,9 +1,9 @@
 # audit/export_marts.py
 
-import duckdb
 from pathlib import Path
+import duckdb
 
-EXPORT_BASE = Path("audit/exports")
+EXPORT_BASE = Path("exports")
 EXPORT_CSV = EXPORT_BASE / "csv"
 EXPORT_PARQUET = EXPORT_BASE / "parquet"
 DB_PATH = Path("dbt/data/warehouse/warehouse.duckdb")
@@ -14,11 +14,13 @@ EXPORT_PARQUET.mkdir(parents=True, exist_ok=True)
 con = duckdb.connect(DB_PATH)
 
 # Recupera le tabelle nello schema main_marts
-tables = con.execute("""
+tables = con.execute(
+    """
     SELECT table_name
     FROM information_schema.tables
     WHERE table_schema = 'main_marts'
-""").fetchall()
+    """
+).fetchall()
 
 if not tables:
     print("⚠️  Nessuna tabella trovata in main_marts.")
@@ -30,9 +32,19 @@ else:
 
         print(f"📤 Esportazione {table_name}...")
 
-        con.execute(f"COPY {table_fqn} TO '{csv_path}' (HEADER, DELIMITER ',')")
-        con.execute(f"COPY {table_fqn} TO '{parquet_path}' (FORMAT 'parquet')")
+        con.execute(
+            f"COPY {table_fqn} TO '{csv_path}' (HEADER, DELIMITER ',')"
+        )
+        con.execute(
+            f"COPY {table_fqn} TO '{parquet_path}' (FORMAT 'parquet')"
+        )
 
-    print(f"\n✅ Esportazione completata in:\n - {EXPORT_CSV.resolve()}\n - {EXPORT_PARQUET.resolve()}")
+    resolved_csv = EXPORT_CSV.resolve()
+    resolved_parquet = EXPORT_PARQUET.resolve()
+    print(
+        "\n✅ Esportazione completata in:\n"
+        f" - {resolved_csv}\n"
+        f" - {resolved_parquet}"
+    )
 
 con.close()
