@@ -40,13 +40,15 @@ jobs:
       - name: Full dbt build (clean → deps → seed → run → test)
         working-directory: dbt
         run: |
-          # Clean “inside” project so dbt clean works
-          dbt clean --profiles-dir .
-          dbt deps  --profiles-dir .
-          dbt seed  --profiles-dir .
-          dbt run   --profiles-dir .
-          dbt test  --profiles-dir .
-
+          poetry run dbt clean --profiles-dir .
+          poetry run dbt deps  --profiles-dir .
+          poetry run dbt seed  --profiles-dir .
+          poetry run dbt run   --profiles-dir .
+          poetry run dbt test  --profiles-dir .
+      
+      - name: Run dbt docs generate
+        run: poetry run dbt docs generate --profiles-dir .
+      
       - name: Export marts
         run: poetry run python audit/export_marts.py
 
