@@ -48,6 +48,9 @@ coverage.xml
 htmlcov/
 pytestdebug.log
 
+# ───── Data files ─────
+data/public/siope_it/lombardia/*.csv
+
 # ───── Reports / Export ─────
 reports/
 export/

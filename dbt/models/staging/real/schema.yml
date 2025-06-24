@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: stg_siope_real
+    description: >
+      Dati reali SIOPE del Comune di Milano per l'anno 2016,
+      estratti dal dataset OpenBDAP sugli incassi cumulati mensili.
+    columns:
+      - name: codice_belfiore
+        description: Codice Belfiore del comune (Milano)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["015146"]
+
+      - name: denominazione_comune
+        description: Nome del comune
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["Milano"]
+
+      - name: anno
+        description: Anno di riferimento
+        tests:
+          - not_null
+          - accepted_values:
+              values: [2016]
+
+      - name: mese
+        description: Mese di riferimento (valori 1-12)
+        tests:
+          - not_null
+
+      - name: titolo
+        description: Titolo CG della voce di entrata
+        tests:
+          - not_null
+
+      - name: categoria
+        description: Categoria CG della voce di entrata
+        tests:
+          - not_null
+
+      - name: importo_accertato
+        description: Importo cumulato accertato
+        tests:
+          - not_null
+
+      - name: importo_incassato
+        description: Importo cumulato incassato (null nel CSV)
+        tests: []

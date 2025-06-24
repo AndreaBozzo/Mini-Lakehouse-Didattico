@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: core_real_siope
+    description: >
+      Modello core normalizzato per i dati reali SIOPE di entrata,
+      derivati da dati OpenBDAP e preprocessati da stg_siope_real.
+    columns:
+      - name: codice_belfiore
+        description: Codice Belfiore del comune
+        tests: [not_null]
+
+      - name: denominazione_comune
+        description: Nome del comune
+        tests: [not_null]
+
+      - name: anno
+        description: Anno (es. 2016)
+        tests: [not_null]
+
+      - name: mese
+        description: Mese (1-12)
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1,2,3,4,5,6,7,8,9,10,11,12]
+
+      - name: titolo
+        description: Descrizione del titolo CG
+        tests: [not_null]
+
+      - name: categoria
+        description: Descrizione della categoria CG
+        tests: [not_null]
+
+      - name: importo_accertato
+        description: Importo cumulato accertato
+        tests: [not_null]
+
+      - name: importo_incassato
+        description: Importo cumulato incassato (0 se mancante)
+        tests: [not_null]
