@@ -60,11 +60,66 @@
 
 ## 🏗️ Architettura
 
-| Layer   | Modelli principali                          | Note |
-|---------|---------------------------------------------|------|
-| Staging | `stg_bilanci_comuni`                        | Pulizia, naming coerente |
-| Core    | `core_bilanci_comuni`, `core_audit_flags`   | Calcoli derivati + flag anomalie |
-| Marts   | `mart_finanza_locale`, `mart_audit_log`     | Output consolidati e log controlli |
+<!-- AUTO-SECTION:DIAGRAM -->
+```mermaid
+flowchart TD
+    subgraph Staging
+        A1[stg_bilanci_comuni]
+    end
+
+    subgraph Core
+        B1[core_bilanci_comuni]
+        B2[core_audit_flags]
+    end
+
+    subgraph Marts
+        C1[mart_finanza_locale]
+        C2[mart_audit_log]
+    end
+
+    subgraph Audit
+        D1[export_marts.py]
+        D2[audit_log.py]
+    end
+
+    subgraph Seeds
+        S1[seeds: bilanci.csv]
+    end
+
+    subgraph Exports
+        E1[CSV]
+        E2[Parquet]
+    end
+
+    subgraph Dev
+        F1[dbt run, test, docs]
+        F2[Developer - make & pre-commit]
+    end
+
+    S1 --> A1
+    A1 --> B1
+    B1 --> C1
+    B2 --> C2
+    B1 --> B2
+    C1 --> D1
+    C1 --> D2
+    D1 --> E1
+    D1 --> E2
+    F2 --> F1
+    F1 --> A1
+```
+<!-- END-SECTION:DIAGRAM -->
+
+```
+📊 Descrizione del diagramma
+
+Il diagramma mostra il flusso di dati e processi all'interno del progetto dbt.
+Rappresenta i livelli di modellazione (staging, core, marts), i processi di audit, i dati di input (seeds), le esportazioni (CSV, Parquet) e le attività di sviluppo (CLI, make, pre-commit).
+
+Le frecce indicano la dipendenza e il flusso dati tra componenti.
+I blocchi logici (subgraph) raggruppano le fasi principali del ciclo di vita del dato.
+Questo schema facilita la comprensione dell’architettura complessiva da parte di sviluppatori e stakeholder.
+```
 
 ---
 
