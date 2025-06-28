@@ -62,8 +62,18 @@
 
 <!-- AUTO-SECTION:DIAGRAM -->
 
+```
 ```mermaid
 flowchart TD
+    subgraph Seeds
+        S1[seeds: bilanci_comunali_sample.csv]
+        S2[seeds: bilanci_voci_sample.csv]
+    end
+
+    subgraph RealData[Real Data (esterni)]
+        R1[data/public/siope_it/*.csv]
+    end
+
     subgraph Staging
         A1[stg_bilanci_comuni]
     end
@@ -76,38 +86,47 @@ flowchart TD
     subgraph Marts
         C1[mart_finanza_locale]
         C2[mart_audit_log]
+        C3[mart_siope_totali_mensili]
     end
 
     subgraph Audit
         D1[export_marts.py]
         D2[audit_log.py]
-    end
-
-    subgraph Seeds
-        S1[seeds: bilanci.csv]
+        D3[snapshot_create.py]
+        D4[snapshot_test.py]
     end
 
     subgraph Exports
-        E1[CSV]
-        E2[Parquet]
+        E1[exports/csv/]
+        E2[exports/parquet/]
+        E3[snapshots/]
     end
 
     subgraph Dev
         F1[dbt run, test, docs]
-        F2[Developer - make & pre-commit]
+        F2[CLI: pipeline.py]
+        F3[make & CI]
     end
 
+    %% Flussi logici
     S1 --> A1
+    S2 --> A1
     A1 --> B1
+    B1 --> B2
     B1 --> C1
     B2 --> C2
-    B1 --> B2
+    R1 --> C3
     C1 --> D1
     C1 --> D2
+    C3 --> D1
     D1 --> E1
     D1 --> E2
+    D3 --> E3
+    D4 --> E3
     F2 --> F1
+    F3 --> F2
     F1 --> A1
+```
 ```
 
 <!-- END-SECTION:DIAGRAM -->
