@@ -22,7 +22,7 @@ exposures:
     Proof-of-concept per l'integrazione di dati pubblici reali SIOPE nel Mini Lakehouse Didattico.
     Traccia l'uso dei modelli collegati a dati reali nel flusso di produzione.
   depends_on:
-    - ref('stg_siope_reali')
+    - ref('stg_siope_real')
     - ref('core_real_siope')
     - ref('mart_siope_totali_mensili')
   owner:
