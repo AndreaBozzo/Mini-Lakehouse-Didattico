@@ -34,7 +34,7 @@ jobs:
             outputs:
               dev:
                 type: duckdb
-                path: ../data/warehouse/warehouse.duckdb
+                path: data/warehouse/warehouse.duckdb
           EOF
 
       - name: Ensure warehouse directory exists

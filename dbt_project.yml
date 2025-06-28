@@ -1,4 +1,4 @@
-name: 'mini_lakehouse'
+name: 'main_seeds'
 version: '1.0'
 config-version: 2
 
@@ -15,45 +15,51 @@ target-path: "target"
 clean-targets: ["target", "dbt_packages"]
 
 models:
-  staging:
-    +schema: stg
-    +materialized: view
-    real:
-      +tags: ["real"]
-    simulated:
-      +tags: ["simulated"]
+  main_seeds:
+    staging:
+      +schema: stg
+      +materialized: view
 
-  core:
-    +schema: core
-    +materialized: table
-    real:
-      +tags: ["real"]
-    simulated:
-      +tags: ["simulated"]
+      real:
+        +tags: ["real"]
+      simulated:
+        +tags: ["simulated"]
 
-  marts:
-    +schema: marts
-    +materialized: table
-    real:
-      +tags: ["real"]
-    simulated:
-      +tags: ["simulated"]
+    core:
+      +schema: core
+      +materialized: table
+
+      real:
+        +tags: ["real"]
+      simulated:
+        +tags: ["simulated"]
+
+    marts:
+      +schema: marts
+      +materialized: table
+
+      real:
+        +tags: ["real"]
+      simulated:
+        +tags: ["simulated"]
 
 seeds:
-  +schema: seeds
-  +materialized: seed
-  bilanci_comunali_sample:
-    +column_types:
-      codice_comune: bigint
-      nome_comune: text
-      anno: bigint
-      entrate_tributarie: bigint
-      spese_correnti: bigint
+  main_seeds:
+    +schema: seeds
+    +materialized: seed
 
-  bilanci_voci_sample:
-    +column_types:
-      codice_comune: bigint
-      nome_comune: text
-      anno: bigint
-      codice_siope: text
-      descrizione_siope: text
+    bilanci_comunali_sample:
+      +column_types:
+        codice_comune: BIGINT
+        nome_comune: TEXT
+        anno: BIGINT
+        entrate_tributarie: BIGINT
+        spese_correnti: BIGINT
+
+    bilanci_voci_sample:
+      +column_types:
+        codice_comune: BIGINT
+        nome_comune: TEXT
+        anno: BIGINT
+        codice_siope: TEXT
+        descrizione_siope: TEXT
