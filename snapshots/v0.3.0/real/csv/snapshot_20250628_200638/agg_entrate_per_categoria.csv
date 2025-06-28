@@ -1,0 +1,6 @@
+categoria,descrizione,numero_movimenti,totale_entrate
+E103,IMU,3,7000000000
+E105,TARI,3,7000000000
+S20201,Spese per personale,3,7000000000
+S304,Acquisto beni e servizi,3,7000000000
+E10101,Addizionale IRPEF,3,7000000000

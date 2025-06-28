@@ -16,34 +16,36 @@ DBT_CLEAN    = poetry run dbt clean --project-dir $(DBTDIR) --profiles-dir $(PRO
 .DEFAULT_GOAL := help
 
 .PHONY: help install deps seed run test dbt-clean build export-marts audit-log \
-        docs coverage quality-report check lint format all cli ci-pipeline \
-        activate clean
+        snapshot-create docs coverage quality-report check lint format all \
+        cli ci-pipeline activate clean update-readme
 
 # ──────────────────────────────────────────────────────────────────────────────
 help:
 	@echo ""
 	@echo "Mini Lakehouse Didattico – Makefile commands"
 	@echo ""
-	@echo "  make install         → Installa dipendenze"
-	@echo "  make deps            → dbt deps"
-	@echo "  make seed            → mkdir data/warehouse + dbt seed"
-	@echo "  make run             → dbt run (dipende da seed)"
-	@echo "  make test            → dbt test"
-	@echo "  make dbt-clean       → dbt clean + rimozione manuale"
-	@echo "  make build           → clean → deps → seed → run → test"
-	@echo "  make export-marts    → esporta marts via script Python"
-	@echo "  make audit-log       → esegue audit_log.py"
-	@echo "  make docs            → dbt docs generate"
-	@echo "  make coverage        → pytest con coverage"
-	@echo "  make quality-report  → Ruff JSON report"
-	@echo "  make check           → ruff, black, isort, safety"
-	@echo "  make lint            → solo ruff"
-	@echo "  make format          → black, isort, ruff --fix"
-	@echo "  make all             → build → export-marts → audit-log → docs → check"
-	@echo "  make cli             → pipeline interattiva (typer)"
-	@echo "  make ci-pipeline     → pipeline in modalità CI"
-	@echo "  make activate        → mostra path venv Poetry"
-	@echo "  make clean           → pulisce cache locali"
+	@echo "  make install           → Installa dipendenze"
+	@echo "  make deps              → dbt deps"
+	@echo "  make seed              → mkdir data/warehouse + dbt seed"
+	@echo "  make run               → dbt run (dipende da seed)"
+	@echo "  make test              → dbt test"
+	@echo "  make dbt-clean         → dbt clean + rimozione manuale"
+	@echo "  make build             → clean → deps → seed → run → test"
+	@echo "  make export-marts      → esporta marts via script Python"
+	@echo "  make audit-log         → esegue audit_log.py"
+	@echo "  make snapshot-create 	→ salva esportazioni reali come snapshot baseline"
+	@echo "  make snapshot-test   	→ confronta esportazioni con ultima snapshot"
+	@echo "  make docs              → dbt docs generate"
+	@echo "  make coverage          → pytest con coverage"
+	@echo "  make quality-report    → Ruff JSON report"
+	@echo "  make check             → ruff, black, isort, safety"
+	@echo "  make lint              → solo ruff"
+	@echo "  make format            → black, isort, ruff --fix"
+	@echo "  make all               → build → export-marts → audit-log → docs → check"
+	@echo "  make cli               → pipeline interattiva (typer)"
+	@echo "  make ci-pipeline       → pipeline in modalità CI"
+	@echo "  make activate          → mostra path venv Poetry"
+	@echo "  make clean             → pulisce cache locali"
 	@echo ""
 
 install:
@@ -92,6 +94,14 @@ audit-log:
 	@echo "[audit-log] Running audit/audit_log.py…"
 	poetry run python audit/audit_log.py
 
+snapshot-create:
+	@echo "[snapshot-create] Creazione snapshot dei marts reali..."
+	poetry run python audit/snapshot_create.py
+
+snapshot-test:
+	@echo "[snapshot-test] Confronto tra esportazioni attuali e ultima snapshot…"
+	poetry run python -m audit.snapshot_test
+
 docs:
 	@echo "[docs] Generazione documentazione dbt…"
 	poetry run dbt docs generate --project-dir $(DBTDIR) --profiles-dir $(PROFILESDIR)
@@ -104,6 +114,7 @@ coverage:
 	@poetry run pytest --cov=. -m "not slow" \
 		--cov-report=html:reports/htmlcov \
 		--cov-report=xml:reports/coverage.xml || :
+
 quality-report:
 	@echo "[quality-report] Generating Ruff JSON report..."
 	@poetry run python -c "import os; os.makedirs('reports', exist_ok=True)"
@@ -126,6 +137,7 @@ format:
 	poetry run isort .
 	ruff format .
 	ruff check . --fix --show-fixes
+
 cli:
 	@echo "[cli] Avvio pipeline interattiva…"
 	poetry run python cli/pipeline.py interactive
@@ -141,5 +153,6 @@ activate:
 clean:
 	@echo "[clean] Rimozione cache locali…"
 	@rm -rf __pycache__ .ruff_cache .pytest_cache .mypy_cache .venv .dbt_modules export reports
+
 update-readme:
 	poetry run python scripts/update_readme.py

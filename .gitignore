@@ -25,6 +25,10 @@ dbt/package-lock.yml
 # Se locale e non da versionare:
 dbt/profiles.yml
 
+# ───── Root-level build artifacts ─────
+target/
+docs/
+
 # ───── IDE / Editor / OS ─────
 .vscode/
 .idea/
