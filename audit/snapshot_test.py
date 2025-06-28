@@ -1,98 +1,66 @@
-import hashlib
-import sys
+# audit/snapshot_test.py
+
+import argparse
 import tempfile
 from pathlib import Path
 
-from rich import box
 from rich.console import Console
-from rich.table import Table
 
 from audit.export_marts import export_marts
+from audit.snapshot_utils import compare_snapshots, find_latest_snapshot_paths
 
 console = Console()
 
-SNAPSHOT_DIR = Path("snapshots/v0.3.0/real")
 
+def snapshot_test(ci_mode: bool = False):
+    console.rule("[bold cyan]Snapshot Test: confronto con ultima snapshot")
 
-def get_latest_snapshot(subdir: str) -> Path | None:
-    snapshot_base = SNAPSHOT_DIR / subdir
-    if not snapshot_base.exists():
-        return None
-    candidates = [
-        p
-        for p in snapshot_base.iterdir()
-        if p.is_dir() and p.name.startswith("snapshot_")
-    ]
-    if not candidates:
-        return None
-    return max(candidates, key=lambda p: p.name)
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        tmp_csv = Path(tmp_dir) / "csv"
+        tmp_parquet = Path(tmp_dir) / "parquet"
 
-
-def hash_file(file_path: Path) -> str:
-    h = hashlib.sha256()
-    with open(file_path, "rb") as f:
-        while chunk := f.read(8192):
-            h.update(chunk)
-    return h.hexdigest()
-
-
-def compare_dirs(old_dir: Path, new_dir: Path) -> list[tuple[str, str, str]]:
-    diffs = []
-    for file in new_dir.glob("*.csv"):
-        old_file = old_dir / file.name
-        if not old_file.exists():
-            diffs.append((file.name, "MISSING", "NEW"))
-            continue
-        old_hash = hash_file(old_file)
-        new_hash = hash_file(file)
-        if old_hash != new_hash:
-            diffs.append((file.name, old_hash[:8], new_hash[:8]))
-    return diffs
-
-
-def main(ci_mode: bool = False):
-    console.rule("[bold yellow]Snapshot Test: confronto con ultima snapshot")
-
-    latest_csv = get_latest_snapshot("csv")
-    latest_parquet = get_latest_snapshot("parquet")
-
-    if not latest_csv or not latest_parquet:
-        console.print("[red]❌ Nessuna snapshot precedente trovata.")
-        sys.exit(1 if ci_mode else 0)
-
-    with tempfile.TemporaryDirectory() as tmpdir:
-        tmp_csv = Path(tmpdir) / "csv"
-        tmp_parquet = Path(tmpdir) / "parquet"
+        # Esportazione corrente
         export_marts(csv_path=tmp_csv, parquet_path=tmp_parquet)
 
-        csv_diffs = compare_dirs(latest_csv, tmp_csv)
-        parquet_diffs = compare_dirs(latest_parquet, tmp_parquet)
+        console.print("\n✅  Esportazione completata in:")
+        console.print(f"   • {tmp_csv}")
+        console.print(f"   • {tmp_parquet}")
 
-        if not csv_diffs and not parquet_diffs:
-            console.print("[green]✅ Nessuna differenza trovata nelle esportazioni.")
-        else:
-            table = Table(title="Differenze rilevate", box=box.SIMPLE)
-            table.add_column("File")
-            table.add_column("Snapshot")
-            table.add_column("Corrente")
+        # Trova ultima snapshot
+        latest_csv_snap, latest_parquet_snap = find_latest_snapshot_paths()
+        if not latest_csv_snap or not latest_parquet_snap:
+            console.print(
+                "\n[bold red]❌ Nessuna snapshot precedente trovata. "
+                "Crea prima una baseline con `make snapshot-create`."
+            )
+            exit(1)
 
-            for name, old, new in csv_diffs + parquet_diffs:
-                table.add_row(name, old, new)
+        # Confronto
+        differences = compare_snapshots(tmp_csv, latest_csv_snap)
 
-            console.print("[red]❌ Differenze trovate tra snapshot e dati attuali:")
-            console.print(table)
+        if differences:
+            console.print(
+                "\n[bold yellow]⚠️  Differenze trovate tra l'esportazione attuale "
+                "e la snapshot precedente:"
+            )
+            for diff in differences:
+                console.print(f"  - {diff}")
+
             if ci_mode:
-                sys.exit(1)
+                exit(2)
+        else:
+            console.print("\n✅ Nessuna differenza trovata nelle esportazioni.")
 
 
 if __name__ == "__main__":
-    import argparse
-
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description=("Confronta esportazione corrente con snapshot precedente")
+    )
     parser.add_argument(
         "--ci-mode",
         action="store_true",
-        help="Termina con errore se vengono rilevate differenze",
+        help="Attiva modalità CI: fallisce su differenze",
     )
     args = parser.parse_args()
-    main(ci_mode=args.ci_mode)
+
+    snapshot_test(ci_mode=args.ci_mode)
