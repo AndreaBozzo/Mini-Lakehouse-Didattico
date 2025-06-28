@@ -5,7 +5,6 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from datetime import datetime
-from pathlib import Path
 
 from audit.export_marts import export_marts
 
