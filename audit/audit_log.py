@@ -7,7 +7,7 @@ from rich.console import Console
 from rich.table import Table
 
 # Config
-DB_PATH = "dbt/data/warehouse/warehouse.duckdb"
+DB_PATH = "data/warehouse/warehouse.duckdb"
 OUTPUT_DIR = Path("audit/exports")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 console = Console()
