@@ -62,7 +62,6 @@
 
 <!-- AUTO-SECTION:DIAGRAM -->
 
-```
 ```mermaid
 flowchart TD
     subgraph Seeds
@@ -126,7 +125,6 @@ flowchart TD
     F2 --> F1
     F3 --> F2
     F1 --> A1
-```
 ```
 
 <!-- END-SECTION:DIAGRAM -->
