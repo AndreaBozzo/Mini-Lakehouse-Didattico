@@ -37,22 +37,24 @@ jobs:
                 path: data/warehouse/warehouse.duckdb
           EOF
 
+      - name: Ensure warehouse directory exists
+        run: mkdir -p data/warehouse
+
       - name: Pre-commit checks (format, lint, safety)
         run: poetry run pre-commit run --all-files --show-diff-on-failure
 
       - name: Full dbt build (clean → deps → seed → run → test)
         working-directory: dbt
         run: |
-          poetry run dbt clean --profiles-dir .
-          poetry run dbt deps  --profiles-dir .
-          poetry run dbt seed  --profiles-dir .
-          poetry run dbt run   --profiles-dir .
-          poetry run dbt test  --profiles-dir .
-
+          poetry run dbt clean
+          poetry run dbt deps
+          poetry run dbt seed
+          poetry run dbt run
+          poetry run dbt test
 
       - name: Generate dbt docs
         working-directory: dbt
-        run: poetry run dbt docs generate --profiles-dir .
+        run: poetry run dbt docs generate
 
       - name: Export marts
         run: poetry run python audit/export_marts.py

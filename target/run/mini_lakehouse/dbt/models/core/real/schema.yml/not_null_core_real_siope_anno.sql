@@ -1,0 +1,19 @@
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select anno
+from "warehouse"."main"."core_real_siope"
+where anno is null
+
+
+
+      
+    ) dbt_internal_test

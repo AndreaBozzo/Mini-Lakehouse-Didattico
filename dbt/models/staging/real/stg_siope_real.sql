@@ -2,7 +2,7 @@
 {{ config(tags=["real"]) }}
 with source as (
     select *
-    from read_csv_auto('../data/public/siope_it/milano/2016.csv', delim=';', header=True)
+    from read_csv_auto('data/public/siope_it/milano/2016.csv', delim=';', header=True)
 ),
 
 renamed as (

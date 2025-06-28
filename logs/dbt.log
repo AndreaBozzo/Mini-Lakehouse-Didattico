@@ -314,3 +314,2077 @@ Runtime Error
 [0m18:20:02.959979 [debug] [MainThread]: Command `dbt debug` failed at 18:20:02.959979 after 4.23 seconds
 [0m18:20:02.959979 [debug] [MainThread]: Connection 'debug' was properly closed.
 [0m18:20:02.959979 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:18:41.571574 | 9912983e-f82a-4b8a-b3e6-2f34750b893c ==============================
+[0m14:18:41.571574 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:18:41.752446 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'invocation_command': 'dbt debug', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m14:18:41.756445 [info ] [MainThread]: dbt version: 1.7.9
+[0m14:18:41.760142 [info ] [MainThread]: python version: 3.11.0
+[0m14:18:41.765028 [info ] [MainThread]: python path: C:\Users\Andrea\AppData\Local\pypoetry\Cache\virtualenvs\mini-lakehouse-bmzhcIPO-py3.11\Scripts\python.exe
+[0m14:18:41.768028 [info ] [MainThread]: os info: Windows-10-10.0.19045-SP0
+[0m14:18:43.280234 [info ] [MainThread]: Using profiles dir at C:\Users\Andrea\.dbt
+[0m14:18:43.281234 [info ] [MainThread]: Using profiles.yml file at C:\Users\Andrea\.dbt\profiles.yml
+[0m14:18:43.282235 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\Andrea\Documents\Mini Lakehouse Didattico\dbt_project.yml
+[0m14:18:43.282963 [info ] [MainThread]: adapter type: duckdb
+[0m14:18:43.282963 [info ] [MainThread]: adapter version: 1.7.2
+[0m14:18:43.282963 [info ] [MainThread]: Configuration:
+[0m14:18:43.282963 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:18:43.282963 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m14:18:43.291421 [info ] [MainThread]: Required dependencies:
+[0m14:18:43.293938 [debug] [MainThread]: Executing "git --help"
+[0m14:18:43.422635 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m14:18:43.428818 [debug] [MainThread]: STDERR: "b''"
+[0m14:18:43.430562 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:18:43.430562 [info ] [MainThread]: Connection:
+[0m14:18:43.436744 [info ] [MainThread]:   database: warehouse
+[0m14:18:43.439742 [info ] [MainThread]:   schema: main
+[0m14:18:43.442298 [info ] [MainThread]:   path: data/warehouse/warehouse.duckdb
+[0m14:18:43.446053 [info ] [MainThread]:   config_options: None
+[0m14:18:43.451567 [info ] [MainThread]:   extensions: None
+[0m14:18:43.453560 [info ] [MainThread]:   settings: None
+[0m14:18:43.454559 [info ] [MainThread]:   external_root: .
+[0m14:18:43.455558 [info ] [MainThread]:   use_credential_provider: None
+[0m14:18:43.457692 [info ] [MainThread]:   attach: None
+[0m14:18:43.458692 [info ] [MainThread]:   filesystems: None
+[0m14:18:43.460103 [info ] [MainThread]:   remote: None
+[0m14:18:43.460103 [info ] [MainThread]:   plugins: None
+[0m14:18:43.464380 [info ] [MainThread]:   disable_transactions: False
+[0m14:18:43.466389 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m14:18:43.467382 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m14:18:43.468377 [debug] [MainThread]: Using duckdb connection "debug"
+[0m14:18:43.468377 [debug] [MainThread]: On debug: select 1 as id
+[0m14:18:43.472544 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:18:46.530964 [debug] [MainThread]: SQL status: OK in 3.0 seconds
+[0m14:18:46.530964 [debug] [MainThread]: On debug: Close
+[0m14:18:46.593464 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m14:18:46.593464 [info ] [MainThread]: [31m1 check failed:[0m
+[0m14:18:46.593464 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\Andrea\Documents\Mini Lakehouse Didattico\dbt_project.yml> not found
+
+[0m14:18:46.611407 [debug] [MainThread]: Command `dbt debug` failed at 14:18:46.610406 after 5.23 seconds
+[0m14:18:46.616854 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:18:46.621651 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:20:44.050550 | 9e30bcaa-64ad-4d2c-8f53-1c80f2d71391 ==============================
+[0m14:20:44.050550 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:20:44.066175 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt debug', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m14:20:44.066175 [info ] [MainThread]: dbt version: 1.7.9
+[0m14:20:44.066175 [info ] [MainThread]: python version: 3.11.0
+[0m14:20:44.072682 [info ] [MainThread]: python path: C:\Users\Andrea\AppData\Local\pypoetry\Cache\virtualenvs\mini-lakehouse-bmzhcIPO-py3.11\Scripts\python.exe
+[0m14:20:44.072682 [info ] [MainThread]: os info: Windows-10-10.0.19045-SP0
+[0m14:20:44.212439 [info ] [MainThread]: Using profiles dir at C:\Users\Andrea\.dbt
+[0m14:20:44.212439 [info ] [MainThread]: Using profiles.yml file at C:\Users\Andrea\.dbt\profiles.yml
+[0m14:20:44.212439 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\Andrea\Documents\Mini Lakehouse Didattico\dbt_project.yml
+[0m14:20:44.212439 [info ] [MainThread]: adapter type: duckdb
+[0m14:20:44.212439 [info ] [MainThread]: adapter version: 1.7.2
+[0m14:20:44.325023 [info ] [MainThread]: Configuration:
+[0m14:20:44.331362 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:20:44.332362 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m14:20:44.333516 [info ] [MainThread]: Required dependencies:
+[0m14:20:44.334518 [debug] [MainThread]: Executing "git --help"
+[0m14:20:44.394217 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m14:20:44.394217 [debug] [MainThread]: STDERR: "b''"
+[0m14:20:44.394217 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:20:44.394217 [info ] [MainThread]: Connection:
+[0m14:20:44.394217 [info ] [MainThread]:   database: warehouse
+[0m14:20:44.394217 [info ] [MainThread]:   schema: main
+[0m14:20:44.394217 [info ] [MainThread]:   path: data/warehouse/warehouse.duckdb
+[0m14:20:44.394217 [info ] [MainThread]:   config_options: None
+[0m14:20:44.394217 [info ] [MainThread]:   extensions: None
+[0m14:20:44.394217 [info ] [MainThread]:   settings: None
+[0m14:20:44.411396 [info ] [MainThread]:   external_root: .
+[0m14:20:44.412392 [info ] [MainThread]:   use_credential_provider: None
+[0m14:20:44.413761 [info ] [MainThread]:   attach: None
+[0m14:20:44.414761 [info ] [MainThread]:   filesystems: None
+[0m14:20:44.415761 [info ] [MainThread]:   remote: None
+[0m14:20:44.417746 [info ] [MainThread]:   plugins: None
+[0m14:20:44.421002 [info ] [MainThread]:   disable_transactions: False
+[0m14:20:44.423149 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m14:20:44.423867 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m14:20:44.424869 [debug] [MainThread]: Using duckdb connection "debug"
+[0m14:20:44.425865 [debug] [MainThread]: On debug: select 1 as id
+[0m14:20:44.425865 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:20:44.456129 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m14:20:44.456129 [debug] [MainThread]: On debug: Close
+[0m14:20:44.456129 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m14:20:44.463706 [info ] [MainThread]: [32mAll checks passed![0m
+[0m14:20:44.464704 [debug] [MainThread]: Command `dbt debug` succeeded at 14:20:44.464704 after 0.47 seconds
+[0m14:20:44.465704 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:20:44.466703 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:28:58.886147 | a0037540-079d-4509-8019-ffad6f0254ae ==============================
+[0m14:28:58.886147 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:28:58.892704 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'version_check': 'True', 'debug': 'False', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt build --select stg_siope_real', 'send_anonymous_usage_stats': 'False'}
+[0m14:29:02.198247 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m14:29:02.206272 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found 2 package(s) specified in packages.yml, but only 0 package(s) installed in dbt_packages. Run "dbt deps" to install package dependencies.
+[0m14:29:02.206272 [debug] [MainThread]: Command `dbt build` failed at 14:29:02.206272 after 3.40 seconds
+[0m14:29:02.206272 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:29:30.002102 | 3cb5ab5f-686c-4cf7-85ff-c983066b5863 ==============================
+[0m14:29:30.002102 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:29:30.007795 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt deps', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'False'}
+[0m14:29:30.253114 [debug] [MainThread]: Set downloads directory='C:\Users\Andrea\AppData\Local\Temp\dbt-downloads-tla6tgop'
+[0m14:29:30.253114 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m14:29:30.513125 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m14:29:30.528774 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
+[0m14:29:30.633156 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
+[0m14:29:30.664407 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/godatadriven/dbt_date.json
+[0m14:29:30.775828 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/godatadriven/dbt_date.json 200
+[0m14:29:30.791441 [info ] [MainThread]: Installing dbt-labs/dbt_utils
+[0m14:29:31.545829 [info ] [MainThread]: Installed from version 1.3.0
+[0m14:29:31.545829 [info ] [MainThread]: Up to date!
+[0m14:29:31.545829 [info ] [MainThread]: Installing godatadriven/dbt_date
+[0m14:29:32.103935 [info ] [MainThread]: Installed from version 0.14.1
+[0m14:29:32.103935 [info ] [MainThread]: Updated version available: 0.14.2
+[0m14:29:32.103935 [info ] [MainThread]: 
+[0m14:29:32.115941 [info ] [MainThread]: Updates available for packages: ['godatadriven/dbt_date']                 
+Update your versions in packages.yml, then run dbt deps
+[0m14:29:32.115941 [debug] [MainThread]: Command `dbt deps` succeeded at 14:29:32.115941 after 2.20 seconds
+[0m14:29:32.115941 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:29:43.139726 | 89bbfbff-ebeb-4ad1-bd73-af74e74c0334 ==============================
+[0m14:29:43.139726 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:29:43.139726 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt build --select stg_siope_real', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'False'}
+[0m14:29:43.555960 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m14:29:43.629718 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m14:29:43.629718 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m14:29:49.246279 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.main_seeds.raw_bilanci_comunali' (models\raw\raw_bilanci_comunali.sql) depends on a node named 'bilanci_comunali_sample' which was not found
+[0m14:29:49.246279 [debug] [MainThread]: Command `dbt build` failed at 14:29:49.246279 after 6.19 seconds
+[0m14:29:49.246279 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:32:17.947260 | be9a1bd7-b0da-4685-8e20-ad334b3bade3 ==============================
+[0m14:32:17.947260 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:32:17.962895 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt clean', 'send_anonymous_usage_stats': 'False'}
+[0m14:32:18.280384 [debug] [MainThread]: Command `dbt clean` succeeded at 14:32:18.280384 after 0.40 seconds
+[0m14:32:18.281383 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:32:25.682595 | 02e3acf3-f223-40ae-8574-e4ae90cf64d8 ==============================
+[0m14:32:25.682595 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:32:25.682595 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt deps', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m14:32:25.852574 [debug] [MainThread]: Set downloads directory='C:\Users\Andrea\AppData\Local\Temp\dbt-downloads-rb81abc7'
+[0m14:32:25.853574 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m14:32:25.982853 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m14:32:25.982853 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
+[0m14:32:26.094040 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
+[0m14:32:26.109665 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/godatadriven/dbt_date.json
+[0m14:32:26.214462 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/godatadriven/dbt_date.json 200
+[0m14:32:26.236604 [info ] [MainThread]: Installing dbt-labs/dbt_utils
+[0m14:32:26.869171 [info ] [MainThread]: Installed from version 1.3.0
+[0m14:32:26.869171 [info ] [MainThread]: Up to date!
+[0m14:32:26.869171 [info ] [MainThread]: Installing godatadriven/dbt_date
+[0m14:32:27.354633 [info ] [MainThread]: Installed from version 0.14.1
+[0m14:32:27.354633 [info ] [MainThread]: Updated version available: 0.14.2
+[0m14:32:27.354633 [info ] [MainThread]: 
+[0m14:32:27.354633 [info ] [MainThread]: Updates available for packages: ['godatadriven/dbt_date']                 
+Update your versions in packages.yml, then run dbt deps
+[0m14:32:27.370258 [debug] [MainThread]: Command `dbt deps` succeeded at 14:32:27.370258 after 1.75 seconds
+[0m14:32:27.372113 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:32:37.556496 | dc99ee1a-c9f1-49f9-8719-3fe625f576ee ==============================
+[0m14:32:37.556496 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:32:37.561933 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m14:32:37.561933 [info ] [MainThread]: dbt version: 1.7.9
+[0m14:32:37.562934 [info ] [MainThread]: python version: 3.11.0
+[0m14:32:37.563933 [info ] [MainThread]: python path: C:\Users\Andrea\AppData\Local\pypoetry\Cache\virtualenvs\mini-lakehouse-bmzhcIPO-py3.11\Scripts\python.exe
+[0m14:32:37.565199 [info ] [MainThread]: os info: Windows-10-10.0.19045-SP0
+[0m14:32:37.732318 [info ] [MainThread]: Using profiles dir at C:\Users\Andrea\.dbt
+[0m14:32:37.733513 [info ] [MainThread]: Using profiles.yml file at C:\Users\Andrea\.dbt\profiles.yml
+[0m14:32:37.734514 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\Andrea\Documents\Mini Lakehouse Didattico\dbt_project.yml
+[0m14:32:37.735967 [info ] [MainThread]: adapter type: duckdb
+[0m14:32:37.736965 [info ] [MainThread]: adapter version: 1.7.2
+[0m14:32:37.826801 [info ] [MainThread]: Configuration:
+[0m14:32:37.842426 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:32:37.842426 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m14:32:37.842426 [info ] [MainThread]: Required dependencies:
+[0m14:32:37.842426 [debug] [MainThread]: Executing "git --help"
+[0m14:32:37.909110 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m14:32:37.910110 [debug] [MainThread]: STDERR: "b''"
+[0m14:32:37.911110 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:32:37.912075 [info ] [MainThread]: Connection:
+[0m14:32:37.912075 [info ] [MainThread]:   database: warehouse
+[0m14:32:37.912075 [info ] [MainThread]:   schema: main
+[0m14:32:37.912075 [info ] [MainThread]:   path: data/warehouse/warehouse.duckdb
+[0m14:32:37.912075 [info ] [MainThread]:   config_options: None
+[0m14:32:37.912075 [info ] [MainThread]:   extensions: None
+[0m14:32:37.912075 [info ] [MainThread]:   settings: None
+[0m14:32:37.912075 [info ] [MainThread]:   external_root: .
+[0m14:32:37.920023 [info ] [MainThread]:   use_credential_provider: None
+[0m14:32:37.921242 [info ] [MainThread]:   attach: None
+[0m14:32:37.922242 [info ] [MainThread]:   filesystems: None
+[0m14:32:37.924128 [info ] [MainThread]:   remote: None
+[0m14:32:37.926836 [info ] [MainThread]:   plugins: None
+[0m14:32:37.928558 [info ] [MainThread]:   disable_transactions: False
+[0m14:32:37.929607 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m14:32:37.930773 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m14:32:37.931778 [debug] [MainThread]: Using duckdb connection "debug"
+[0m14:32:37.933777 [debug] [MainThread]: On debug: select 1 as id
+[0m14:32:37.935204 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:32:37.959448 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m14:32:37.961997 [debug] [MainThread]: On debug: Close
+[0m14:32:37.961997 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m14:32:37.961997 [info ] [MainThread]: [32mAll checks passed![0m
+[0m14:32:37.968638 [debug] [MainThread]: Command `dbt debug` succeeded at 14:32:37.968638 after 0.49 seconds
+[0m14:32:37.968638 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:32:37.968638 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:32:48.591000 | 24e639e8-3f83-4b46-bd98-a88af9fd7371 ==============================
+[0m14:32:48.591000 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:32:48.596870 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt build --select tag:real', 'send_anonymous_usage_stats': 'False'}
+[0m14:32:48.973547 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m14:32:49.012416 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m14:32:49.014427 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m14:32:50.945024 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 13 unused configuration paths:
+- models.main_seeds.marts.simulated
+- models.main_seeds.staging.real
+- models.main_seeds.marts.real
+- models.main_seeds.core
+- models.main_seeds
+- models.main_seeds.staging
+- models.main_seeds.core.simulated
+- models.main_seeds.marts
+- models.main_seeds.core.real
+- models.main_seeds.staging.simulated
+- seeds.main_seeds
+- seeds.main_seeds.bilanci_voci_sample
+- seeds.main_seeds.bilanci_comunali_sample
+[0m14:32:51.111431 [info ] [MainThread]: Found 0 sources, 0 exposures, 0 metrics, 648 macros, 0 groups, 0 semantic models
+[0m14:32:51.112620 [warn ] [MainThread]: The selection criterion 'tag:real' does not match any nodes
+[0m14:32:51.115176 [info ] [MainThread]: 
+[0m14:32:51.116544 [warn ] [MainThread]: Nothing to do. Try checking your model configs and model specification args
+[0m14:32:51.117544 [debug] [MainThread]: Command end result
+[0m14:32:51.138079 [debug] [MainThread]: Command `dbt build` succeeded at 14:32:51.138079 after 2.62 seconds
+[0m14:32:51.138079 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:37:13.858331 | ee0b2149-92a8-4f2a-a6ad-f9762bf78dcc ==============================
+[0m14:37:13.858331 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:37:13.858331 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt clean', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'False'}
+[0m14:37:14.158726 [debug] [MainThread]: Command `dbt clean` succeeded at 14:37:14.158726 after 0.41 seconds
+[0m14:37:14.158726 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:37:21.303269 | 68487bb8-4a1a-469c-8f62-f17e4f5ed939 ==============================
+[0m14:37:21.303269 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:37:21.318895 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt deps', 'send_anonymous_usage_stats': 'False'}
+[0m14:37:21.494848 [debug] [MainThread]: Set downloads directory='C:\Users\Andrea\AppData\Local\Temp\dbt-downloads-ggqysrw7'
+[0m14:37:21.494848 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m14:37:21.646474 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m14:37:21.646474 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
+[0m14:37:21.772579 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
+[0m14:37:21.794783 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/godatadriven/dbt_date.json
+[0m14:37:21.903578 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/godatadriven/dbt_date.json 200
+[0m14:37:21.910517 [info ] [MainThread]: Installing dbt-labs/dbt_utils
+[0m14:37:22.527832 [info ] [MainThread]: Installed from version 1.3.0
+[0m14:37:22.534835 [info ] [MainThread]: Up to date!
+[0m14:37:22.534835 [info ] [MainThread]: Installing godatadriven/dbt_date
+[0m14:37:22.992195 [info ] [MainThread]: Installed from version 0.14.1
+[0m14:37:22.992195 [info ] [MainThread]: Updated version available: 0.14.2
+[0m14:37:22.992195 [info ] [MainThread]: 
+[0m14:37:22.992195 [info ] [MainThread]: Updates available for packages: ['godatadriven/dbt_date']                 
+Update your versions in packages.yml, then run dbt deps
+[0m14:37:22.992195 [debug] [MainThread]: Command `dbt deps` succeeded at 14:37:22.992195 after 1.76 seconds
+[0m14:37:22.992195 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:37:37.181172 | bb82390e-8060-469f-8dba-27408aadbd62 ==============================
+[0m14:37:37.181172 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:37:37.181172 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt build --select tag:real', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'False'}
+[0m14:37:37.566409 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m14:37:37.601661 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m14:37:37.604023 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m14:37:39.540309 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 12 unused configuration paths:
+- models.core.simulated
+- models.marts
+- models.marts.real
+- models.staging
+- models.core
+- models.core.real
+- models.staging.simulated
+- models.marts.simulated
+- models.staging.real
+- seeds.mini_lakehouse
+- seeds.mini_lakehouse.bilanci_voci_sample
+- seeds.mini_lakehouse.bilanci_comunali_sample
+[0m14:37:39.575442 [info ] [MainThread]: Found 0 sources, 0 exposures, 0 metrics, 648 macros, 0 groups, 0 semantic models
+[0m14:37:39.577442 [warn ] [MainThread]: The selection criterion 'tag:real' does not match any nodes
+[0m14:37:39.579441 [info ] [MainThread]: 
+[0m14:37:39.580467 [warn ] [MainThread]: Nothing to do. Try checking your model configs and model specification args
+[0m14:37:39.583882 [debug] [MainThread]: Command end result
+[0m14:37:39.601831 [debug] [MainThread]: Command `dbt build` succeeded at 14:37:39.601831 after 2.49 seconds
+[0m14:37:39.608290 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:39:12.808636 | 86e9639e-520b-42f1-80d5-1892a3ec86ee ==============================
+[0m14:39:12.808636 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:39:12.808636 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt build --select tag:real', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'False'}
+[0m14:39:13.204418 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m14:39:13.224491 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m14:39:13.312739 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m14:39:15.796385 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.mini_lakehouse.raw_bilanci_comunali' (dbt/models\raw\raw_bilanci_comunali.sql) depends on a node named 'bilanci_comunali_sample' which was not found
+[0m14:39:15.796385 [debug] [MainThread]: Command `dbt build` failed at 14:39:15.796385 after 3.08 seconds
+[0m14:39:15.796385 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:41:07.899443 | 9d2f6133-2720-4d47-ac8f-013747036300 ==============================
+[0m14:41:07.899443 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:41:07.899443 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt clean', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m14:41:08.148427 [debug] [MainThread]: Command `dbt clean` succeeded at 14:41:08.148427 after 0.34 seconds
+[0m14:41:08.148427 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:41:13.868505 | 30b62250-103f-4564-b274-1e6d3ab263da ==============================
+[0m14:41:13.868505 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:41:13.868505 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'version_check': 'True', 'debug': 'False', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt deps', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m14:41:14.022504 [debug] [MainThread]: Set downloads directory='C:\Users\Andrea\AppData\Local\Temp\dbt-downloads-icjhzsj_'
+[0m14:41:14.022504 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m14:41:14.154077 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m14:41:14.172096 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
+[0m14:41:14.253963 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
+[0m14:41:14.285205 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/godatadriven/dbt_date.json
+[0m14:41:14.507950 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/godatadriven/dbt_date.json 200
+[0m14:41:14.523586 [info ] [MainThread]: Installing dbt-labs/dbt_utils
+[0m14:41:15.108522 [info ] [MainThread]: Installed from version 1.3.0
+[0m14:41:15.108522 [info ] [MainThread]: Up to date!
+[0m14:41:15.124153 [info ] [MainThread]: Installing godatadriven/dbt_date
+[0m14:41:15.625063 [info ] [MainThread]: Installed from version 0.14.1
+[0m14:41:15.625063 [info ] [MainThread]: Updated version available: 0.14.2
+[0m14:41:15.625063 [info ] [MainThread]: 
+[0m14:41:15.625063 [info ] [MainThread]: Updates available for packages: ['godatadriven/dbt_date']                 
+Update your versions in packages.yml, then run dbt deps
+[0m14:41:15.625063 [debug] [MainThread]: Command `dbt deps` succeeded at 14:41:15.625063 after 1.83 seconds
+[0m14:41:15.625063 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:41:21.951462 | 90cb44a1-875b-4c60-98f7-774be21088e2 ==============================
+[0m14:41:21.951462 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:41:21.951462 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt build --select tag:real', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m14:41:22.336509 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m14:41:22.375556 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m14:41:22.377546 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m14:41:25.022497 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 9 unused configuration paths:
+- models.core.simulated
+- models.staging.real
+- models.staging
+- models.marts
+- models.marts.real
+- models.core.real
+- models.staging.simulated
+- models.core
+- models.marts.simulated
+[0m14:41:25.083164 [info ] [MainThread]: Found 15 models, 2 seeds, 49 tests, 0 sources, 1 exposure, 0 metrics, 650 macros, 0 groups, 0 semantic models
+[0m14:41:25.083164 [info ] [MainThread]: 
+[0m14:41:25.091170 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m14:41:25.110874 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse'
+[0m14:41:25.146136 [debug] [ThreadPool]: Using duckdb connection "list_warehouse"
+[0m14:41:25.146136 [debug] [ThreadPool]: On list_warehouse: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"warehouse"'
+    
+  
+  
+[0m14:41:25.147136 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:41:25.491843 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:41:25.538742 [debug] [ThreadPool]: On list_warehouse: Close
+[0m14:41:25.538742 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_warehouse, now create_warehouse_main)
+[0m14:41:25.554353 [debug] [ThreadPool]: Creating schema "database: "warehouse"
+schema: "main"
+"
+[0m14:41:25.569978 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m14:41:25.569978 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='warehouse'
+        and type='sqlite'
+    
+  
+[0m14:41:25.569978 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m14:41:25.592109 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:41:25.610318 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m14:41:25.611319 [debug] [ThreadPool]: On create_warehouse_main: BEGIN
+[0m14:41:25.613318 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:41:25.614249 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m14:41:25.615340 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+    
+        create schema if not exists "warehouse"."main"
+    
+[0m14:41:25.644077 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:41:25.646077 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m14:41:25.647077 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m14:41:25.649005 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m14:41:25.650006 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:41:25.651006 [debug] [ThreadPool]: On create_warehouse_main: Close
+[0m14:41:25.671971 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse_main_main_marts'
+[0m14:41:25.677301 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main_main_marts"
+[0m14:41:25.684369 [debug] [ThreadPool]: On list_warehouse_main_main_marts: BEGIN
+[0m14:41:25.684369 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:41:25.705024 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:41:25.705024 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main_main_marts"
+[0m14:41:25.705024 [debug] [ThreadPool]: On list_warehouse_main_main_marts: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse_main_main_marts"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main_main_marts'
+    and table_catalog = 'warehouse'
+  
+[0m14:41:25.893037 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:41:25.924302 [debug] [ThreadPool]: On list_warehouse_main_main_marts: ROLLBACK
+[0m14:41:25.986791 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main_main_marts'
+[0m14:41:25.986791 [debug] [ThreadPool]: On list_warehouse_main_main_marts: Close
+[0m14:41:25.993302 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_warehouse_main_main_marts, now list_warehouse_main_main_core)
+[0m14:41:26.055808 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main_main_core"
+[0m14:41:26.055808 [debug] [ThreadPool]: On list_warehouse_main_main_core: BEGIN
+[0m14:41:26.055808 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m14:41:26.093564 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:41:26.093564 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main_main_core"
+[0m14:41:26.093564 [debug] [ThreadPool]: On list_warehouse_main_main_core: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse_main_main_core"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main_main_core'
+    and table_catalog = 'warehouse'
+  
+[0m14:41:26.109193 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:41:26.109193 [debug] [ThreadPool]: On list_warehouse_main_main_core: ROLLBACK
+[0m14:41:26.109193 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main_main_core'
+[0m14:41:26.109193 [debug] [ThreadPool]: On list_warehouse_main_main_core: Close
+[0m14:41:26.109193 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_warehouse_main_main_core, now list_warehouse_main_seeds)
+[0m14:41:26.109193 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main_seeds"
+[0m14:41:26.109193 [debug] [ThreadPool]: On list_warehouse_main_seeds: BEGIN
+[0m14:41:26.109193 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m14:41:26.140443 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:41:26.140443 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main_seeds"
+[0m14:41:26.140443 [debug] [ThreadPool]: On list_warehouse_main_seeds: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse_main_seeds"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main_seeds'
+    and table_catalog = 'warehouse'
+  
+[0m14:41:26.156069 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:41:26.156069 [debug] [ThreadPool]: On list_warehouse_main_seeds: ROLLBACK
+[0m14:41:26.156069 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main_seeds'
+[0m14:41:26.156069 [debug] [ThreadPool]: On list_warehouse_main_seeds: Close
+[0m14:41:26.156069 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_warehouse_main_seeds, now list_warehouse_main)
+[0m14:41:26.156069 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m14:41:26.156069 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m14:41:26.156069 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m14:41:26.190788 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:41:26.193792 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m14:41:26.193792 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'warehouse'
+  
+[0m14:41:26.218385 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:41:26.218385 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m14:41:26.218385 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m14:41:26.218385 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m14:41:26.225363 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:41:26.225363 [debug] [MainThread]: On master: BEGIN
+[0m14:41:26.225363 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:41:26.246178 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m14:41:26.246178 [debug] [MainThread]: On master: COMMIT
+[0m14:41:26.246178 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:41:26.246178 [debug] [MainThread]: On master: COMMIT
+[0m14:41:26.246178 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m14:41:26.246178 [debug] [MainThread]: On master: Close
+[0m14:41:26.253098 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m14:41:26.253098 [info ] [MainThread]: 
+[0m14:41:26.301469 [debug] [Thread-1 (]: Began running node model.mini_lakehouse.stg_siope_real
+[0m14:41:26.301469 [info ] [Thread-1 (]: 1 of 27 START sql view model main.stg_siope_real ............................... [RUN]
+[0m14:41:26.307974 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.mini_lakehouse.stg_siope_real'
+[0m14:41:26.308529 [debug] [Thread-1 (]: Began compiling node model.mini_lakehouse.stg_siope_real
+[0m14:41:26.319793 [debug] [Thread-1 (]: Writing injected SQL for node "model.mini_lakehouse.stg_siope_real"
+[0m14:41:26.322783 [debug] [Thread-1 (]: Timing info for model.mini_lakehouse.stg_siope_real (compile): 14:41:26.308529 => 14:41:26.322783
+[0m14:41:26.324782 [debug] [Thread-1 (]: Began executing node model.mini_lakehouse.stg_siope_real
+[0m14:41:26.370993 [debug] [Thread-1 (]: Writing runtime sql for node "model.mini_lakehouse.stg_siope_real"
+[0m14:41:26.370993 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.stg_siope_real"
+[0m14:41:26.370993 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_siope_real: BEGIN
+[0m14:41:26.377969 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:41:26.393963 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:41:26.398869 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.stg_siope_real"
+[0m14:41:26.398869 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_siope_real: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.stg_siope_real"} */
+
+  
+  create view "warehouse"."main"."stg_siope_real__dbt_tmp" as (
+    -- models/staging/real/stg_siope_real.sql
+
+with source as (
+    select *
+    from read_csv_auto('../data/public/siope_it/milano/2016.csv', delim=';', header=True)
+),
+
+renamed as (
+    select
+        '015146' as codice_belfiore,
+        'Milano' as denominazione_comune,
+
+        split_part("Anno/Mese calendario", '/', 1)::integer as anno,
+        split_part("Anno/Mese calendario", '/', 2)::integer as mese,
+
+        "Descrizione Titolo CG" as titolo,
+        "Descrizione CG" as categoria,
+
+        "Importo cumulato"::double as importo_accertato,
+        NULL::double as importo_incassato
+
+    from source
+)
+
+select * from renamed
+  );
+
+[0m14:41:26.599991 [debug] [Thread-1 (]: Timing info for model.mini_lakehouse.stg_siope_real (execute): 14:41:26.325437 => 14:41:26.599991
+[0m14:41:26.599991 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_siope_real: ROLLBACK
+[0m14:41:27.115307 [debug] [Thread-1 (]: Failed to rollback 'model.mini_lakehouse.stg_siope_real'
+[0m14:41:27.115307 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_siope_real: Close
+[0m14:41:27.115307 [debug] [Thread-1 (]: Runtime Error in model stg_siope_real (dbt/models\staging\real\stg_siope_real.sql)
+  IO Error: No files found that match the pattern "../data/public/siope_it/milano/2016.csv"
+[0m14:41:27.115307 [error] [Thread-1 (]: 1 of 27 ERROR creating sql view model main.stg_siope_real ...................... [[31mERROR[0m in 0.81s]
+[0m14:41:27.115307 [debug] [Thread-1 (]: Finished running node model.mini_lakehouse.stg_siope_real
+[0m14:41:27.130942 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1
+[0m14:41:27.130942 [info ] [Thread-1 (]: 2 of 27 SKIP test accepted_values_stg_siope_real_anno__2016 .................... [[33mSKIP[0m]
+[0m14:41:27.130942 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1
+[0m14:41:27.130942 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db
+[0m14:41:27.130942 [info ] [Thread-1 (]: 3 of 27 SKIP test accepted_values_stg_siope_real_codice_belfiore__015146 ....... [[33mSKIP[0m]
+[0m14:41:27.136544 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db
+[0m14:41:27.137544 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a
+[0m14:41:27.138426 [info ] [Thread-1 (]: 4 of 27 SKIP test accepted_values_stg_siope_real_denominazione_comune__Milano .. [[33mSKIP[0m]
+[0m14:41:27.141147 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a
+[0m14:41:27.142113 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96
+[0m14:41:27.142113 [info ] [Thread-1 (]: 5 of 27 SKIP test not_null_stg_siope_real_anno ................................. [[33mSKIP[0m]
+[0m14:41:27.142113 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96
+[0m14:41:27.146508 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a
+[0m14:41:27.148508 [info ] [Thread-1 (]: 6 of 27 SKIP test not_null_stg_siope_real_categoria ............................ [[33mSKIP[0m]
+[0m14:41:27.150015 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a
+[0m14:41:27.151015 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c
+[0m14:41:27.152088 [info ] [Thread-1 (]: 7 of 27 SKIP test not_null_stg_siope_real_codice_belfiore ...................... [[33mSKIP[0m]
+[0m14:41:27.152088 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c
+[0m14:41:27.155384 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491
+[0m14:41:27.156824 [info ] [Thread-1 (]: 8 of 27 SKIP test not_null_stg_siope_real_denominazione_comune ................. [[33mSKIP[0m]
+[0m14:41:27.157674 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491
+[0m14:41:27.158678 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e
+[0m14:41:27.159675 [info ] [Thread-1 (]: 9 of 27 SKIP test not_null_stg_siope_real_importo_accertato .................... [[33mSKIP[0m]
+[0m14:41:27.160230 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e
+[0m14:41:27.162233 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf
+[0m14:41:27.163232 [info ] [Thread-1 (]: 10 of 27 SKIP test not_null_stg_siope_real_mese ................................ [[33mSKIP[0m]
+[0m14:41:27.166229 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf
+[0m14:41:27.167228 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8
+[0m14:41:27.167228 [info ] [Thread-1 (]: 11 of 27 SKIP test not_null_stg_siope_real_titolo .............................. [[33mSKIP[0m]
+[0m14:41:27.169228 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8
+[0m14:41:27.170933 [debug] [Thread-1 (]: Began running node model.mini_lakehouse.core_real_siope
+[0m14:41:27.170933 [info ] [Thread-1 (]: 12 of 27 SKIP relation main.core_real_siope .................................... [[33mSKIP[0m]
+[0m14:41:27.170933 [debug] [Thread-1 (]: Finished running node model.mini_lakehouse.core_real_siope
+[0m14:41:27.175763 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee
+[0m14:41:27.178026 [info ] [Thread-1 (]: 13 of 27 SKIP test accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12  [[33mSKIP[0m]
+[0m14:41:27.179026 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee
+[0m14:41:27.180091 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57
+[0m14:41:27.180091 [info ] [Thread-1 (]: 14 of 27 SKIP test not_null_core_real_siope_anno ............................... [[33mSKIP[0m]
+[0m14:41:27.183128 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57
+[0m14:41:27.184197 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327
+[0m14:41:27.185199 [info ] [Thread-1 (]: 15 of 27 SKIP test not_null_core_real_siope_categoria .......................... [[33mSKIP[0m]
+[0m14:41:27.186155 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327
+[0m14:41:27.187159 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7
+[0m14:41:27.188156 [info ] [Thread-1 (]: 16 of 27 SKIP test not_null_core_real_siope_codice_belfiore .................... [[33mSKIP[0m]
+[0m14:41:27.189157 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7
+[0m14:41:27.191157 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5
+[0m14:41:27.193203 [info ] [Thread-1 (]: 17 of 27 SKIP test not_null_core_real_siope_denominazione_comune ............... [[33mSKIP[0m]
+[0m14:41:27.194202 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5
+[0m14:41:27.195203 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865
+[0m14:41:27.196201 [info ] [Thread-1 (]: 18 of 27 SKIP test not_null_core_real_siope_importo_accertato .................. [[33mSKIP[0m]
+[0m14:41:27.199355 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865
+[0m14:41:27.200192 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995
+[0m14:41:27.201191 [info ] [Thread-1 (]: 19 of 27 SKIP test not_null_core_real_siope_importo_incassato .................. [[33mSKIP[0m]
+[0m14:41:27.202192 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995
+[0m14:41:27.203191 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9
+[0m14:41:27.204193 [info ] [Thread-1 (]: 20 of 27 SKIP test not_null_core_real_siope_mese ............................... [[33mSKIP[0m]
+[0m14:41:27.205346 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9
+[0m14:41:27.205346 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7
+[0m14:41:27.205346 [info ] [Thread-1 (]: 21 of 27 SKIP test not_null_core_real_siope_titolo ............................. [[33mSKIP[0m]
+[0m14:41:27.205346 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7
+[0m14:41:27.210888 [debug] [Thread-1 (]: Began running node model.mini_lakehouse.mart_siope_totali_mensili
+[0m14:41:27.212836 [info ] [Thread-1 (]: 22 of 27 SKIP relation main.mart_siope_totali_mensili .......................... [[33mSKIP[0m]
+[0m14:41:27.213837 [debug] [Thread-1 (]: Finished running node model.mini_lakehouse.mart_siope_totali_mensili
+[0m14:41:27.214838 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c
+[0m14:41:27.215856 [info ] [Thread-1 (]: 23 of 27 SKIP test accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12  [[33mSKIP[0m]
+[0m14:41:27.218299 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c
+[0m14:41:27.220243 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda
+[0m14:41:27.221245 [info ] [Thread-1 (]: 24 of 27 SKIP test not_null_mart_siope_totali_mensili_anno ..................... [[33mSKIP[0m]
+[0m14:41:27.222243 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda
+[0m14:41:27.223242 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3
+[0m14:41:27.224243 [info ] [Thread-1 (]: 25 of 27 SKIP test not_null_mart_siope_totali_mensili_codice_belfiore .......... [[33mSKIP[0m]
+[0m14:41:27.226195 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3
+[0m14:41:27.226195 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241
+[0m14:41:27.226195 [info ] [Thread-1 (]: 26 of 27 SKIP test not_null_mart_siope_totali_mensili_mese ..................... [[33mSKIP[0m]
+[0m14:41:27.226195 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241
+[0m14:41:27.231180 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4
+[0m14:41:27.232178 [info ] [Thread-1 (]: 27 of 27 SKIP test not_null_mart_siope_totali_mensili_totale_accertato ......... [[33mSKIP[0m]
+[0m14:41:27.234435 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4
+[0m14:41:27.235433 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:41:27.236454 [debug] [MainThread]: On master: BEGIN
+[0m14:41:27.237595 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m14:41:27.256783 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m14:41:27.257784 [debug] [MainThread]: On master: COMMIT
+[0m14:41:27.258785 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:41:27.260784 [debug] [MainThread]: On master: COMMIT
+[0m14:41:27.260972 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m14:41:27.260972 [debug] [MainThread]: On master: Close
+[0m14:41:27.266671 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:41:27.266671 [debug] [MainThread]: Connection 'create_warehouse_main' was properly closed.
+[0m14:41:27.266671 [debug] [MainThread]: Connection 'list_warehouse_main' was properly closed.
+[0m14:41:27.266671 [debug] [MainThread]: Connection 'model.mini_lakehouse.stg_siope_real' was properly closed.
+[0m14:41:27.266671 [info ] [MainThread]: 
+[0m14:41:27.266671 [info ] [MainThread]: Finished running 3 view models, 24 tests in 0 hours 0 minutes and 2.18 seconds (2.18s).
+[0m14:41:27.273288 [debug] [MainThread]: Command end result
+[0m14:41:27.300951 [info ] [MainThread]: 
+[0m14:41:27.301952 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m14:41:27.302950 [info ] [MainThread]: 
+[0m14:41:27.303950 [error] [MainThread]:   Runtime Error in model stg_siope_real (dbt/models\staging\real\stg_siope_real.sql)
+  IO Error: No files found that match the pattern "../data/public/siope_it/milano/2016.csv"
+[0m14:41:27.303950 [info ] [MainThread]: 
+[0m14:41:27.304951 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=26 TOTAL=27
+[0m14:41:27.307991 [debug] [MainThread]: Command `dbt build` failed at 14:41:27.307991 after 5.42 seconds
+[0m14:41:27.308990 [debug] [MainThread]: Flushing usage events
+
+
+============================== 14:43:13.042291 | fdc8bc58-a16d-43ff-859a-dcf6cdd9af69 ==============================
+[0m14:43:13.042291 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:43:13.057916 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': 'C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\logs', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\Andrea\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt build --select tag:real', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m14:43:13.458879 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m14:43:13.483743 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m14:43:13.659062 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m14:43:13.659062 [debug] [MainThread]: Partial parsing: updated file: mini_lakehouse://dbt/models\staging\real\stg_siope_real.sql
+[0m14:43:14.064600 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 9 unused configuration paths:
+- models.core.real
+- models.marts.real
+- models.staging.simulated
+- models.core
+- models.marts
+- models.staging
+- models.core.simulated
+- models.staging.real
+- models.marts.simulated
+[0m14:43:14.112730 [info ] [MainThread]: Found 15 models, 2 seeds, 49 tests, 0 sources, 1 exposure, 0 metrics, 650 macros, 0 groups, 0 semantic models
+[0m14:43:14.116729 [info ] [MainThread]: 
+[0m14:43:14.118584 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m14:43:14.119606 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse'
+[0m14:43:14.119606 [debug] [ThreadPool]: Using duckdb connection "list_warehouse"
+[0m14:43:14.119606 [debug] [ThreadPool]: On list_warehouse: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"warehouse"'
+    
+  
+  
+[0m14:43:14.135233 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:43:14.163211 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:43:14.165211 [debug] [ThreadPool]: On list_warehouse: Close
+[0m14:43:14.169244 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_warehouse, now create_warehouse_main)
+[0m14:43:14.170245 [debug] [ThreadPool]: Creating schema "database: "warehouse"
+schema: "main"
+"
+[0m14:43:14.174259 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m14:43:14.174259 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='warehouse'
+        and type='sqlite'
+    
+  
+[0m14:43:14.174259 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m14:43:14.189896 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:43:14.189896 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m14:43:14.189896 [debug] [ThreadPool]: On create_warehouse_main: BEGIN
+[0m14:43:14.189896 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:43:14.189896 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m14:43:14.189896 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+    
+        create schema if not exists "warehouse"."main"
+    
+[0m14:43:14.189896 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:43:14.189896 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m14:43:14.189896 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m14:43:14.189896 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m14:43:14.189896 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:43:14.189896 [debug] [ThreadPool]: On create_warehouse_main: Close
+[0m14:43:14.205512 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse_main_main_marts'
+[0m14:43:14.213018 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main_main_marts"
+[0m14:43:14.213018 [debug] [ThreadPool]: On list_warehouse_main_main_marts: BEGIN
+[0m14:43:14.213018 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:43:14.228647 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:43:14.228647 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main_main_marts"
+[0m14:43:14.228647 [debug] [ThreadPool]: On list_warehouse_main_main_marts: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse_main_main_marts"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main_main_marts'
+    and table_catalog = 'warehouse'
+  
+[0m14:43:14.244271 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:43:14.244271 [debug] [ThreadPool]: On list_warehouse_main_main_marts: ROLLBACK
+[0m14:43:14.244271 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main_main_marts'
+[0m14:43:14.244271 [debug] [ThreadPool]: On list_warehouse_main_main_marts: Close
+[0m14:43:14.244271 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_warehouse_main_main_marts, now list_warehouse_main_seeds)
+[0m14:43:14.259896 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main_seeds"
+[0m14:43:14.259896 [debug] [ThreadPool]: On list_warehouse_main_seeds: BEGIN
+[0m14:43:14.259896 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m14:43:14.275522 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:43:14.275522 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main_seeds"
+[0m14:43:14.275522 [debug] [ThreadPool]: On list_warehouse_main_seeds: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse_main_seeds"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main_seeds'
+    and table_catalog = 'warehouse'
+  
+[0m14:43:14.291146 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:43:14.291146 [debug] [ThreadPool]: On list_warehouse_main_seeds: ROLLBACK
+[0m14:43:14.291146 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main_seeds'
+[0m14:43:14.291146 [debug] [ThreadPool]: On list_warehouse_main_seeds: Close
+[0m14:43:14.291146 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_warehouse_main_seeds, now list_warehouse_main)
+[0m14:43:14.306772 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m14:43:14.306772 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m14:43:14.306772 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m14:43:14.313278 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:43:14.313278 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m14:43:14.313278 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'warehouse'
+  
+[0m14:43:14.344532 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:43:14.344532 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m14:43:14.344532 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m14:43:14.344532 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m14:43:14.344532 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_warehouse_main, now list_warehouse_main_main_core)
+[0m14:43:14.344532 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main_main_core"
+[0m14:43:14.360157 [debug] [ThreadPool]: On list_warehouse_main_main_core: BEGIN
+[0m14:43:14.360157 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m14:43:14.375782 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:43:14.375782 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main_main_core"
+[0m14:43:14.375782 [debug] [ThreadPool]: On list_warehouse_main_main_core: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "connection_name": "list_warehouse_main_main_core"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main_main_core'
+    and table_catalog = 'warehouse'
+  
+[0m14:43:14.391407 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m14:43:14.391407 [debug] [ThreadPool]: On list_warehouse_main_main_core: ROLLBACK
+[0m14:43:14.391407 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main_main_core'
+[0m14:43:14.391407 [debug] [ThreadPool]: On list_warehouse_main_main_core: Close
+[0m14:43:14.391407 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:43:14.391407 [debug] [MainThread]: On master: BEGIN
+[0m14:43:14.391407 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:43:14.413539 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m14:43:14.413539 [debug] [MainThread]: On master: COMMIT
+[0m14:43:14.413539 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:43:14.413539 [debug] [MainThread]: On master: COMMIT
+[0m14:43:14.413539 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m14:43:14.413539 [debug] [MainThread]: On master: Close
+[0m14:43:14.413539 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m14:43:14.413539 [info ] [MainThread]: 
+[0m14:43:14.429168 [debug] [Thread-1 (]: Began running node model.mini_lakehouse.stg_siope_real
+[0m14:43:14.429168 [info ] [Thread-1 (]: 1 of 27 START sql view model main.stg_siope_real ............................... [RUN]
+[0m14:43:14.431397 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.mini_lakehouse.stg_siope_real'
+[0m14:43:14.433959 [debug] [Thread-1 (]: Began compiling node model.mini_lakehouse.stg_siope_real
+[0m14:43:14.444646 [debug] [Thread-1 (]: Writing injected SQL for node "model.mini_lakehouse.stg_siope_real"
+[0m14:43:14.447648 [debug] [Thread-1 (]: Timing info for model.mini_lakehouse.stg_siope_real (compile): 14:43:14.434413 => 14:43:14.446646
+[0m14:43:14.448796 [debug] [Thread-1 (]: Began executing node model.mini_lakehouse.stg_siope_real
+[0m14:43:14.489184 [debug] [Thread-1 (]: Writing runtime sql for node "model.mini_lakehouse.stg_siope_real"
+[0m14:43:14.489184 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.stg_siope_real"
+[0m14:43:14.489184 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_siope_real: BEGIN
+[0m14:43:14.489184 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:43:14.504811 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:14.504811 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.stg_siope_real"
+[0m14:43:14.504811 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_siope_real: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.stg_siope_real"} */
+
+  
+  create view "warehouse"."main"."stg_siope_real__dbt_tmp" as (
+    -- models/staging/real/stg_siope_real.sql
+
+with source as (
+    select *
+    from read_csv_auto('data/public/siope_it/milano/2016.csv', delim=';', header=True)
+),
+
+renamed as (
+    select
+        '015146' as codice_belfiore,
+        'Milano' as denominazione_comune,
+
+        split_part("Anno/Mese calendario", '/', 1)::integer as anno,
+        split_part("Anno/Mese calendario", '/', 2)::integer as mese,
+
+        "Descrizione Titolo CG" as titolo,
+        "Descrizione CG" as categoria,
+
+        "Importo cumulato"::double as importo_accertato,
+        NULL::double as importo_incassato
+
+    from source
+)
+
+select * from renamed
+  );
+
+[0m14:43:14.993090 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:15.008717 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.stg_siope_real"
+[0m14:43:15.008717 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_siope_real: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.stg_siope_real"} */
+alter view "warehouse"."main"."stg_siope_real__dbt_tmp" rename to "stg_siope_real"
+[0m14:43:15.062138 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:15.089679 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_siope_real: COMMIT
+[0m14:43:15.089679 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.stg_siope_real"
+[0m14:43:15.105306 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_siope_real: COMMIT
+[0m14:43:15.162232 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:15.177858 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.stg_siope_real"
+[0m14:43:15.177858 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_siope_real: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.stg_siope_real"} */
+drop view if exists "warehouse"."main"."stg_siope_real__dbt_backup" cascade
+[0m14:43:15.193493 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:15.215618 [debug] [Thread-1 (]: Timing info for model.mini_lakehouse.stg_siope_real (execute): 14:43:14.449796 => 14:43:15.209099
+[0m14:43:15.215618 [debug] [Thread-1 (]: On model.mini_lakehouse.stg_siope_real: Close
+[0m14:43:15.624163 [info ] [Thread-1 (]: 1 of 27 OK created sql view model main.stg_siope_real .......................... [[32mOK[0m in 1.19s]
+[0m14:43:15.624163 [debug] [Thread-1 (]: Finished running node model.mini_lakehouse.stg_siope_real
+[0m14:43:15.624163 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1
+[0m14:43:15.643463 [info ] [Thread-1 (]: 2 of 27 START test accepted_values_stg_siope_real_anno__2016 ................... [RUN]
+[0m14:43:15.655055 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.mini_lakehouse.stg_siope_real, now test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1)
+[0m14:43:15.657053 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1
+[0m14:43:15.676744 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1"
+[0m14:43:15.681970 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1 (compile): 14:43:15.658066 => 14:43:15.680966
+[0m14:43:15.682967 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1
+[0m14:43:15.702631 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1"
+[0m14:43:15.702631 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1"
+[0m14:43:15.702631 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1: BEGIN
+[0m14:43:15.702631 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:15.747918 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:15.747918 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1"
+[0m14:43:15.747918 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with all_values as (
+
+    select
+        anno as value_field,
+        count(*) as n_records
+
+    from "warehouse"."main"."stg_siope_real"
+    group by anno
+
+)
+
+select *
+from all_values
+where value_field not in (
+    '2016'
+)
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:16.010606 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.017115 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1 (execute): 14:43:15.683963 => 14:43:16.017115
+[0m14:43:16.017115 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1: ROLLBACK
+[0m14:43:16.017115 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1'
+[0m14:43:16.017115 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1: Close
+[0m14:43:16.032751 [info ] [Thread-1 (]: 2 of 27 PASS accepted_values_stg_siope_real_anno__2016 ......................... [[32mPASS[0m in 0.38s]
+[0m14:43:16.048382 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1
+[0m14:43:16.048382 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db
+[0m14:43:16.048382 [info ] [Thread-1 (]: 3 of 27 START test accepted_values_stg_siope_real_codice_belfiore__015146 ...... [RUN]
+[0m14:43:16.063671 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.accepted_values_stg_siope_real_anno__2016.7ac784c1e1, now test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db)
+[0m14:43:16.066672 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db
+[0m14:43:16.089653 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db"
+[0m14:43:16.089653 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db (compile): 14:43:16.074497 => 14:43:16.089653
+[0m14:43:16.089653 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db
+[0m14:43:16.102668 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db"
+[0m14:43:16.103850 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db"
+[0m14:43:16.104849 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db: BEGIN
+[0m14:43:16.105848 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:16.117368 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.117368 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db"
+[0m14:43:16.117368 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with all_values as (
+
+    select
+        codice_belfiore as value_field,
+        count(*) as n_records
+
+    from "warehouse"."main"."stg_siope_real"
+    group by codice_belfiore
+
+)
+
+select *
+from all_values
+where value_field not in (
+    '015146'
+)
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:16.175434 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.175434 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db (execute): 14:43:16.097673 => 14:43:16.175434
+[0m14:43:16.175434 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db: ROLLBACK
+[0m14:43:16.175434 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db'
+[0m14:43:16.175434 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db: Close
+[0m14:43:16.175434 [info ] [Thread-1 (]: 3 of 27 PASS accepted_values_stg_siope_real_codice_belfiore__015146 ............ [[32mPASS[0m in 0.13s]
+[0m14:43:16.175434 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db
+[0m14:43:16.191042 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a
+[0m14:43:16.191042 [info ] [Thread-1 (]: 4 of 27 START test accepted_values_stg_siope_real_denominazione_comune__Milano . [RUN]
+[0m14:43:16.191042 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.accepted_values_stg_siope_real_codice_belfiore__015146.b478a2c7db, now test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a)
+[0m14:43:16.191042 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a
+[0m14:43:16.191042 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a"
+[0m14:43:16.191042 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a (compile): 14:43:16.191042 => 14:43:16.191042
+[0m14:43:16.191042 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a
+[0m14:43:16.210607 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a"
+[0m14:43:16.212624 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a"
+[0m14:43:16.214808 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a: BEGIN
+[0m14:43:16.215900 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:16.236557 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.237557 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a"
+[0m14:43:16.237557 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with all_values as (
+
+    select
+        denominazione_comune as value_field,
+        count(*) as n_records
+
+    from "warehouse"."main"."stg_siope_real"
+    group by denominazione_comune
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'Milano'
+)
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:16.265237 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.265237 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a (execute): 14:43:16.191042 => 14:43:16.265237
+[0m14:43:16.265237 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a: ROLLBACK
+[0m14:43:16.265237 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a'
+[0m14:43:16.265237 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a: Close
+[0m14:43:16.265237 [info ] [Thread-1 (]: 4 of 27 PASS accepted_values_stg_siope_real_denominazione_comune__Milano ....... [[32mPASS[0m in 0.07s]
+[0m14:43:16.280863 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a
+[0m14:43:16.280863 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96
+[0m14:43:16.280863 [info ] [Thread-1 (]: 5 of 27 START test not_null_stg_siope_real_anno ................................ [RUN]
+[0m14:43:16.280863 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.accepted_values_stg_siope_real_denominazione_comune__Milano.44c2bd136a, now test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96)
+[0m14:43:16.280863 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96
+[0m14:43:16.280863 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96"
+[0m14:43:16.280863 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96 (compile): 14:43:16.280863 => 14:43:16.280863
+[0m14:43:16.297457 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96
+[0m14:43:16.302438 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96"
+[0m14:43:16.306037 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96"
+[0m14:43:16.307037 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96: BEGIN
+[0m14:43:16.308036 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:16.326752 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.327753 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96"
+[0m14:43:16.328753 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select anno
+from "warehouse"."main"."stg_siope_real"
+where anno is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:16.355395 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.355395 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96 (execute): 14:43:16.298456 => 14:43:16.355395
+[0m14:43:16.355395 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96: ROLLBACK
+[0m14:43:16.355395 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96'
+[0m14:43:16.355395 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96: Close
+[0m14:43:16.355395 [info ] [Thread-1 (]: 5 of 27 PASS not_null_stg_siope_real_anno ...................................... [[32mPASS[0m in 0.07s]
+[0m14:43:16.355395 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96
+[0m14:43:16.355395 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a
+[0m14:43:16.355395 [info ] [Thread-1 (]: 6 of 27 START test not_null_stg_siope_real_categoria ........................... [RUN]
+[0m14:43:16.371022 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_siope_real_anno.cb50feec96, now test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a)
+[0m14:43:16.371022 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a
+[0m14:43:16.371022 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a"
+[0m14:43:16.371022 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a (compile): 14:43:16.371022 => 14:43:16.371022
+[0m14:43:16.371022 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a
+[0m14:43:16.371022 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a"
+[0m14:43:16.371022 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a"
+[0m14:43:16.371022 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a: BEGIN
+[0m14:43:16.386647 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:16.409166 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.409166 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a"
+[0m14:43:16.409166 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select categoria
+from "warehouse"."main"."stg_siope_real"
+where categoria is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:16.429905 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.429905 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a (execute): 14:43:16.371022 => 14:43:16.429905
+[0m14:43:16.429905 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a: ROLLBACK
+[0m14:43:16.445532 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a'
+[0m14:43:16.445532 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a: Close
+[0m14:43:16.445532 [info ] [Thread-1 (]: 6 of 27 PASS not_null_stg_siope_real_categoria ................................. [[32mPASS[0m in 0.09s]
+[0m14:43:16.445532 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a
+[0m14:43:16.445532 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c
+[0m14:43:16.445532 [info ] [Thread-1 (]: 7 of 27 START test not_null_stg_siope_real_codice_belfiore ..................... [RUN]
+[0m14:43:16.445532 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_siope_real_categoria.2883cffd2a, now test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c)
+[0m14:43:16.445532 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c
+[0m14:43:16.461157 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c"
+[0m14:43:16.465534 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c (compile): 14:43:16.445532 => 14:43:16.465534
+[0m14:43:16.466533 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c
+[0m14:43:16.471698 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c"
+[0m14:43:16.473698 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c"
+[0m14:43:16.474706 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c: BEGIN
+[0m14:43:16.474706 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:16.494057 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.495057 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c"
+[0m14:43:16.495057 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select codice_belfiore
+from "warehouse"."main"."stg_siope_real"
+where codice_belfiore is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:16.517802 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.517802 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c (execute): 14:43:16.467550 => 14:43:16.517802
+[0m14:43:16.533433 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c: ROLLBACK
+[0m14:43:16.533433 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c'
+[0m14:43:16.533433 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c: Close
+[0m14:43:16.533433 [info ] [Thread-1 (]: 7 of 27 PASS not_null_stg_siope_real_codice_belfiore ........................... [[32mPASS[0m in 0.09s]
+[0m14:43:16.533433 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c
+[0m14:43:16.533433 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491
+[0m14:43:16.533433 [info ] [Thread-1 (]: 8 of 27 START test not_null_stg_siope_real_denominazione_comune ................ [RUN]
+[0m14:43:16.533433 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_siope_real_codice_belfiore.252d79254c, now test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491)
+[0m14:43:16.533433 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491
+[0m14:43:16.549059 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491"
+[0m14:43:16.551541 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491 (compile): 14:43:16.533433 => 14:43:16.550913
+[0m14:43:16.552735 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491
+[0m14:43:16.559787 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491"
+[0m14:43:16.562785 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491"
+[0m14:43:16.563876 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491: BEGIN
+[0m14:43:16.563876 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:16.583502 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.584502 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491"
+[0m14:43:16.585502 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select denominazione_comune
+from "warehouse"."main"."stg_siope_real"
+where denominazione_comune is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:16.605159 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.605159 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491 (execute): 14:43:16.553737 => 14:43:16.605159
+[0m14:43:16.605159 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491: ROLLBACK
+[0m14:43:16.605159 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491'
+[0m14:43:16.617664 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491: Close
+[0m14:43:16.617664 [info ] [Thread-1 (]: 8 of 27 PASS not_null_stg_siope_real_denominazione_comune ...................... [[32mPASS[0m in 0.08s]
+[0m14:43:16.617664 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491
+[0m14:43:16.617664 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e
+[0m14:43:16.617664 [info ] [Thread-1 (]: 9 of 27 START test not_null_stg_siope_real_importo_accertato ................... [RUN]
+[0m14:43:16.617664 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_siope_real_denominazione_comune.8f4f80a491, now test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e)
+[0m14:43:16.617664 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e
+[0m14:43:16.617664 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e"
+[0m14:43:16.633295 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e (compile): 14:43:16.617664 => 14:43:16.617664
+[0m14:43:16.634513 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e
+[0m14:43:16.640054 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e"
+[0m14:43:16.640054 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e"
+[0m14:43:16.644455 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e: BEGIN
+[0m14:43:16.644455 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:16.662895 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.663895 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e"
+[0m14:43:16.663895 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select importo_accertato
+from "warehouse"."main"."stg_siope_real"
+where importo_accertato is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:16.692200 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.692200 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e (execute): 14:43:16.635514 => 14:43:16.692200
+[0m14:43:16.692200 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e: ROLLBACK
+[0m14:43:16.692200 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e'
+[0m14:43:16.692200 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e: Close
+[0m14:43:16.692200 [info ] [Thread-1 (]: 9 of 27 PASS not_null_stg_siope_real_importo_accertato ......................... [[32mPASS[0m in 0.07s]
+[0m14:43:16.692200 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e
+[0m14:43:16.692200 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf
+[0m14:43:16.692200 [info ] [Thread-1 (]: 10 of 27 START test not_null_stg_siope_real_mese ............................... [RUN]
+[0m14:43:16.707828 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_siope_real_importo_accertato.b31a41992e, now test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf)
+[0m14:43:16.707828 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf
+[0m14:43:16.707828 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf"
+[0m14:43:16.707828 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf (compile): 14:43:16.707828 => 14:43:16.707828
+[0m14:43:16.707828 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf
+[0m14:43:16.717844 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf"
+[0m14:43:16.717844 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf"
+[0m14:43:16.717844 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf: BEGIN
+[0m14:43:16.717844 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:16.741954 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.742938 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf"
+[0m14:43:16.743939 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select mese
+from "warehouse"."main"."stg_siope_real"
+where mese is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:16.775800 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.775800 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf (execute): 14:43:16.707828 => 14:43:16.775800
+[0m14:43:16.775800 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf: ROLLBACK
+[0m14:43:16.775800 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf'
+[0m14:43:16.775800 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf: Close
+[0m14:43:16.775800 [info ] [Thread-1 (]: 10 of 27 PASS not_null_stg_siope_real_mese ..................................... [[32mPASS[0m in 0.07s]
+[0m14:43:16.775800 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf
+[0m14:43:16.775800 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8
+[0m14:43:16.775800 [info ] [Thread-1 (]: 11 of 27 START test not_null_stg_siope_real_titolo ............................. [RUN]
+[0m14:43:16.791428 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_siope_real_mese.315c230cdf, now test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8)
+[0m14:43:16.791428 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8
+[0m14:43:16.791428 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8"
+[0m14:43:16.791428 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8 (compile): 14:43:16.791428 => 14:43:16.791428
+[0m14:43:16.791428 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8
+[0m14:43:16.807054 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8"
+[0m14:43:16.809546 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8"
+[0m14:43:16.811142 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8: BEGIN
+[0m14:43:16.812144 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:16.832139 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.832139 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8"
+[0m14:43:16.832139 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select titolo
+from "warehouse"."main"."stg_siope_real"
+where titolo is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:16.852066 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.852066 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8 (execute): 14:43:16.791428 => 14:43:16.852066
+[0m14:43:16.852066 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8: ROLLBACK
+[0m14:43:16.852066 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8'
+[0m14:43:16.867702 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8: Close
+[0m14:43:16.867702 [info ] [Thread-1 (]: 11 of 27 PASS not_null_stg_siope_real_titolo ................................... [[32mPASS[0m in 0.09s]
+[0m14:43:16.867702 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8
+[0m14:43:16.867702 [debug] [Thread-1 (]: Began running node model.mini_lakehouse.core_real_siope
+[0m14:43:16.867702 [info ] [Thread-1 (]: 12 of 27 START sql view model main.core_real_siope ............................. [RUN]
+[0m14:43:16.867702 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_stg_siope_real_titolo.a6438a80b8, now model.mini_lakehouse.core_real_siope)
+[0m14:43:16.867702 [debug] [Thread-1 (]: Began compiling node model.mini_lakehouse.core_real_siope
+[0m14:43:16.867702 [debug] [Thread-1 (]: Writing injected SQL for node "model.mini_lakehouse.core_real_siope"
+[0m14:43:16.883317 [debug] [Thread-1 (]: Timing info for model.mini_lakehouse.core_real_siope (compile): 14:43:16.867702 => 14:43:16.883317
+[0m14:43:16.885181 [debug] [Thread-1 (]: Began executing node model.mini_lakehouse.core_real_siope
+[0m14:43:16.890151 [debug] [Thread-1 (]: Writing runtime sql for node "model.mini_lakehouse.core_real_siope"
+[0m14:43:16.893777 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.core_real_siope"
+[0m14:43:16.893777 [debug] [Thread-1 (]: On model.mini_lakehouse.core_real_siope: BEGIN
+[0m14:43:16.893777 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:16.913604 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.913604 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.core_real_siope"
+[0m14:43:16.914604 [debug] [Thread-1 (]: On model.mini_lakehouse.core_real_siope: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.core_real_siope"} */
+
+  
+  create view "warehouse"."main"."core_real_siope__dbt_tmp" as (
+    -- models/core/real/core_real_siope.sql
+
+with base as (
+    select *
+    from "warehouse"."main"."stg_siope_real"
+),
+
+final as (
+    select
+        codice_belfiore,
+        denominazione_comune,
+        anno,
+        mese,
+        titolo,
+        categoria,
+        importo_accertato,
+        coalesce(importo_incassato, 0.0) as importo_incassato
+    from base
+)
+
+select * from final
+  );
+
+[0m14:43:16.933778 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.949403 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.core_real_siope"
+[0m14:43:16.949403 [debug] [Thread-1 (]: On model.mini_lakehouse.core_real_siope: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.core_real_siope"} */
+alter view "warehouse"."main"."core_real_siope__dbt_tmp" rename to "core_real_siope"
+[0m14:43:16.949403 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.949403 [debug] [Thread-1 (]: On model.mini_lakehouse.core_real_siope: COMMIT
+[0m14:43:16.949403 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.core_real_siope"
+[0m14:43:16.949403 [debug] [Thread-1 (]: On model.mini_lakehouse.core_real_siope: COMMIT
+[0m14:43:16.980668 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.980668 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.core_real_siope"
+[0m14:43:16.980668 [debug] [Thread-1 (]: On model.mini_lakehouse.core_real_siope: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.core_real_siope"} */
+drop view if exists "warehouse"."main"."core_real_siope__dbt_backup" cascade
+[0m14:43:16.980668 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:16.980668 [debug] [Thread-1 (]: Timing info for model.mini_lakehouse.core_real_siope (execute): 14:43:16.885181 => 14:43:16.980668
+[0m14:43:16.996278 [debug] [Thread-1 (]: On model.mini_lakehouse.core_real_siope: Close
+[0m14:43:17.134352 [info ] [Thread-1 (]: 12 of 27 OK created sql view model main.core_real_siope ........................ [[32mOK[0m in 0.27s]
+[0m14:43:17.149982 [debug] [Thread-1 (]: Finished running node model.mini_lakehouse.core_real_siope
+[0m14:43:17.149982 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee
+[0m14:43:17.149982 [info ] [Thread-1 (]: 13 of 27 START test accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12  [RUN]
+[0m14:43:17.166450 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.mini_lakehouse.core_real_siope, now test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee)
+[0m14:43:17.168905 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee
+[0m14:43:17.187092 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee"
+[0m14:43:17.195232 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee (compile): 14:43:17.174369 => 14:43:17.194232
+[0m14:43:17.196231 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee
+[0m14:43:17.200936 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee"
+[0m14:43:17.202934 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee"
+[0m14:43:17.204934 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee: BEGIN
+[0m14:43:17.205636 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:17.218641 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.218641 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee"
+[0m14:43:17.234272 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with all_values as (
+
+    select
+        mese as value_field,
+        count(*) as n_records
+
+    from "warehouse"."main"."core_real_siope"
+    group by mese
+
+)
+
+select *
+from all_values
+where value_field not in (
+    '1','2','3','4','5','6','7','8','9','10','11','12'
+)
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:17.312806 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.315882 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee (execute): 14:43:17.196231 => 14:43:17.314804
+[0m14:43:17.316751 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee: ROLLBACK
+[0m14:43:17.318575 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee'
+[0m14:43:17.319587 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee: Close
+[0m14:43:17.324689 [info ] [Thread-1 (]: 13 of 27 PASS accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12  [[32mPASS[0m in 0.17s]
+[0m14:43:17.326686 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee
+[0m14:43:17.327685 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57
+[0m14:43:17.328684 [info ] [Thread-1 (]: 14 of 27 START test not_null_core_real_siope_anno .............................. [RUN]
+[0m14:43:17.330547 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.accepted_values_core_real_siope_mese__1__2__3__4__5__6__7__8__9__10__11__12.b4d80b5dee, now test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57)
+[0m14:43:17.331646 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57
+[0m14:43:17.340433 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57"
+[0m14:43:17.346142 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57 (compile): 14:43:17.332298 => 14:43:17.342278
+[0m14:43:17.347171 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57
+[0m14:43:17.351796 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57"
+[0m14:43:17.351796 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57"
+[0m14:43:17.351796 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57: BEGIN
+[0m14:43:17.351796 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:17.375140 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.376138 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57"
+[0m14:43:17.378138 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select anno
+from "warehouse"."main"."core_real_siope"
+where anno is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:17.403022 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.403022 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57 (execute): 14:43:17.347171 => 14:43:17.403022
+[0m14:43:17.403022 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57: ROLLBACK
+[0m14:43:17.403022 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57'
+[0m14:43:17.403022 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57: Close
+[0m14:43:17.418527 [info ] [Thread-1 (]: 14 of 27 PASS not_null_core_real_siope_anno .................................... [[32mPASS[0m in 0.09s]
+[0m14:43:17.418527 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57
+[0m14:43:17.418527 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327
+[0m14:43:17.418527 [info ] [Thread-1 (]: 15 of 27 START test not_null_core_real_siope_categoria ......................... [RUN]
+[0m14:43:17.418527 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_core_real_siope_anno.5be41d1a57, now test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327)
+[0m14:43:17.418527 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327
+[0m14:43:17.418527 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327"
+[0m14:43:17.418527 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327 (compile): 14:43:17.418527 => 14:43:17.418527
+[0m14:43:17.418527 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327
+[0m14:43:17.435205 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327"
+[0m14:43:17.436843 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327"
+[0m14:43:17.437772 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327: BEGIN
+[0m14:43:17.438773 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:17.456582 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.456582 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327"
+[0m14:43:17.456582 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select categoria
+from "warehouse"."main"."core_real_siope"
+where categoria is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:17.493166 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.493166 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327 (execute): 14:43:17.418527 => 14:43:17.493166
+[0m14:43:17.493166 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327: ROLLBACK
+[0m14:43:17.493166 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327'
+[0m14:43:17.493166 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327: Close
+[0m14:43:17.493166 [info ] [Thread-1 (]: 15 of 27 PASS not_null_core_real_siope_categoria ............................... [[32mPASS[0m in 0.07s]
+[0m14:43:17.493166 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327
+[0m14:43:17.493166 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7
+[0m14:43:17.493166 [info ] [Thread-1 (]: 16 of 27 START test not_null_core_real_siope_codice_belfiore ................... [RUN]
+[0m14:43:17.508791 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_core_real_siope_categoria.8f6d294327, now test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7)
+[0m14:43:17.508791 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7
+[0m14:43:17.508791 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7"
+[0m14:43:17.508791 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7 (compile): 14:43:17.508791 => 14:43:17.508791
+[0m14:43:17.508791 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7
+[0m14:43:17.518797 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7"
+[0m14:43:17.518797 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7"
+[0m14:43:17.518797 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7: BEGIN
+[0m14:43:17.518797 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:17.546573 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.548102 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7"
+[0m14:43:17.548102 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select codice_belfiore
+from "warehouse"."main"."core_real_siope"
+where codice_belfiore is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:17.574550 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.574550 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7 (execute): 14:43:17.518797 => 14:43:17.574550
+[0m14:43:17.574550 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7: ROLLBACK
+[0m14:43:17.574550 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7'
+[0m14:43:17.574550 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7: Close
+[0m14:43:17.590178 [info ] [Thread-1 (]: 16 of 27 PASS not_null_core_real_siope_codice_belfiore ......................... [[32mPASS[0m in 0.08s]
+[0m14:43:17.590178 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7
+[0m14:43:17.590178 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5
+[0m14:43:17.590178 [info ] [Thread-1 (]: 17 of 27 START test not_null_core_real_siope_denominazione_comune .............. [RUN]
+[0m14:43:17.590178 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_core_real_siope_codice_belfiore.f6ffdc0ed7, now test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5)
+[0m14:43:17.590178 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5
+[0m14:43:17.590178 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5"
+[0m14:43:17.590178 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5 (compile): 14:43:17.590178 => 14:43:17.590178
+[0m14:43:17.590178 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5
+[0m14:43:17.609327 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5"
+[0m14:43:17.610709 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5"
+[0m14:43:17.611735 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5: BEGIN
+[0m14:43:17.611735 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:17.630010 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.630010 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5"
+[0m14:43:17.630010 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select denominazione_comune
+from "warehouse"."main"."core_real_siope"
+where denominazione_comune is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:17.665638 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.665638 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5 (execute): 14:43:17.590178 => 14:43:17.665638
+[0m14:43:17.665638 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5: ROLLBACK
+[0m14:43:17.665638 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5'
+[0m14:43:17.665638 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5: Close
+[0m14:43:17.665638 [info ] [Thread-1 (]: 17 of 27 PASS not_null_core_real_siope_denominazione_comune .................... [[32mPASS[0m in 0.08s]
+[0m14:43:17.665638 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5
+[0m14:43:17.665638 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865
+[0m14:43:17.665638 [info ] [Thread-1 (]: 18 of 27 START test not_null_core_real_siope_importo_accertato ................. [RUN]
+[0m14:43:17.665638 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_core_real_siope_denominazione_comune.00f3ceb6e5, now test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865)
+[0m14:43:17.665638 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865
+[0m14:43:17.681264 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865"
+[0m14:43:17.681264 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865 (compile): 14:43:17.681264 => 14:43:17.681264
+[0m14:43:17.681264 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865
+[0m14:43:17.681264 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865"
+[0m14:43:17.681264 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865"
+[0m14:43:17.681264 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865: BEGIN
+[0m14:43:17.681264 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:17.714373 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.715372 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865"
+[0m14:43:17.716372 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select importo_accertato
+from "warehouse"."main"."core_real_siope"
+where importo_accertato is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:17.748069 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.748069 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865 (execute): 14:43:17.681264 => 14:43:17.748069
+[0m14:43:17.748069 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865: ROLLBACK
+[0m14:43:17.748069 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865'
+[0m14:43:17.748069 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865: Close
+[0m14:43:17.748069 [info ] [Thread-1 (]: 18 of 27 PASS not_null_core_real_siope_importo_accertato ....................... [[32mPASS[0m in 0.08s]
+[0m14:43:17.763696 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865
+[0m14:43:17.763696 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995
+[0m14:43:17.763696 [info ] [Thread-1 (]: 19 of 27 START test not_null_core_real_siope_importo_incassato ................. [RUN]
+[0m14:43:17.769390 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_core_real_siope_importo_accertato.d4829a7865, now test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995)
+[0m14:43:17.771106 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995
+[0m14:43:17.775674 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995"
+[0m14:43:17.782642 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995 (compile): 14:43:17.772680 => 14:43:17.775674
+[0m14:43:17.784641 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995
+[0m14:43:17.789985 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995"
+[0m14:43:17.789985 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995"
+[0m14:43:17.789985 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995: BEGIN
+[0m14:43:17.789985 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:17.810521 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.810521 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995"
+[0m14:43:17.810521 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select importo_incassato
+from "warehouse"."main"."core_real_siope"
+where importo_incassato is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:17.835165 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.835165 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995 (execute): 14:43:17.785479 => 14:43:17.835165
+[0m14:43:17.835165 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995: ROLLBACK
+[0m14:43:17.835165 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995'
+[0m14:43:17.835165 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995: Close
+[0m14:43:17.850783 [info ] [Thread-1 (]: 19 of 27 PASS not_null_core_real_siope_importo_incassato ....................... [[32mPASS[0m in 0.09s]
+[0m14:43:17.850783 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995
+[0m14:43:17.850783 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9
+[0m14:43:17.850783 [info ] [Thread-1 (]: 20 of 27 START test not_null_core_real_siope_mese .............................. [RUN]
+[0m14:43:17.850783 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_core_real_siope_importo_incassato.2fa90a6995, now test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9)
+[0m14:43:17.850783 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9
+[0m14:43:17.850783 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9"
+[0m14:43:17.850783 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9 (compile): 14:43:17.850783 => 14:43:17.850783
+[0m14:43:17.850783 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9
+[0m14:43:17.867264 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9"
+[0m14:43:17.869752 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9"
+[0m14:43:17.870753 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9: BEGIN
+[0m14:43:17.872731 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:17.897192 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.898195 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9"
+[0m14:43:17.898195 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select mese
+from "warehouse"."main"."core_real_siope"
+where mese is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:17.935305 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.935305 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9 (execute): 14:43:17.850783 => 14:43:17.935305
+[0m14:43:17.935305 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9: ROLLBACK
+[0m14:43:17.935305 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9'
+[0m14:43:17.935305 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9: Close
+[0m14:43:17.935305 [info ] [Thread-1 (]: 20 of 27 PASS not_null_core_real_siope_mese .................................... [[32mPASS[0m in 0.08s]
+[0m14:43:17.935305 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9
+[0m14:43:17.935305 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7
+[0m14:43:17.935305 [info ] [Thread-1 (]: 21 of 27 START test not_null_core_real_siope_titolo ............................ [RUN]
+[0m14:43:17.935305 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_core_real_siope_mese.3a1d0182d9, now test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7)
+[0m14:43:17.935305 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7
+[0m14:43:17.957641 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7"
+[0m14:43:17.957641 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7 (compile): 14:43:17.935305 => 14:43:17.957641
+[0m14:43:17.961848 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7
+[0m14:43:17.967888 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7"
+[0m14:43:17.970205 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7"
+[0m14:43:17.970205 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7: BEGIN
+[0m14:43:17.970205 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:17.988922 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:17.989923 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7"
+[0m14:43:17.990945 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select titolo
+from "warehouse"."main"."core_real_siope"
+where titolo is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:18.019581 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.019581 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7 (execute): 14:43:17.962977 => 14:43:18.019581
+[0m14:43:18.019581 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7: ROLLBACK
+[0m14:43:18.019581 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7'
+[0m14:43:18.019581 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7: Close
+[0m14:43:18.019581 [info ] [Thread-1 (]: 21 of 27 PASS not_null_core_real_siope_titolo .................................. [[32mPASS[0m in 0.08s]
+[0m14:43:18.019581 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7
+[0m14:43:18.019581 [debug] [Thread-1 (]: Began running node model.mini_lakehouse.mart_siope_totali_mensili
+[0m14:43:18.019581 [info ] [Thread-1 (]: 22 of 27 START sql view model main.mart_siope_totali_mensili ................... [RUN]
+[0m14:43:18.019581 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_core_real_siope_titolo.dc7e25e0e7, now model.mini_lakehouse.mart_siope_totali_mensili)
+[0m14:43:18.019581 [debug] [Thread-1 (]: Began compiling node model.mini_lakehouse.mart_siope_totali_mensili
+[0m14:43:18.039896 [debug] [Thread-1 (]: Writing injected SQL for node "model.mini_lakehouse.mart_siope_totali_mensili"
+[0m14:43:18.041895 [debug] [Thread-1 (]: Timing info for model.mini_lakehouse.mart_siope_totali_mensili (compile): 14:43:18.019581 => 14:43:18.041895
+[0m14:43:18.042929 [debug] [Thread-1 (]: Began executing node model.mini_lakehouse.mart_siope_totali_mensili
+[0m14:43:18.052804 [debug] [Thread-1 (]: Writing runtime sql for node "model.mini_lakehouse.mart_siope_totali_mensili"
+[0m14:43:18.053386 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.mart_siope_totali_mensili"
+[0m14:43:18.053386 [debug] [Thread-1 (]: On model.mini_lakehouse.mart_siope_totali_mensili: BEGIN
+[0m14:43:18.053386 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:18.074196 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.074196 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.mart_siope_totali_mensili"
+[0m14:43:18.074196 [debug] [Thread-1 (]: On model.mini_lakehouse.mart_siope_totali_mensili: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.mart_siope_totali_mensili"} */
+
+  
+  create view "warehouse"."main"."mart_siope_totali_mensili__dbt_tmp" as (
+    -- models/marts/real/mart_siope_totali_mensili.sql
+
+
+select
+    codice_belfiore,
+    denominazione_comune,
+    anno,
+    mese,
+    titolo,
+    categoria,
+    sum(importo_accertato) as totale_accertato,
+    sum(importo_incassato) as totale_incassato
+from "warehouse"."main"."core_real_siope"
+group by all
+order by anno, mese, codice_belfiore
+  );
+
+[0m14:43:18.105463 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.119469 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.mart_siope_totali_mensili"
+[0m14:43:18.119469 [debug] [Thread-1 (]: On model.mini_lakehouse.mart_siope_totali_mensili: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.mart_siope_totali_mensili"} */
+alter view "warehouse"."main"."mart_siope_totali_mensili__dbt_tmp" rename to "mart_siope_totali_mensili"
+[0m14:43:18.119469 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.119469 [debug] [Thread-1 (]: On model.mini_lakehouse.mart_siope_totali_mensili: COMMIT
+[0m14:43:18.119469 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.mart_siope_totali_mensili"
+[0m14:43:18.119469 [debug] [Thread-1 (]: On model.mini_lakehouse.mart_siope_totali_mensili: COMMIT
+[0m14:43:18.150748 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.166363 [debug] [Thread-1 (]: Using duckdb connection "model.mini_lakehouse.mart_siope_totali_mensili"
+[0m14:43:18.166363 [debug] [Thread-1 (]: On model.mini_lakehouse.mart_siope_totali_mensili: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "model.mini_lakehouse.mart_siope_totali_mensili"} */
+drop view if exists "warehouse"."main"."mart_siope_totali_mensili__dbt_backup" cascade
+[0m14:43:18.181989 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.181989 [debug] [Thread-1 (]: Timing info for model.mini_lakehouse.mart_siope_totali_mensili (execute): 14:43:18.042929 => 14:43:18.181989
+[0m14:43:18.181989 [debug] [Thread-1 (]: On model.mini_lakehouse.mart_siope_totali_mensili: Close
+[0m14:43:18.466952 [info ] [Thread-1 (]: 22 of 27 OK created sql view model main.mart_siope_totali_mensili .............. [[32mOK[0m in 0.45s]
+[0m14:43:18.482586 [debug] [Thread-1 (]: Finished running node model.mini_lakehouse.mart_siope_totali_mensili
+[0m14:43:18.482586 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c
+[0m14:43:18.482586 [info ] [Thread-1 (]: 23 of 27 START test accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12  [RUN]
+[0m14:43:18.492395 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.mini_lakehouse.mart_siope_totali_mensili, now test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c)
+[0m14:43:18.494883 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c
+[0m14:43:18.511181 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c"
+[0m14:43:18.511181 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c (compile): 14:43:18.498514 => 14:43:18.511181
+[0m14:43:18.517342 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c
+[0m14:43:18.522350 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c"
+[0m14:43:18.525094 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c"
+[0m14:43:18.526096 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c: BEGIN
+[0m14:43:18.526096 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:18.539013 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.539013 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c"
+[0m14:43:18.554642 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with all_values as (
+
+    select
+        mese as value_field,
+        count(*) as n_records
+
+    from "warehouse"."main"."mart_siope_totali_mensili"
+    group by mese
+
+)
+
+select *
+from all_values
+where value_field not in (
+    '1','2','3','4','5','6','7','8','9','10','11','12'
+)
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:18.585891 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.585891 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c (execute): 14:43:18.518343 => 14:43:18.585891
+[0m14:43:18.585891 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c: ROLLBACK
+[0m14:43:18.585891 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c'
+[0m14:43:18.585891 [debug] [Thread-1 (]: On test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c: Close
+[0m14:43:18.585891 [info ] [Thread-1 (]: 23 of 27 PASS accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12  [[32mPASS[0m in 0.10s]
+[0m14:43:18.585891 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c
+[0m14:43:18.585891 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda
+[0m14:43:18.585891 [info ] [Thread-1 (]: 24 of 27 START test not_null_mart_siope_totali_mensili_anno .................... [RUN]
+[0m14:43:18.585891 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.accepted_values_mart_siope_totali_mensili_mese__1__2__3__4__5__6__7__8__9__10__11__12.7ebfa1e38c, now test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda)
+[0m14:43:18.585891 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda
+[0m14:43:18.608240 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda"
+[0m14:43:18.608240 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda (compile): 14:43:18.585891 => 14:43:18.608240
+[0m14:43:18.608240 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda
+[0m14:43:18.617770 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda"
+[0m14:43:18.619770 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda"
+[0m14:43:18.622310 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda: BEGIN
+[0m14:43:18.622310 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:18.641039 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.642038 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda"
+[0m14:43:18.642038 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select anno
+from "warehouse"."main"."mart_siope_totali_mensili"
+where anno is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:18.658690 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.674317 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda (execute): 14:43:18.608240 => 14:43:18.674317
+[0m14:43:18.674317 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda: ROLLBACK
+[0m14:43:18.674317 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda'
+[0m14:43:18.674317 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda: Close
+[0m14:43:18.674317 [info ] [Thread-1 (]: 24 of 27 PASS not_null_mart_siope_totali_mensili_anno .......................... [[32mPASS[0m in 0.09s]
+[0m14:43:18.674317 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda
+[0m14:43:18.674317 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3
+[0m14:43:18.674317 [info ] [Thread-1 (]: 25 of 27 START test not_null_mart_siope_totali_mensili_codice_belfiore ......... [RUN]
+[0m14:43:18.674317 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_mart_siope_totali_mensili_anno.9d2dcbbcda, now test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3)
+[0m14:43:18.674317 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3
+[0m14:43:18.697213 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3"
+[0m14:43:18.701730 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3 (compile): 14:43:18.674317 => 14:43:18.700733
+[0m14:43:18.702732 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3
+[0m14:43:18.706818 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3"
+[0m14:43:18.712413 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3"
+[0m14:43:18.712413 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3: BEGIN
+[0m14:43:18.712413 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:18.731240 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.732257 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3"
+[0m14:43:18.732257 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select codice_belfiore
+from "warehouse"."main"."mart_siope_totali_mensili"
+where codice_belfiore is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:18.747893 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.763518 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3 (execute): 14:43:18.702732 => 14:43:18.763518
+[0m14:43:18.763518 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3: ROLLBACK
+[0m14:43:18.763518 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3'
+[0m14:43:18.763518 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3: Close
+[0m14:43:18.763518 [info ] [Thread-1 (]: 25 of 27 PASS not_null_mart_siope_totali_mensili_codice_belfiore ............... [[32mPASS[0m in 0.09s]
+[0m14:43:18.763518 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3
+[0m14:43:18.763518 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241
+[0m14:43:18.763518 [info ] [Thread-1 (]: 26 of 27 START test not_null_mart_siope_totali_mensili_mese .................... [RUN]
+[0m14:43:18.763518 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_mart_siope_totali_mensili_codice_belfiore.841c0db2a3, now test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241)
+[0m14:43:18.763518 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241
+[0m14:43:18.782028 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241"
+[0m14:43:18.784472 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241 (compile): 14:43:18.763518 => 14:43:18.784472
+[0m14:43:18.785475 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241
+[0m14:43:18.790752 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241"
+[0m14:43:18.792536 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241"
+[0m14:43:18.793539 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241: BEGIN
+[0m14:43:18.794539 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:18.814243 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.815444 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241"
+[0m14:43:18.815444 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select mese
+from "warehouse"."main"."mart_siope_totali_mensili"
+where mese is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:18.839096 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.854723 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241 (execute): 14:43:18.786499 => 14:43:18.839096
+[0m14:43:18.854723 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241: ROLLBACK
+[0m14:43:18.854723 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241'
+[0m14:43:18.854723 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241: Close
+[0m14:43:18.854723 [info ] [Thread-1 (]: 26 of 27 PASS not_null_mart_siope_totali_mensili_mese .......................... [[32mPASS[0m in 0.09s]
+[0m14:43:18.854723 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241
+[0m14:43:18.854723 [debug] [Thread-1 (]: Began running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4
+[0m14:43:18.854723 [info ] [Thread-1 (]: 27 of 27 START test not_null_mart_siope_totali_mensili_totale_accertato ........ [RUN]
+[0m14:43:18.854723 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.mini_lakehouse.not_null_mart_siope_totali_mensili_mese.53714a9241, now test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4)
+[0m14:43:18.854723 [debug] [Thread-1 (]: Began compiling node test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4
+[0m14:43:18.872256 [debug] [Thread-1 (]: Writing injected SQL for node "test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4"
+[0m14:43:18.874556 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4 (compile): 14:43:18.854723 => 14:43:18.873555
+[0m14:43:18.875555 [debug] [Thread-1 (]: Began executing node test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4
+[0m14:43:18.880771 [debug] [Thread-1 (]: Writing runtime sql for node "test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4"
+[0m14:43:18.882770 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4"
+[0m14:43:18.883770 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4: BEGIN
+[0m14:43:18.884770 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:43:18.904623 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.905633 [debug] [Thread-1 (]: Using duckdb connection "test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4"
+[0m14:43:18.906635 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "mini_lakehouse", "target_name": "dev", "node_id": "test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select totale_accertato
+from "warehouse"."main"."mart_siope_totali_mensili"
+where totale_accertato is null
+
+
+
+      
+    ) dbt_internal_test
+[0m14:43:18.991712 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m14:43:18.996618 [debug] [Thread-1 (]: Timing info for test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4 (execute): 14:43:18.875555 => 14:43:18.995616
+[0m14:43:18.997616 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4: ROLLBACK
+[0m14:43:19.019632 [debug] [Thread-1 (]: Failed to rollback 'test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4'
+[0m14:43:19.020633 [debug] [Thread-1 (]: On test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4: Close
+[0m14:43:19.024652 [info ] [Thread-1 (]: 27 of 27 PASS not_null_mart_siope_totali_mensili_totale_accertato .............. [[32mPASS[0m in 0.17s]
+[0m14:43:19.040279 [debug] [Thread-1 (]: Finished running node test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4
+[0m14:43:19.040279 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:43:19.055905 [debug] [MainThread]: On master: BEGIN
+[0m14:43:19.057608 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m14:43:19.089052 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m14:43:19.090051 [debug] [MainThread]: On master: COMMIT
+[0m14:43:19.090051 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:43:19.091050 [debug] [MainThread]: On master: COMMIT
+[0m14:43:19.092050 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m14:43:19.093050 [debug] [MainThread]: On master: Close
+[0m14:43:19.094064 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:43:19.094064 [debug] [MainThread]: Connection 'create_warehouse_main' was properly closed.
+[0m14:43:19.094064 [debug] [MainThread]: Connection 'list_warehouse_main_main_core' was properly closed.
+[0m14:43:19.094064 [debug] [MainThread]: Connection 'test.mini_lakehouse.not_null_mart_siope_totali_mensili_totale_accertato.5ccea46bb4' was properly closed.
+[0m14:43:19.094064 [info ] [MainThread]: 
+[0m14:43:19.094064 [info ] [MainThread]: Finished running 3 view models, 24 tests in 0 hours 0 minutes and 4.98 seconds (4.98s).
+[0m14:43:19.094064 [debug] [MainThread]: Command end result
+[0m14:43:19.136217 [info ] [MainThread]: 
+[0m14:43:19.137217 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:43:19.138217 [info ] [MainThread]: 
+[0m14:43:19.139215 [info ] [MainThread]: Done. PASS=27 WARN=0 ERROR=0 SKIP=0 TOTAL=27
+[0m14:43:19.140217 [debug] [MainThread]: Command `dbt build` succeeded at 14:43:19.140217 after 6.15 seconds
+[0m14:43:19.141969 [debug] [MainThread]: Flushing usage events
