@@ -61,6 +61,8 @@ jobs:
 
       # ────── export & python tests ──────
       - name: Export marts
+        env:
+          DUCKDB_PATH: data/warehouse/warehouse.duckdb
         run: poetry run python audit/export_marts.py
 
       - name: Run Python smoke tests
