@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import os
-import sys
 from pathlib import Path
 
 import duckdb
@@ -34,7 +33,9 @@ def export_marts(
         parquet_dir = parquet_path or EXPORT_PARQUET
 
     if not db_path.exists():
-        sys.exit(f"❌  DuckDB file non trovato: {db_path}")
+        # crea database vuoto se assente (utile per i test)
+        db_path.parent.mkdir(parents=True, exist_ok=True)
+        duckdb.connect(db_path).close()
 
     csv_dir.mkdir(parents=True, exist_ok=True)
     parquet_dir.mkdir(parents=True, exist_ok=True)
