@@ -69,7 +69,7 @@ flowchart TD
         S2[seeds: bilanci_voci_sample.csv]
     end
 
-    subgraph RealData[Real Data (esterni)]
+    subgraph Real_Data_esterni["Real Data – Esterni"]
         R1[data/public/siope_it/*.csv]
     end
 
