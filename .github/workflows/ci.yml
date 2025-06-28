@@ -11,10 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # ────── setup ──────
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Setup Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -25,49 +26,54 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
+      # ────── dbt profile & warehouse ──────
       - name: Create dbt profile for DuckDB
         run: |
           mkdir -p ~/.dbt
-          cat > ~/.dbt/profiles.yml <<EOF
+          cat > ~/.dbt/profiles.yml <<'EOF'
           mini_lakehouse:
             target: dev
             outputs:
               dev:
                 type: duckdb
-                path: data/warehouse/warehouse.duckdb
+                path: data/warehouse/warehouse.duckdb     # ← un solo path valido per locale e CI
           EOF
 
       - name: Ensure warehouse directory exists
         run: mkdir -p data/warehouse
 
-      - name: Pre-commit checks (format, lint, safety)
+      # ────── quality checks ──────
+      - name: Pre-commit (format, lint, safety)
         run: poetry run pre-commit run --all-files --show-diff-on-failure
 
-      - name: Full dbt build (clean → deps → seed → run → test)
-        working-directory: dbt
+      # ────── dbt: clean → deps → seed → run → test ──────
+      - name: Full dbt build (only simulated models)
         run: |
           poetry run dbt clean
           poetry run dbt deps
           poetry run dbt seed
-          poetry run dbt run
-          poetry run dbt test
+          # escludiamo i modelli reali perché i CSV reali non sono presenti sul runner
+          poetry run dbt run   --exclude tag:real
+          poetry run dbt test  --exclude tag:real
 
       - name: Generate dbt docs
-        working-directory: dbt
-        run: poetry run dbt docs generate
+        run: poetry run dbt docs generate --exclude tag:real
 
+      # ────── export & python tests ──────
       - name: Export marts
         run: poetry run python audit/export_marts.py
 
-      - name: Run Python smoke tests (excluding slow/interattivi)
+      - name: Run Python smoke tests
         run: poetry run pytest tests/ --ignore=tests/test_cli.py --maxfail=1 --disable-warnings
 
+      # ────── reports ──────
       - name: Generate coverage report
         run: make coverage
 
       - name: Generate Ruff JSON report
         run: make quality-report
 
+      # ────── upload artifacts (always) ──────
       - name: Upload coverage HTML report
         if: always()
         uses: actions/upload-artifact@v4
@@ -89,5 +95,6 @@ jobs:
           name: ruff-report
           path: reports/ruff.json
 
+      # ────── final make check ──────
       - name: Final Lint & format checks
         run: make check
