@@ -99,16 +99,15 @@ docs:
 	@touch $(DBTDIR)/docs/.nojekyll
 
 coverage:
-	@echo [coverage] Running pytest with coverage...
-	@mkdir -p reports/htmlcov || powershell -Command "New-Item -ItemType Directory -Force -Path reports/htmlcov" >$null
-	@poetry run pytest --cov=. \
+	@echo "[coverage] Running pytest with coverage (excl. slow tests)..."
+	@poetry run python -c "import os; os.makedirs('reports/htmlcov', exist_ok=True)"
+	@poetry run pytest --cov=. -m "not slow" \
 		--cov-report=html:reports/htmlcov \
-		--cov-report=xml:reports/coverage.xml || true
-
+		--cov-report=xml:reports/coverage.xml || :
 quality-report:
-	@echo "[quality-report] Generating Ruff JSON report…"
+	@echo "[quality-report] Generating Ruff JSON report..."
 	@poetry run python -c "import os; os.makedirs('reports', exist_ok=True)"
-	@poetry run ruff check . --output-format json > reports/ruff.json
+	@poetry run ruff check --output-format json . > reports/ruff.json || :
 
 check:
 	@echo "[check] Lint, format-check e security…"

@@ -15,3 +15,22 @@ exposures:
     tool: duckdb + parquet
     dataset_sensibile: false
   url: http://localhost:8501/bilanci
+
+- name: real_data_poc
+  type: analysis
+  description: |
+    Proof-of-concept per l'integrazione di dati pubblici reali SIOPE nel Mini Lakehouse Didattico.
+    Traccia l'uso dei modelli collegati a dati reali nel flusso di produzione.
+  depends_on:
+    - ref('stg_siope_reali')
+    - ref('core_real_siope')
+    - ref('mart_siope_totali_mensili')
+  owner:
+    name: Andrea Bozzo
+    email: andreabozzo92@gmail.com
+  maturity: low
+  meta:
+    dataset_sensibile: false
+    fonte: BDAP OpenSIOPE
+    comune_pilota: Milano
+  url: https://bdap.tesoro.it/opendata
