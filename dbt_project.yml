@@ -5,8 +5,8 @@ config-version: 2
 profile: 'mini_lakehouse'
 
 model-paths: ["dbt/models"]
-analysis-paths: ["analysis"]
-test-paths: ["tests"]
+analysis-paths: ["dbt/analysis"]
+test-paths: ["dbt/tests"]
 seed-paths: ["dbt/seeds"]
 macro-paths: ["dbt/macros"]
 snapshot-paths: ["dbt/snapshots"]
@@ -14,32 +14,10 @@ snapshot-paths: ["dbt/snapshots"]
 target-path: "target"
 clean-targets: ["target", "dbt_packages"]
 
-seeds:
-  mini_lakehouse:
-    +schema: seeds
-    +materialized: seed
-
-    bilanci_comunali_sample:
-      +column_types:
-        codice_comune: bigint
-        nome_comune: text
-        anno: bigint
-        entrate_tributarie: bigint
-        spese_correnti: bigint
-
-    bilanci_voci_sample:
-      +column_types:
-        codice_comune: bigint
-        nome_comune: text
-        anno: bigint
-        codice_siope: text
-        descrizione_siope: text
-
 models:
   staging:
     +schema: stg
     +materialized: view
-
     real:
       +tags: ["real"]
     simulated:
@@ -48,7 +26,6 @@ models:
   core:
     +schema: core
     +materialized: table
-
     real:
       +tags: ["real"]
     simulated:
@@ -57,8 +34,26 @@ models:
   marts:
     +schema: marts
     +materialized: table
-
     real:
       +tags: ["real"]
     simulated:
       +tags: ["simulated"]
+
+seeds:
+  +schema: seeds
+  +materialized: seed
+  bilanci_comunali_sample:
+    +column_types:
+      codice_comune: bigint
+      nome_comune: text
+      anno: bigint
+      entrate_tributarie: bigint
+      spese_correnti: bigint
+
+  bilanci_voci_sample:
+    +column_types:
+      codice_comune: bigint
+      nome_comune: text
+      anno: bigint
+      codice_siope: text
+      descrizione_siope: text
