@@ -62,7 +62,7 @@
 
 <!-- AUTO-SECTION:DIAGRAM -->
 
-```
+```mermaid
 flowchart TD
     subgraph Staging
         A1[stg_bilanci_comuni]
@@ -112,7 +112,7 @@ flowchart TD
 
 <!-- END-SECTION:DIAGRAM -->
 
-```
+```markdown
 📊 Descrizione del diagramma
 
 Il diagramma mostra il flusso di dati e processi all'interno del progetto dbt.
