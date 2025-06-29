@@ -1,6 +1,7 @@
 import duckdb
+import pandas as pd
 
-from audit import export_marts
+from audit import export_marts as export_marts_fn
 
 
 def test_export_marts_outputs(tmp_path, monkeypatch):
@@ -26,7 +27,7 @@ def test_export_marts_outputs(tmp_path, monkeypatch):
     parquet_path = tmp_path / "parquet"
 
     # Esegui export
-    export_marts.export_marts(csv_path=csv_path, parquet_path=parquet_path)
+    export_marts_fn(csv_path=csv_path, parquet_path=parquet_path)
 
     # Verifica che le directory siano state create
     assert csv_path.exists()
@@ -41,3 +42,8 @@ def test_export_marts_outputs(tmp_path, monkeypatch):
     # Verifica che i file non siano vuoti
     for file in csv_files + parquet_files:
         assert file.stat().st_size > 0
+
+    # Verifica il contenuto del CSV
+    df = pd.read_csv(csv_files[0])
+    assert not df.empty
+    assert "id" in df.columns
