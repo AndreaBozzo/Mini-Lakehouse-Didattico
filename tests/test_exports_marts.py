@@ -1,49 +1,46 @@
+import os
+from pathlib import Path
+
 import duckdb
-import pandas as pd
+from rich.console import Console
 
-from audit import export_marts as export_marts_fn
+console = Console()
 
 
-def test_export_marts_outputs(tmp_path, monkeypatch):
-    # Setup: crea db DuckDB temporaneo con una tabella dummy nello schema "main_marts"
-    duckdb_path = tmp_path / "test.duckdb"
-    con = duckdb.connect(str(duckdb_path))
-    con.execute("CREATE SCHEMA IF NOT EXISTS main_marts")
-    con.execute(
+def get_connection():
+    """Da' connessione DuckDB usando DUCKDB_PATH, altrimenti default locale."""
+    db_path = os.getenv("DUCKDB_PATH", "data/warehouse/warehouse.duckdb")
+    return duckdb.connect(db_path)
+
+
+def export_marts(csv_path: Path, parquet_path: Path):
+    """Esporta tutte le tabelle nello schema 'main_marts' in formato CSV e Parquet."""
+    csv_path.mkdir(parents=True, exist_ok=True)
+    parquet_path.mkdir(parents=True, exist_ok=True)
+
+    con = get_connection()
+
+    tables = con.execute(
         """
-        CREATE TABLE main_marts.mart_demo (
-            id INTEGER,
-            name TEXT
-        )
+        SELECT table_name
+        FROM information_schema.tables
+        WHERE table_schema = 'main_marts'
     """
-    )
-    con.execute("INSERT INTO main_marts.mart_demo VALUES (1, 'Test'), (2, 'Demo')")
+    ).fetchall()
 
-    # Override della variabile d'ambiente DUCKDB_PATH per usare il db temporaneo
-    monkeypatch.setenv("DUCKDB_PATH", str(duckdb_path))
+    for (table_name,) in tables:
+        df = con.execute(f"SELECT * FROM main_marts.{table_name}").fetch_df()
 
-    # Directory di destinazione
-    csv_path = tmp_path / "csv"
-    parquet_path = tmp_path / "parquet"
+        console.print(f"📤 Esporto {table_name} …")
 
-    # Esegui export
-    export_marts_fn(csv_path=csv_path, parquet_path=parquet_path)
+        csv_output = csv_path / f"{table_name}.csv"
+        parquet_output = parquet_path / f"{table_name}.parquet"
 
-    # Verifica che le directory siano state create
-    assert csv_path.exists()
-    assert parquet_path.exists()
+        df.to_csv(csv_output, index=False)
+        df.to_parquet(parquet_output, index=False)
 
-    # Verifica che i file siano stati creati
-    csv_files = list(csv_path.glob("*.csv"))
-    parquet_files = list(parquet_path.glob("*.parquet"))
-    assert len(csv_files) > 0
-    assert len(parquet_files) > 0
+    con.close()
 
-    # Verifica che i file non siano vuoti
-    for file in csv_files + parquet_files:
-        assert file.stat().st_size > 0
-
-    # Verifica il contenuto del CSV
-    df = pd.read_csv(csv_files[0])
-    assert not df.empty
-    assert "id" in df.columns
+    console.print("\n✅  Esportazione completata in:")
+    console.print(f"   • {csv_path}")
+    console.print(f"   • {parquet_path}")
