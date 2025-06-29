@@ -1,4 +1,5 @@
-{{ config(materialized='table') }}
+-- File: dbt/models/marts/simulated/agg_entrate_per_categoria.sql
+{{ config(materialized='table', schema='main_marts', contracts=true) }}
 
 with joined as (
     select
@@ -16,7 +17,7 @@ with joined as (
 select
     categoria,
     descrizione,
-    count(*)               as numero_movimenti,
+    count(*)                as numero_movimenti,
     sum(entrate_tributarie) as totale_entrate
 from joined
 group by categoria, descrizione

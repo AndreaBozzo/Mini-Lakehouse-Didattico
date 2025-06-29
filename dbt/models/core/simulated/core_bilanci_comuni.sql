@@ -1,9 +1,10 @@
+-- File: dbt/models/core/simulated/core_bilanci_comuni.sql
 {{ config(materialized='table', schema='main_core') }}
 
 SELECT
     {{ dbt_utils.generate_surrogate_key(['codice_comune', 'anno']) }} AS id_hash,
     CAST(codice_comune AS INT) AS codice_comune,
-    nome_comune,
+    CAST(nome_comune AS TEXT) AS nome_comune,
     CAST(anno AS INT) AS anno,
     CAST(entrate_tributarie AS BIGINT) AS entrate_tributarie,
     CAST(spese_correnti AS BIGINT) AS spese_correnti,

@@ -1,3 +1,4 @@
+-- File: dbt/models/marts/simulated/fact_bilanci_comunali.sql
 
 
 SELECT

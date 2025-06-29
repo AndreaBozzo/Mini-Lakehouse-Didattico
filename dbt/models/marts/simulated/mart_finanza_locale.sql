@@ -1,4 +1,5 @@
-{{ config(materialized='view') }}
+-- File: dbt/models/marts/simulated/mart_finanza_locale.sql
+{{ config(materialized='view', schema='main_marts', contracts=true) }}
 
 with bilanci as (
 
@@ -22,7 +23,6 @@ audit as (
         flag_var_spese,
         flag_saldo_negativo,
         flag_valori_nulli,
-        -- almeno una anomalia
         flag_var_entrate or flag_var_spese or flag_saldo_negativo or flag_valori_nulli as flag_anomalia
     from {{ ref('core_audit_flags') }}
 

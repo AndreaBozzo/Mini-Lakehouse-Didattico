@@ -2,7 +2,7 @@
 
 [tool.poetry]
 name = "mini-lakehouse"
-version = "0.2.0"
+version = "0.3.0"
 description = "Mini data lakehouse locale didattico con DuckDB, dbt-core, Polars e audit JSON"
 authors = ["Andrea Bozzo"]
 license = "MIT"

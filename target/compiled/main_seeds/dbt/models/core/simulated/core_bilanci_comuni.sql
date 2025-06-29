@@ -1,9 +1,10 @@
+-- File: dbt/models/core/simulated/core_bilanci_comuni.sql
 
 
 SELECT
     md5(cast(coalesce(cast(codice_comune as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(anno as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) AS id_hash,
     CAST(codice_comune AS INT) AS codice_comune,
-    nome_comune,
+    CAST(nome_comune AS TEXT) AS nome_comune,
     CAST(anno AS INT) AS anno,
     CAST(entrate_tributarie AS BIGINT) AS entrate_tributarie,
     CAST(spese_correnti AS BIGINT) AS spese_correnti,

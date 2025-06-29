@@ -1,3 +1,4 @@
+-- File: dbt/models/marts/simulated/agg_entrate_per_categoria.sql
 
 
 with joined as (
@@ -16,7 +17,7 @@ with joined as (
 select
     categoria,
     descrizione,
-    count(*)               as numero_movimenti,
+    count(*)                as numero_movimenti,
     sum(entrate_tributarie) as totale_entrate
 from joined
 group by categoria, descrizione

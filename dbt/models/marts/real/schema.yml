@@ -4,15 +4,41 @@ models:
   - name: mart_siope_totali_mensili
     description: >
       Totali mensili di accertato e incassato per titolo/categoria, comune e mese.
+    config:
+      contracts:
+        enforced: true
     columns:
       - name: codice_belfiore
+        type: string
         tests: [not_null]
+
+      - name: denominazione_comune
+        type: string
+        tests: [not_null]
+
       - name: anno
+        type: integer
         tests: [not_null]
+
       - name: mese
+        type: integer
         tests:
           - not_null
           - accepted_values:
               values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+      - name: titolo
+        type: string
+        tests: [not_null]
+
+      - name: categoria
+        type: string
+        tests: [not_null]
+
       - name: totale_accertato
+        type: double
+        tests: [not_null]
+
+      - name: totale_incassato
+        type: double
         tests: [not_null]

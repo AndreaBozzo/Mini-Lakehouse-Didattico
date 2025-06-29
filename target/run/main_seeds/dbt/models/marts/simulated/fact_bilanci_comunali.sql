@@ -7,7 +7,8 @@
       "warehouse"."main_main_marts"."fact_bilanci_comunali__dbt_tmp"
   
     as (
-      
+      -- File: dbt/models/marts/simulated/fact_bilanci_comunali.sql
+
 
 SELECT
     codice_comune,

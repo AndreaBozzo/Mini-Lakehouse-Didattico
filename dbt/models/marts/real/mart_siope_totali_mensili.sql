@@ -1,5 +1,10 @@
 -- models/marts/real/mart_siope_totali_mensili.sql
-{{ config(tags=["real"]) }}
+{{ config(
+    materialized='table',
+    schema='main_marts',
+    contracts=true,
+    tags=["real"]
+) }}
 
 select
     codice_belfiore,

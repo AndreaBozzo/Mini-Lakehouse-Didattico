@@ -3,12 +3,26 @@ version: 2
 models:
   - name: agg_entrate_per_categoria
     description: "Aggregazione delle entrate per categoria SIOPE livello 1, per anno e comune."
+    config:
+      contracts:
+        enforced: true
     columns:
-      - name: anno
-        description: "Anno di riferimento"
-      - name: id_comune_istat
-        description: "Codice ISTAT del comune"
-      - name: categoria_siope_liv1
-        description: "Categoria SIOPE di primo livello"
+      - name: categoria
+        description: "Codice categoria SIOPE (es. E1, E101, …)"
+        type: string
+        tests: [not_null]
+
+      - name: descrizione
+        description: "Descrizione categoria SIOPE"
+        type: string
+        tests: [not_null]
+
+      - name: numero_movimenti
+        description: "Numero di movimenti per questa categoria"
+        type: integer
+        tests: [not_null]
+
       - name: totale_entrate
-        description: "Totale delle entrate per categoria"
+        description: "Totale delle entrate tributarie per categoria"
+        type: double
+        tests: [not_null]

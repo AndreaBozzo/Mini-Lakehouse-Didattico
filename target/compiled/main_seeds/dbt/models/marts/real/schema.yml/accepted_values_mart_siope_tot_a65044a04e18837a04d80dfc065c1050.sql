@@ -8,7 +8,7 @@ with all_values as (
         mese as value_field,
         count(*) as n_records
 
-    from "warehouse"."main_marts"."mart_siope_totali_mensili"
+    from "warehouse"."main_main_marts"."mart_siope_totali_mensili"
     group by mese
 
 )

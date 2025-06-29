@@ -3,36 +3,39 @@ version: 2
 models:
   - name: fact_bilanci_comunali
     description: Fatti aggregati annuali per comune, con flag e indicatori di qualità.
+    config:
+      contracts:
+        enforced: true
     columns:
       - name: codice_comune
         description: Codice ISTAT del comune.
-        tests:
-          - not_null
+        tests: [not_null]
+        type: string
 
       - name: nome_comune
         description: Nome del comune.
-        tests:
-          - not_null
+        tests: [not_null]
+        type: string
 
       - name: anno
         description: Anno di riferimento.
-        tests:
-          - not_null
+        tests: [not_null]
+        type: integer
 
       - name: totale_entrate
         description: Somma annuale delle entrate tributarie.
-        tests:
-          - not_null
+        tests: [not_null]
+        type: double
 
       - name: totale_spese
         description: Somma annuale delle spese correnti.
-        tests:
-          - not_null
+        tests: [not_null]
+        type: double
 
       - name: saldo
         description: Differenza tra entrate e spese.
-        tests:
-          - not_null
+        tests: [not_null]
+        type: double
 
       - name: flag_dato_incompleto
         description: Flag booleano se mancano dati per entrate o spese.
@@ -40,8 +43,9 @@ models:
           - not_null
           - accepted_values:
               values: [true, false]
+        type: boolean
 
       - name: indicatore_affidabilita
         description: Indicatore euristico di affidabilità del dato (0-100).
-        tests:
-          - not_null
+        tests: [not_null]
+        type: double

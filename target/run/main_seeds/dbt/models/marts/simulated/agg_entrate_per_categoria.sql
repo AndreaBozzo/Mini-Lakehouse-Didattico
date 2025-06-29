@@ -4,10 +4,11 @@
     
 
     create  table
-      "warehouse"."main_marts"."agg_entrate_per_categoria__dbt_tmp"
+      "warehouse"."main_main_marts"."agg_entrate_per_categoria__dbt_tmp"
   
     as (
-      
+      -- File: dbt/models/marts/simulated/agg_entrate_per_categoria.sql
+
 
 with joined as (
     select
@@ -25,7 +26,7 @@ with joined as (
 select
     categoria,
     descrizione,
-    count(*)               as numero_movimenti,
+    count(*)                as numero_movimenti,
     sum(entrate_tributarie) as totale_entrate
 from joined
 group by categoria, descrizione
