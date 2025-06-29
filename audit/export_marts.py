@@ -42,23 +42,23 @@ def export_marts(
 
     con = duckdb.connect(db_path)
 
-    tables: list[tuple[str]] = con.execute(
+    tables: list[tuple[str, str]] = con.execute(
         """
-        SELECT table_name
+        SELECT table_schema, table_name
         FROM information_schema.tables
-        WHERE table_schema = 'main_marts'
+        WHERE table_schema LIKE 'main_marts%'
         """
     ).fetchall()
 
     if not tables:
-        print("⚠️  Nessuna tabella trovata in main_marts.")
+        print("⚠️  Nessuna tabella trovata in main_marts (real o simulated).")
     else:
-        for (table,) in tables:
-            fqn = f"main_marts.{table}"
-            csv_file = csv_dir / f"{table}.csv"
-            parquet_file = parquet_dir / f"{table}.parquet"
+        for schema, table in tables:
+            fqn = f"{schema}.{table}"
+            csv_file = csv_dir / f"{schema}__{table}.csv"
+            parquet_file = parquet_dir / f"{schema}__{table}.parquet"
 
-            print(f"📤 Esporto {table} …")
+            print(f"📤 Esporto {fqn} …")
             con.execute(f"COPY {fqn} TO '{csv_file}' (HEADER, DELIMITER ',')")
             con.execute(f"COPY {fqn} TO '{parquet_file}' (FORMAT 'parquet')")
 
