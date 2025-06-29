@@ -125,7 +125,7 @@ check:
 	poetry run ruff check .
 	poetry run black --check .
 	poetry run isort --check-only .
-	poetry run safety check || true
+	poetry run safety scan || true
 
 lint:
 	@echo "[lint] Ruff only…"
