@@ -55,8 +55,8 @@ def export_marts(
     else:
         for schema, table in tables:
             fqn = f"{schema}.{table}"
-            csv_file = csv_dir / f"{schema}__{table}.csv"
-            parquet_file = parquet_dir / f"{schema}__{table}.parquet"
+            csv_file = csv_dir / f"{table}.csv"
+            parquet_file = parquet_dir / f"{table}.parquet"
 
             print(f"📤 Esporto {fqn} …")
             con.execute(f"COPY {fqn} TO '{csv_file}' (HEADER, DELIMITER ',')")

@@ -5,6 +5,7 @@ import tempfile
 from pathlib import Path
 
 from rich.console import Console
+from typer import Exit
 
 from audit.export_marts import export_marts
 from audit.snapshot_utils import compare_snapshots, find_latest_snapshot_paths
@@ -33,7 +34,7 @@ def snapshot_test(ci_mode: bool = False):
                 "\n[bold red]❌ Nessuna snapshot precedente trovata. "
                 "Crea prima una baseline con `make snapshot-create`."
             )
-            exit(1)
+            raise Exit(1)
 
         # Confronto
         differences = compare_snapshots(tmp_csv, latest_csv_snap)
@@ -47,7 +48,7 @@ def snapshot_test(ci_mode: bool = False):
                 console.print(f"  - {diff}")
 
             if ci_mode:
-                exit(2)
+                raise Exit(2)
         else:
             console.print("\n✅ Nessuna differenza trovata nelle esportazioni.")
 

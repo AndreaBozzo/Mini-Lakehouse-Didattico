@@ -1,1 +1,449 @@
-[]
+[
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 1,
+      "row": 5
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\cli\\core.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "from cli.utils import PALETTE, console, run_step\r\n\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 5
+          },
+          "location": {
+            "column": 1,
+            "row": 3
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 3
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "noqa_row": 3,
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "F401",
+    "end_location": {
+      "column": 40,
+      "row": 3
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\cli\\core.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "from cli.utils import run_step",
+          "end_location": {
+            "column": 49,
+            "row": 3
+          },
+          "location": {
+            "column": 1,
+            "row": 3
+          }
+        }
+      ],
+      "message": "Remove unused import"
+    },
+    "location": {
+      "column": 33,
+      "row": 3
+    },
+    "message": "`cli.utils.console` imported but unused",
+    "noqa_row": 3,
+    "url": "https://docs.astral.sh/ruff/rules/unused-import"
+  },
+  {
+    "cell": null,
+    "code": "F401",
+    "end_location": {
+      "column": 49,
+      "row": 3
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\cli\\core.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "from cli.utils import run_step",
+          "end_location": {
+            "column": 49,
+            "row": 3
+          },
+          "location": {
+            "column": 1,
+            "row": 3
+          }
+        }
+      ],
+      "message": "Remove unused import"
+    },
+    "location": {
+      "column": 42,
+      "row": 3
+    },
+    "message": "`cli.utils.PALETTE` imported but unused",
+    "noqa_row": 3,
+    "url": "https://docs.astral.sh/ruff/rules/unused-import"
+  },
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 1,
+      "row": 8
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\cli\\export_utils.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "from pathlib import Path\r\nfrom typing import Dict, List\r\n\r\nimport pandas as pd\r\nimport yaml\r\n\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 8
+          },
+          "location": {
+            "column": 1,
+            "row": 3
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 3
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "noqa_row": 3,
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "F401",
+    "end_location": {
+      "column": 30,
+      "row": 6
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\cli\\export_utils.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "from typing import Dict",
+          "end_location": {
+            "column": 30,
+            "row": 6
+          },
+          "location": {
+            "column": 1,
+            "row": 6
+          }
+        }
+      ],
+      "message": "Remove unused import: `typing.List`"
+    },
+    "location": {
+      "column": 26,
+      "row": 6
+    },
+    "message": "`typing.List` imported but unused",
+    "noqa_row": 6,
+    "url": "https://docs.astral.sh/ruff/rules/unused-import"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 93,
+      "row": 10
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\cli\\export_utils.py",
+    "fix": null,
+    "location": {
+      "column": 89,
+      "row": 10
+    },
+    "message": "Line too long (92 > 88)",
+    "noqa_row": 19,
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 99,
+      "row": 39
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\cli\\export_utils.py",
+    "fix": null,
+    "location": {
+      "column": 89,
+      "row": 39
+    },
+    "message": "Line too long (98 > 88)",
+    "noqa_row": 39,
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 1,
+      "row": 16
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\cli\\pipeline.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "import os\r\nimport sys\r\nfrom pathlib import Path\r\n\r\nimport typer\r\nfrom rich.console import Console\r\nfrom rich.panel import Panel\r\nfrom rich.prompt import Confirm, Prompt\r\nfrom rich.table import Table\r\n\r\nfrom audit.snapshot_utils import compare_snapshots, find_latest_snapshot_paths\r\nfrom cli.core import audit_log, export_marts, post_checks, run_pipeline\r\nfrom cli.export_utils import validate_export_schema\r\nfrom cli.utils import PALETTE, ensure_duckdb_path_exists, run_step\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 16
+          },
+          "location": {
+            "column": 1,
+            "row": 1
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 1
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "noqa_row": 1,
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "F401",
+    "end_location": {
+      "column": 60,
+      "row": 13
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\cli\\pipeline.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "",
+          "end_location": {
+            "column": 1,
+            "row": 14
+          },
+          "location": {
+            "column": 1,
+            "row": 13
+          }
+        }
+      ],
+      "message": "Remove unused import"
+    },
+    "location": {
+      "column": 34,
+      "row": 13
+    },
+    "message": "`audit.snapshot_utils.find_latest_snapshot_paths` imported but unused",
+    "noqa_row": 13,
+    "url": "https://docs.astral.sh/ruff/rules/unused-import"
+  },
+  {
+    "cell": null,
+    "code": "F401",
+    "end_location": {
+      "column": 79,
+      "row": 13
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\cli\\pipeline.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "",
+          "end_location": {
+            "column": 1,
+            "row": 14
+          },
+          "location": {
+            "column": 1,
+            "row": 13
+          }
+        }
+      ],
+      "message": "Remove unused import"
+    },
+    "location": {
+      "column": 62,
+      "row": 13
+    },
+    "message": "`audit.snapshot_utils.compare_snapshots` imported but unused",
+    "noqa_row": 13,
+    "url": "https://docs.astral.sh/ruff/rules/unused-import"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 96,
+      "row": 53
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\cli\\pipeline.py",
+    "fix": null,
+    "location": {
+      "column": 88,
+      "row": 53
+    },
+    "message": "Line too long (96 > 88)",
+    "noqa_row": 53,
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 1,
+      "row": 8
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\cli\\utils.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "import subprocess\r\nimport sys\r\nfrom pathlib import Path\r\n\r\nfrom rich.console import Console\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 8
+          },
+          "location": {
+            "column": 1,
+            "row": 3
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 3
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "noqa_row": 3,
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 1,
+      "row": 8
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\tests\\test_cli.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "import os\r\nfrom pathlib import Path\r\nfrom unittest.mock import patch\r\n\r\nimport pytest\r\nfrom typer.testing import CliRunner\r\n\r\nfrom cli.pipeline import app\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 8
+          },
+          "location": {
+            "column": 1,
+            "row": 1
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 1
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "noqa_row": 1,
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 1,
+      "row": 12
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\tests\\test_export_utils.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "import tempfile\r\nfrom pathlib import Path\r\n\r\nimport pandas as pd\r\nimport pytest\r\nimport yaml\r\n\r\nfrom cli.export_utils import parse_dbt_schema, validate_export_schema\r\n\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 12
+          },
+          "location": {
+            "column": 1,
+            "row": 3
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 3
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "noqa_row": 3,
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "F401",
+    "end_location": {
+      "column": 14,
+      "row": 6
+    },
+    "filename": "C:\\Users\\Andrea\\Documents\\Mini Lakehouse Didattico\\tests\\test_export_utils.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "",
+          "end_location": {
+            "column": 1,
+            "row": 7
+          },
+          "location": {
+            "column": 1,
+            "row": 6
+          }
+        }
+      ],
+      "message": "Remove unused import: `pytest`"
+    },
+    "location": {
+      "column": 8,
+      "row": 6
+    },
+    "message": "`pytest` imported but unused",
+    "noqa_row": 6,
+    "url": "https://docs.astral.sh/ruff/rules/unused-import"
+  }
+]

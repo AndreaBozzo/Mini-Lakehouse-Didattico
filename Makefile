@@ -15,9 +15,9 @@ DBT_CLEAN    = poetry run dbt clean --project-dir $(DBTDIR) --profiles-dir $(PRO
 # Default target
 .DEFAULT_GOAL := help
 
-.PHONY: help install deps seed run test dbt-clean build export-marts audit-log \
-        snapshot-create docs coverage quality-report check lint format all \
-        cli ci-pipeline activate clean update-readme
+.PHONY: help install deps seed run test dbt-clean build export-marts export-script audit-log \
+        snapshot-create snapshot-test docs coverage quality-report check lint format all \
+        cli ci-pipeline activate clean update-readme test-cli
 
 # ──────────────────────────────────────────────────────────────────────────────
 help:
@@ -31,7 +31,8 @@ help:
 	@echo "  make test              → dbt test"
 	@echo "  make dbt-clean         → dbt clean + rimozione manuale"
 	@echo "  make build             → clean → deps → seed → run → test"
-	@echo "  make export-marts      → esporta marts via script Python"
+	@echo "  make export-marts      → esporta marts via CLI Typer"
+	@echo "  make export-script     → esporta marts via script Python diretto"
 	@echo "  make audit-log         → esegue audit_log.py"
 	@echo "  make snapshot-create 	→ salva esportazioni reali come snapshot baseline"
 	@echo "  make snapshot-test   	→ confronta esportazioni con ultima snapshot"
@@ -41,7 +42,8 @@ help:
 	@echo "  make check             → ruff, black, isort, safety"
 	@echo "  make lint              → solo ruff"
 	@echo "  make format            → black, isort, ruff --fix"
-	@echo "  make all               → build → export-marts → audit-log → docs → check"
+	@echo "  make test-cli          → solo test CLI (esclude slow)"
+	@echo "  make all               → ci-pipeline → snapshot-test → docs → check"
 	@echo "  make cli               → pipeline interattiva (typer)"
 	@echo "  make ci-pipeline       → pipeline in modalità CI"
 	@echo "  make activate          → mostra path venv Poetry"
@@ -87,7 +89,11 @@ build: dbt-clean deps seed run test
 	@echo "[build] ✅ Build completo."
 
 export-marts:
-	@echo "[export-marts] Esportazione dati marts…"
+	@echo "[export-marts] Esportazione dati marts (via Typer CLI)…"
+	poetry run python -m cli.pipeline export --real-data
+
+export-script:
+	@echo "[export-script] Esportazione dati marts (script diretto)…"
 	poetry run python audit/export_marts.py
 
 audit-log:
@@ -138,6 +144,10 @@ format:
 	ruff format .
 	ruff check . --fix --show-fixes
 
+test-cli:
+	@echo "[test-cli] Test CLI rapidi (esclude slow)…"
+	@poetry run pytest tests/test_cli.py -m "not slow"
+
 cli:
 	@echo "[cli] Avvio pipeline interattiva…"
 	poetry run python cli/pipeline.py interactive
@@ -145,6 +155,13 @@ cli:
 ci-pipeline:
 	@echo "[ci-pipeline] Avvio pipeline CI…"
 	poetry run python cli/pipeline.py ci-mode
+
+all:
+	@echo "[all] Esecuzione completa: ci-pipeline + snapshot-test + docs + check"
+	$(MAKE) ci-pipeline
+	$(MAKE) snapshot-test
+	$(MAKE) docs
+	$(MAKE) check
 
 activate:
 	@echo "[activate] Poetry venv path…"

@@ -30,6 +30,7 @@ typer = "^0.12.3"
 
 # Dev/Notebook
 jupyter = "*"
+questionary = "^2.1.0"
 
 
 [tool.poetry.group.dev.dependencies]

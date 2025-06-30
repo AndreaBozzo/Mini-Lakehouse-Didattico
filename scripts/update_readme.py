@@ -14,7 +14,7 @@ README_PATH = Path("README.md")
 SECTIONS = {
     "DIAGRAM": Path("docs/architecture.mmd"),
     "STRUCTURE": "TREE",
-    # "CHANGELOG": "GIT",  # opzionale in futuro
+    "CHANGELOG": "GIT",  # opzionale in futuro
 }
 
 
