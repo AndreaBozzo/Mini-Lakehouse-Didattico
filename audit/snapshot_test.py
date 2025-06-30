@@ -7,7 +7,7 @@ from pathlib import Path
 from rich.console import Console
 from typer import Exit
 
-from audit.export_marts import export_marts
+from audit.export_marts import export_marts_all
 from audit.snapshot_utils import compare_snapshots, find_latest_snapshot_paths
 
 console = Console()
@@ -21,7 +21,7 @@ def snapshot_test(ci_mode: bool = False):
         tmp_parquet = Path(tmp_dir) / "parquet"
 
         # Esportazione corrente
-        export_marts(csv_path=tmp_csv, parquet_path=tmp_parquet)
+        export_marts_all(csv_path=tmp_csv, parquet_path=tmp_parquet)
 
         console.print("\n✅  Esportazione completata in:")
         console.print(f"   • {tmp_csv}")

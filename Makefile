@@ -177,7 +177,7 @@ activate:
 
 clean:
 	@echo "[clean] Rimozione cache locali…"
-	@rm -rf __pycache__ .ruff_cache .pytest_cache .mypy_cache .venv .dbt_modules export reports
+	@rm -rf __pycache__ .ruff_cache .pytest_cache .mypy_cache .venv .dbt_modules
 
 update-readme:
 	poetry run python scripts/update_readme.py
