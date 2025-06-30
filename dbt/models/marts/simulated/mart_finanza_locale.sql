@@ -1,5 +1,5 @@
 -- File: dbt/models/marts/simulated/mart_finanza_locale.sql
-{{ config(materialized='view', schema='main_marts', contracts=true) }}
+{{ config(materialized='view', contracts=true, tags=["simulated"]) }}
 
 with bilanci as (
 

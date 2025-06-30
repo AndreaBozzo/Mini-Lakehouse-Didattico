@@ -88,8 +88,12 @@ endif
 build: dbt-clean deps seed run test
 	@echo "[build] ✅ Build completo."
 
-export-marts:
-	@echo "[export-marts] Esportazione dati marts (via Typer CLI)…"
+export-marts-simulated:
+	@echo "[export-marts] Esportazione dati simulated (via Typer CLI)…"
+	poetry run python -m cli.pipeline export --simulated-data
+
+export-marts-real:
+	@echo "[export-marts] Esportazione dati real (via Typer CLI)…"
 	poetry run python -m cli.pipeline export --real-data
 
 export-script:

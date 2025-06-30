@@ -1,5 +1,10 @@
 -- models/core/real/core_real_siope.sql
-{{ config(tags=["real"]) }}
+{{ config(
+    materialized='table',
+    schema='core',
+    tags=["real"],
+    contracts=true
+) }}
 with base as (
     select *
     from {{ ref('stg_siope_real') }}

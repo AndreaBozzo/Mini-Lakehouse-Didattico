@@ -3,6 +3,8 @@ version: 2
 models:
   - name: core_bilanci_comuni
     description: Dataset core con i bilanci comunali standardizzati.
+    config:
+      tags: ["simulated"]
     columns:
       - name: id_hash
         description: Chiave surrogata generata da codice_comune + anno.
@@ -12,28 +14,23 @@ models:
 
       - name: codice_comune
         description: Codice ISTAT del comune.
-        tests:
-          - not_null
+        tests: [not_null]
 
       - name: nome_comune
         description: Nome del comune.
-        tests:
-          - not_null
+        tests: [not_null]
 
       - name: anno
         description: Anno di riferimento.
-        tests:
-          - not_null
+        tests: [not_null]
 
       - name: entrate_tributarie
         description: Totale entrate tributarie.
-        tests:
-          - not_null
+        tests: [not_null]
 
       - name: spese_correnti
         description: Totale spese correnti.
-        tests:
-          - not_null
+        tests: [not_null]
 
       - name: flag_dato_incompleto
         description: Flag booleano che indica la presenza di dati mancanti per entrate o spese.
@@ -44,5 +41,29 @@ models:
 
       - name: indicatore_affidabilita
         description: Indicatore euristico di affidabilità del dato (0-100).
-        tests:
-          - not_null
+        tests: [not_null]
+
+  - name: core_movimenti_bilancio
+    description: Mapping delle voci di bilancio a codici SIOPE.
+    config:
+      tags: ["simulated"]
+    columns:
+      - name: codice_comune
+        description: Codice ISTAT del comune.
+        tests: [not_null]
+
+      - name: nome_comune
+        description: Nome del comune.
+        tests: [not_null]
+
+      - name: anno
+        description: Anno di bilancio.
+        tests: [not_null]
+
+      - name: tipologia
+        description: Codice SIOPE.
+        tests: [not_null]
+
+      - name: descrizione
+        description: Descrizione SIOPE.
+        tests: [not_null]

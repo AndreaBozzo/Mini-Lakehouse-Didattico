@@ -1,5 +1,5 @@
 -- File: dbt/models/marts/simulated/fact_bilanci_comunali.sql
-{{ config(materialized='table', schema='main_marts', contracts=true) }}
+{{ config(materialized='table', contracts=true, tags=["simulated"]) }}
 
 SELECT
     codice_comune,

@@ -15,35 +15,39 @@ clean-targets: ["target", "dbt_packages"]
 
 models:
   mini_lakehouse:
+
     staging:
+      +materialized: view
+
       real:
         +schema: stg_real
         +tags: ["real"]
-        +materialized: view
+
       simulated:
         +schema: stg_simulated
         +tags: ["simulated"]
-        +materialized: view
 
     core:
+      +materialized: table
+
       real:
         +schema: core_real
         +tags: ["real"]
-        +materialized: table
+
       simulated:
         +schema: core_simulated
         +tags: ["simulated"]
-        +materialized: table
 
     marts:
+      +materialized: table
+
       real:
-        +schema: main_marts_real
+        +schema: marts_real
         +tags: ["real"]
-        +materialized: table
+
       simulated:
-        +schema: main_marts_simulated
+        +schema: marts_simulated
         +tags: ["simulated"]
-        +materialized: table
 
 seeds:
   mini_lakehouse:

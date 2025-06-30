@@ -1,5 +1,10 @@
 -- models/staging/real/stg_siope_real.sql
-{{ config(tags=["real"]) }}
+{{ config(
+    materialized='view',
+    schema='stg',
+    tags=["real"],
+    contracts=true
+) }}
 with source as (
     select *
     from read_csv_auto('data/public/siope_it/milano/2016.csv', delim=';', header=True)

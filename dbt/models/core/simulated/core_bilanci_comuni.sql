@@ -1,5 +1,5 @@
 -- File: dbt/models/core/simulated/core_bilanci_comuni.sql
-{{ config(materialized='table', schema='main_core') }}
+{{ config(materialized='table', schema='main_core', tags=["simulated"]) }}
 
 SELECT
     {{ dbt_utils.generate_surrogate_key(['codice_comune', 'anno']) }} AS id_hash,

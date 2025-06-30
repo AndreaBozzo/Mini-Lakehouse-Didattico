@@ -22,3 +22,22 @@ models:
       - name: saldo
         description: "Entrate - Spese"
         tests: [not_null]
+
+  - name: stg_movimenti_bilancio
+    description: "Staging delle voci SIOPE per comune e anno"
+    columns:
+      - name: codice_comune
+        description: "Codice ISTAT del comune"
+        tests: [not_null]
+      - name: nome_comune
+        description: "Nome del comune"
+        tests: [not_null]
+      - name: anno
+        description: "Anno di bilancio"
+        tests: [not_null]
+      - name: codice_siope
+        description: "Codice SIOPE voce"
+        tests: [not_null]
+      - name: descrizione_siope
+        description: "Descrizione voce"
+        tests: [not_null]
