@@ -50,7 +50,7 @@ jobs:
 
       # ────── generate & publish dbt docs (to ./docs) ──────
       - name: Generate dbt docs
-        run: poetry run dbt docs generate --target-path docs --docs-path docs
+        run: poetry run dbt docs generate --select tag:real --target-path docs --docs-path docs
 
       - name: Publish dbt docs to GitHub Pages
         if: success()

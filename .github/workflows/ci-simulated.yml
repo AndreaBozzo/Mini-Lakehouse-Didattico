@@ -7,7 +7,7 @@ on:
     branches: [main, release/v0.3.0]
 
 jobs:
-  ci:
+  ci-simulated:
     runs-on: ubuntu-latest
 
     steps:
@@ -52,20 +52,19 @@ jobs:
           poetry run dbt clean
           poetry run dbt deps
           poetry run dbt seed
-          # Eseguiamo solo i modelli con tag:simulated (escludendo real)
-          poetry run dbt run   --exclude tag:real
-          poetry run dbt test  --exclude tag:real
+          poetry run dbt run --select tag:simulated
+          poetry run dbt test --select tag:simulated
 
       - name: Generate dbt docs (simulated only)
-        run: poetry run dbt docs generate --exclude tag:real
+        run: poetry run dbt docs generate --select tag:simulated
 
-      # ────── export & python tests ──────
+      # ────── export & snapshot check ──────
       - name: Full simulated pipeline (run + export + audit)
         env:
           DUCKDB_PATH: data/warehouse/warehouse.duckdb
-        run: poetry run python -m cli.pipeline ci-mode
+        run: poetry run python -m cli.pipeline ci-pipeline
 
-
+      # ────── Python smoke tests ──────
       - name: Run Python smoke tests
         run: poetry run pytest tests/ --ignore=tests/test_cli.py --maxfail=1 --disable-warnings
 
@@ -98,6 +97,6 @@ jobs:
           name: ruff-report
           path: reports/ruff.json
 
-      # ────── final make check ──────
+      # ────── final lint check ──────
       - name: Final Lint & format checks
         run: make check
