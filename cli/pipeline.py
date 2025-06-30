@@ -81,17 +81,17 @@ def audit(ci_mode: bool = False):
 
 
 @app.command()
-def ci_mode(real_data: bool = False):
-    """Esegue l'intera pipeline in modalità CI."""
-    console.print(Panel.fit("> Esecuzione in modalità CI"))
+def ci_mode():
+    """Esegue l'intera pipeline CI su dati simulati (modelli taggati simulated)."""
+    console.print(Panel.fit("> Esecuzione CI (Simulated Data)"))
     ensure_duckdb_path_exists()
 
     run_step("dbt clean", "poetry run dbt clean")
     run_step("dbt deps", "poetry run dbt deps")
     run_step("dbt seed", "poetry run dbt seed")
 
-    run_pipeline(real_data=real_data, ci_mode=True)
-    export_marts(real_data=real_data, ci_mode=True)
+    run_pipeline(real_data=False, ci_mode=True)
+    export_marts(real_data=False, ci_mode=True)
     audit_log(ci_mode=True)
     post_checks()
 

@@ -8,9 +8,11 @@ on:
 
 jobs:
   ci-simulated:
+    name: Run Simulated Data CI Pipeline
     runs-on: ubuntu-latest
 
     steps:
+      # ────── setup ambiente Python + repo ──────
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -25,6 +27,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
+      # ────── dbt profile + warehouse dir ──────
       - name: Create dbt profile for DuckDB
         run: |
           mkdir -p ~/.dbt
@@ -40,20 +43,32 @@ jobs:
       - name: Ensure warehouse directory exists
         run: mkdir -p data/warehouse
 
-      - name: Run full CI pipeline (simulated only)
+      # ────── qualità codice ──────
+      - name: Pre-commit (format, lint, safety)
+        run: poetry run pre-commit run --all-files --show-diff-on-failure
+
+      # ────── CI Pipeline su dati simulati ──────
+      - name: Run full CI pipeline (simulated)
         env:
           DUCKDB_PATH: data/warehouse/warehouse.duckdb
         run: poetry run python -m cli.pipeline ci-mode
 
+      # ────── Python smoke tests ──────
       - name: Run Python smoke tests
         run: poetry run pytest tests/ --ignore=tests/test_cli.py --maxfail=1 --disable-warnings
 
+      # ────── Snapshot check ──────
+      - name: Snapshot check
+        run: poetry run python -m cli.pipeline snapshot
+
+      # ────── Report copertura e qualità ──────
       - name: Generate coverage report
         run: make coverage
 
       - name: Generate Ruff JSON report
         run: make quality-report
 
+      # ────── Upload artefatti (copertura, ruff) ──────
       - name: Upload coverage HTML report
         if: always()
         uses: actions/upload-artifact@v4
@@ -75,5 +90,6 @@ jobs:
           name: ruff-report
           path: reports/ruff.json
 
+      # ────── final lint check (ridondanza difensiva) ──────
       - name: Final Lint & format checks
         run: make check
