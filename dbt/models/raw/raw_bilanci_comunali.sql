@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='view', schema='main_raw', tags=['simulated']) }}
 
 SELECT
   codice_comune,
