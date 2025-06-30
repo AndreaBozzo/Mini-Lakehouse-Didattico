@@ -1,4 +1,4 @@
-name: 'main_seeds'
+name: 'mini_lakehouse'
 version: '1.0'
 config-version: 2
 
@@ -11,11 +11,10 @@ seed-paths: ["dbt/seeds"]
 macro-paths: ["dbt/macros"]
 snapshot-paths: ["snapshots"]
 
-target-path: "target"
 clean-targets: ["target", "dbt_packages"]
 
 models:
-  main_seeds:
+  mini_lakehouse:
     staging:
       +schema: stg
       +materialized: view
@@ -44,7 +43,7 @@ models:
         +tags: ["simulated"]
 
 seeds:
-  main_seeds:
+  mini_lakehouse:
     +schema: seeds
     +materialized: seed
 

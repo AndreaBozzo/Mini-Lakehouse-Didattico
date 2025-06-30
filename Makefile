@@ -109,10 +109,13 @@ snapshot-test:
 	poetry run python -m audit.snapshot_test
 
 docs:
-	@echo "[docs] Generazione documentazione dbt…"
-	poetry run dbt docs generate --project-dir $(DBTDIR) --profiles-dir $(PROFILESDIR)
+	@echo "[docs] Generazione documentazione dbt (in ./docs)…"
+	poetry run dbt docs generate \
+		--project-dir $(DBTDIR) \
+		--profiles-dir $(PROFILESDIR) \
+		--target-path docs
 	@echo "[docs] Disabilitazione Jekyll per GitHub Pages…"
-	@touch $(DBTDIR)/docs/.nojekyll
+	@touch docs/.nojekyll
 
 coverage:
 	@echo "[coverage] Running pytest with coverage (excl. slow tests)..."

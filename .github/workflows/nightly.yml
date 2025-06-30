@@ -1,0 +1,71 @@
+name: Nightly Real Data
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Ogni notte alle 2:00 UTC
+  workflow_dispatch:     # Trigger manuale opzionale
+
+jobs:
+  nightly:
+    name: Run Nightly Real Data Pipeline
+    runs-on: ubuntu-latest
+
+    steps:
+      # ────── setup ──────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Install dependencies
+        run: poetry install
+
+      # ────── dbt profile & warehouse ──────
+      - name: Create dbt profile for DuckDB
+        run: |
+          mkdir -p ~/.dbt
+          cat > ~/.dbt/profiles.yml <<'EOF'
+          mini_lakehouse:
+            target: dev
+            outputs:
+              dev:
+                type: duckdb
+                path: data/warehouse/warehouse.duckdb
+          EOF
+
+      - name: Ensure warehouse directory exists
+        run: mkdir -p data/warehouse
+
+      # ────── run full pipeline (real data) ──────
+      - name: Run full pipeline (real data)
+        env:
+          DUCKDB_PATH: data/warehouse/warehouse.duckdb
+        run: poetry run python cli/pipeline.py ci-mode --real-data
+
+      # ────── generate & publish dbt docs (to ./docs) ──────
+      - name: Generate dbt docs
+        run: poetry run dbt docs generate --target-path docs --docs-path docs
+
+      - name: Publish dbt docs to GitHub Pages
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+
+      # ────── cleanup ──────
+      - name: Cleanup temporary data
+        run: |
+          rm -rf .pytest_cache || true
+          rm -rf data/public/tmp || true
+          rm -rf exports/tmp || true
+
+      # ────── final log ──────
+      - name: Log run summary
+        run: echo "✅ Esecuzione nightly completata il $(date)"

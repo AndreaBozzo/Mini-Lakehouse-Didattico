@@ -33,7 +33,7 @@ def parse_dbt_schema(schema_path: Path) -> Dict[str, Dict]:
             col_name = col["name"]
             if "type" not in col:
                 raise ValueError(
-                    f"Colonna '{col.get('name', '?')}' in model '{name}' no 'type'"
+                    f"Colonna '{col_name}' in model '{name}' è priva di 'type'"
                 )
             col_type = col["type"]
             columns[col_name] = col_type

@@ -1,4 +1,4 @@
-name: CI
+name: CI Simulated
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
             outputs:
               dev:
                 type: duckdb
-                path: data/warehouse/warehouse.duckdb     # ← un solo path valido per locale e CI
+                path: data/warehouse/warehouse.duckdb
           EOF
 
       - name: Ensure warehouse directory exists
@@ -46,24 +46,24 @@ jobs:
       - name: Pre-commit (format, lint, safety)
         run: poetry run pre-commit run --all-files --show-diff-on-failure
 
-      # ────── dbt: clean → deps → seed → run → test ──────
+      # ────── dbt: clean → deps → seed → run → test (simulated only) ──────
       - name: Full dbt build (only simulated models)
         run: |
           poetry run dbt clean
           poetry run dbt deps
           poetry run dbt seed
-          # escludiamo i modelli reali perché i CSV reali non sono presenti sul runner
+          # Eseguiamo solo i modelli con tag:simulated (escludendo real)
           poetry run dbt run   --exclude tag:real
           poetry run dbt test  --exclude tag:real
 
-      - name: Generate dbt docs
+      - name: Generate dbt docs (simulated only)
         run: poetry run dbt docs generate --exclude tag:real
 
       # ────── export & python tests ──────
-      - name: Export marts
+      - name: Export marts (simulated only)
         env:
           DUCKDB_PATH: data/warehouse/warehouse.duckdb
-        run: poetry run python audit/export_marts.py
+        run: poetry run python cli/pipeline.py export --ci-mode
 
       - name: Run Python smoke tests
         run: poetry run pytest tests/ --ignore=tests/test_cli.py --maxfail=1 --disable-warnings
