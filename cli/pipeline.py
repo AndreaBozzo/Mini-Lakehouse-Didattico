@@ -86,6 +86,10 @@ def ci_mode(real_data: bool = False):
     console.print(Panel.fit("> Esecuzione in modalità CI"))
     ensure_duckdb_path_exists()
 
+    run_step("dbt clean", "poetry run dbt clean")
+    run_step("dbt deps", "poetry run dbt deps")
+    run_step("dbt seed", "poetry run dbt seed")
+
     run_pipeline(real_data=real_data, ci_mode=True)
     export_marts(real_data=real_data, ci_mode=True)
     audit_log(ci_mode=True)

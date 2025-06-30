@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ────── setup ──────
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -26,7 +25,6 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
-      # ────── dbt profile & warehouse ──────
       - name: Create dbt profile for DuckDB
         run: |
           mkdir -p ~/.dbt
@@ -42,40 +40,20 @@ jobs:
       - name: Ensure warehouse directory exists
         run: mkdir -p data/warehouse
 
-      # ────── quality checks ──────
-      - name: Pre-commit (format, lint, safety)
-        run: poetry run pre-commit run --all-files --show-diff-on-failure
-
-      # ────── dbt: clean → deps → seed → run → test (simulated only) ──────
-      - name: Full dbt build (only simulated models)
-        run: |
-          poetry run dbt clean
-          poetry run dbt deps
-          poetry run dbt seed
-          poetry run dbt run --select tag:simulated
-          poetry run dbt test --select tag:simulated
-
-      - name: Generate dbt docs (simulated only)
-        run: poetry run dbt docs generate --select tag:simulated
-
-      # ────── export & snapshot check ──────
-      - name: Full simulated pipeline (run + export + audit)
+      - name: Run full CI pipeline (simulated only)
         env:
           DUCKDB_PATH: data/warehouse/warehouse.duckdb
-        run: poetry run python -m cli.pipeline ci-mode --simulated-data
+        run: poetry run python -m cli.pipeline ci-mode
 
-      # ────── Python smoke tests ──────
       - name: Run Python smoke tests
         run: poetry run pytest tests/ --ignore=tests/test_cli.py --maxfail=1 --disable-warnings
 
-      # ────── reports ──────
       - name: Generate coverage report
         run: make coverage
 
       - name: Generate Ruff JSON report
         run: make quality-report
 
-      # ────── upload artifacts (always) ──────
       - name: Upload coverage HTML report
         if: always()
         uses: actions/upload-artifact@v4
@@ -97,6 +75,5 @@ jobs:
           name: ruff-report
           path: reports/ruff.json
 
-      # ────── final lint check ──────
       - name: Final Lint & format checks
         run: make check
