@@ -8,14 +8,6 @@ import yaml
 def parse_dbt_schema(schema_path: Path) -> Dict[str, Dict]:
     """
     Estrae metadati da uno schema.yml dbt: colonne, tipi, chiavi primarie per modello.
-    Ritorna un dizionario:
-    {
-        'nome_modello': {
-            'columns': {'nome_col': 'tipo', ...},
-            'primary_key': ['col1', 'col2']
-        },
-        ...
-    }
     """
     with schema_path.open("r", encoding="utf-8") as f:
         content = yaml.safe_load(f)
@@ -54,34 +46,46 @@ def normalize_model_name(name: str) -> str:
     """
     Rimuove prefissi comuni dai nomi modello per facilitarne il matching con i file CSV.
     """
-    name = name.replace("main_marts__", "")  # rimozione prefisso file
-    return name
+    return name.replace("main_marts__", "")
 
 
-def validate_export_schema(csv_path: Path, schema_path: Path) -> bool:
+def find_all_schema_files(base_dir: Path) -> list[Path]:
     """
-    Confronta uno CSV esportato con il relativo schema dbt.
-    Verifica che tutte le colonne siano presenti e del tipo atteso.
-    Ritorna True se valido, False altrimenti.
+    Trova tutti gli schema.yml all'interno di base_dir ricorsivamente.
     """
-    schema_info = parse_dbt_schema(schema_path)
+    return list(base_dir.rglob("schema.yml"))
+
+
+def validate_export_schema(csv_path: Path, base_models_dir: Path) -> bool:
+    """
+    Valida lo schema di un file CSV confrontandolo con tutti gli schema.yml trovati.
+    """
+    all_schema_files = find_all_schema_files(base_models_dir)
+
+    all_schema_info = {}
+    for path in all_schema_files:
+        try:
+            parsed = parse_dbt_schema(path)
+            all_schema_info.update(parsed)
+        except Exception as e:
+            print(f"⚠️ Errore parsing {path}: {e}")
+
     csv_name = normalize_model_name(csv_path.stem)
 
-    # Match flessibile: anche se in schema è scritto con o senza schema
     matches = [
         info
-        for name, info in schema_info.items()
+        for name, info in all_schema_info.items()
         if name == csv_name or normalize_model_name(name) == csv_name
     ]
 
     if not matches:
-        print(f"⚠️ Nessuno schema trovato per {csv_path.stem} in {schema_path.name}")
+        print(f"⚠️ Nessuno schema trovato per {csv_path.stem}")
         return False
 
     expected = matches[0]
     expected_cols = set(expected["columns"].keys())
 
-    df = pd.read_csv(csv_path, nrows=5)  # Caricamento parziale per performance
+    df = pd.read_csv(csv_path, nrows=5)
     actual_cols = set(df.columns)
 
     missing = expected_cols - actual_cols

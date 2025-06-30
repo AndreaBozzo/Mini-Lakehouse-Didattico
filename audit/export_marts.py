@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+from typing import Collection
 
 import duckdb
 
@@ -12,28 +13,17 @@ _DEFAULT_DB = Path("data/warehouse/warehouse.duckdb")
 DB_PATH = Path(os.getenv("DUCKDB_PATH", _DEFAULT_DB))
 
 
-def export_marts(
-    db_path: Path = DB_PATH,
+def export_schemas(
+    db_path: Path,
+    schemas: Collection[str],
     *,
-    # nuovi parametri “ufficiali”
-    csv_dir: Path | None = None,
-    parquet_dir: Path | None = None,
-    # alias legacy per compatibilità test / script vecchi
-    csv_path: Path | None = None,
-    parquet_path: Path | None = None,
+    csv_dir: Path = EXPORT_CSV,
+    parquet_dir: Path = EXPORT_PARQUET,
 ) -> None:
     """
-    Esporta tutte le tabelle nello schema `main_marts`
-    in CSV (HEADER) e Parquet.
+    Esporta tutte le tabelle nei `schemas` indicati in CSV (HEADER) e Parquet.
     """
-    # compatibilità: se qualcuno passa ancora csv_path/parquet_path li usiamo
-    if csv_dir is None:
-        csv_dir = csv_path or EXPORT_CSV
-    if parquet_dir is None:
-        parquet_dir = parquet_path or EXPORT_PARQUET
-
     if not db_path.exists():
-        # crea database vuoto se assente (utile per i test)
         db_path.parent.mkdir(parents=True, exist_ok=True)
         duckdb.connect(db_path).close()
 
@@ -42,16 +32,17 @@ def export_marts(
 
     con = duckdb.connect(db_path)
 
-    tables: list[tuple[str, str]] = con.execute(
-        """
+    # Genera query con filtri dinamici su schema
+    placeholders = ", ".join(["?"] * len(schemas))
+    query = f"""
         SELECT table_schema, table_name
         FROM information_schema.tables
-        WHERE table_schema LIKE 'main_marts%'
-        """
-    ).fetchall()
+        WHERE table_schema IN ({placeholders})
+    """
+    tables: list[tuple[str, str]] = con.execute(query, schemas).fetchall()
 
     if not tables:
-        print("⚠️  Nessuna tabella trovata in main_marts (real o simulated).")
+        print(f"⚠️  Nessuna tabella trovata negli schemi: {', '.join(schemas)}")
     else:
         for schema, table in tables:
             fqn = f"{schema}.{table}"
@@ -71,5 +62,13 @@ def export_marts(
     con.close()
 
 
+def export_marts_simulated() -> None:
+    export_schemas(DB_PATH, schemas=["marts_simulated"])
+
+
+def export_marts_real() -> None:
+    export_schemas(DB_PATH, schemas=["marts_real"])
+
+
 if __name__ == "__main__":  # pragma: no cover
-    export_marts()
+    export_marts_simulated()
