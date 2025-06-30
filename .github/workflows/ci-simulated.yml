@@ -62,7 +62,7 @@ jobs:
       - name: Full simulated pipeline (run + export + audit)
         env:
           DUCKDB_PATH: data/warehouse/warehouse.duckdb
-        run: poetry run python -m cli.pipeline ci-pipeline
+        run: poetry run python -m cli.pipeline ci-mode --simulated-data
 
       # ────── Python smoke tests ──────
       - name: Run Python smoke tests
