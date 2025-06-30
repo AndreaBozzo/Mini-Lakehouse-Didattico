@@ -1,5 +1,5 @@
 -- File: dbt/models/audit/mart_audit_log.sql
-{{ config(materialized='view', schema='main_marts_simulated', tags=["simulated"]) }}
+{{ config(materialized='table',contracts=true, tags=["simulated"]) }}
 
 with audit as (
 

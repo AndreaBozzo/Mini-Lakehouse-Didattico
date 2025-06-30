@@ -86,10 +86,7 @@ def ci_mode():
     console.print(Panel.fit("> Esecuzione CI (Simulated Data)"))
     ensure_duckdb_path_exists()
 
-    run_step("dbt clean", "poetry run dbt clean")
-    run_step("dbt deps", "poetry run dbt deps")
-    run_step("dbt seed", "poetry run dbt seed")
-
+    # run_pipeline gestisce già clean, deps, seed in modalità CI
     run_pipeline(real_data=False, ci_mode=True)
     export_marts(real_data=False, ci_mode=True)
     audit_log(ci_mode=True)
@@ -156,7 +153,7 @@ def interactive():
 
 
 @app.command()
-def snapshot():
+def snapshot(ci_mode: bool = False):
     """Confronta i file CSV attuali con l'ultima snapshot salvata."""
     run_step("Snapshot check", "poetry run python -m audit.snapshot_test")
 
