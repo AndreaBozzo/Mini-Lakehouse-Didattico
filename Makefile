@@ -5,19 +5,17 @@
 DBTDIR       ?= dbt
 PROFILESDIR  ?= dbt
 
-# Comandi DBT semplificati
 DBT_DEPS     = poetry run dbt deps --project-dir $(DBTDIR) --profiles-dir $(PROFILESDIR)
 DBT_SEED     = poetry run dbt seed --project-dir $(DBTDIR) --profiles-dir $(PROFILESDIR)
 DBT_RUN      = poetry run dbt run  --project-dir $(DBTDIR) --profiles-dir $(PROFILESDIR)
 DBT_TEST     = poetry run dbt test --project-dir $(DBTDIR) --profiles-dir $(PROFILESDIR)
 DBT_CLEAN    = poetry run dbt clean --project-dir $(DBTDIR) --profiles-dir $(PROFILESDIR)
 
-# Default target
 .DEFAULT_GOAL := help
 
 .PHONY: help install deps seed run test dbt-clean build export-marts export-script audit-log \
-        snapshot-create snapshot-test docs coverage quality-report check lint format all \
-        cli ci-pipeline activate clean update-readme test-cli
+        snapshot-create snapshot-test docs docs-serve coverage quality-report check format \
+        test-cli test-all cli ci-pipeline activate clean update-readme
 
 # ──────────────────────────────────────────────────────────────────────────────
 help:
@@ -31,25 +29,27 @@ help:
 	@echo "  make test              → dbt test"
 	@echo "  make dbt-clean         → dbt clean + rimozione manuale"
 	@echo "  make build             → clean → deps → seed → run → test"
-	@echo "  make export-marts      → esporta marts via CLI Typer"
+	@echo "  make export-marts      → esporta marts via Typer CLI"
 	@echo "  make export-script     → esporta marts via script Python diretto"
 	@echo "  make audit-log         → esegue audit_log.py"
-	@echo "  make snapshot-create 	→ salva esportazioni reali come snapshot baseline"
-	@echo "  make snapshot-test   	→ confronta esportazioni con ultima snapshot"
+	@echo "  make snapshot-create   → salva esportazioni reali come snapshot baseline"
+	@echo "  make snapshot-test     → confronta esportazioni con ultima snapshot"
 	@echo "  make docs              → dbt docs generate"
+	@echo "  make docs-serve        → serve la documentazione dbt su localhost"
 	@echo "  make coverage          → pytest con coverage"
 	@echo "  make quality-report    → Ruff JSON report"
-	@echo "  make check             → ruff, black, isort, safety"
-	@echo "  make lint              → solo ruff"
-	@echo "  make format            → black, isort, ruff --fix"
-	@echo "  make test-cli          → solo test CLI (esclude slow)"
-	@echo "  make all               → ci-pipeline → snapshot-test → docs → check"
-	@echo "  make cli               → pipeline interattiva (typer)"
+	@echo "  make format            → linting + auto-fix con black/isort/ruff"
+	@echo "  make check             → controllo vulnerabilità (safety)"
+	@echo "  make test-cli          → test CLI (esclude slow)"
+	@echo "  make test-all          → tutti i test Python (CLI + utils + snapshot)"
+	@echo "  make cli               → pipeline interattiva (Typer)"
 	@echo "  make ci-pipeline       → pipeline in modalità CI"
+	@echo "  make all               → ci-pipeline + snapshot-test + docs + check"
 	@echo "  make activate          → mostra path venv Poetry"
 	@echo "  make clean             → pulisce cache locali"
 	@echo ""
 
+# ──────────────────────────────────────────────────────────────────────────────
 install:
 	poetry install
 
@@ -117,6 +117,10 @@ docs:
 	@echo "[docs] Disabilitazione Jekyll per GitHub Pages…"
 	@touch docs/.nojekyll
 
+docs-serve:
+	@echo "[docs-serve] Avvio server dbt docs su localhost:8000…"
+	poetry run dbt docs serve --project-dir $(DBTDIR) --profiles-dir $(PROFILESDIR) --port 8000
+
 coverage:
 	@echo "[coverage] Running pytest with coverage (excl. slow tests)..."
 	@poetry run python -c "import os; os.makedirs('reports/htmlcov', exist_ok=True)"
@@ -130,18 +134,11 @@ quality-report:
 	@poetry run ruff check --output-format json . > reports/ruff.json || :
 
 check:
-	@echo "[check] Lint, format-check e security…"
-	poetry run ruff check .
-	poetry run black --check .
-	poetry run isort --check-only .
+	@echo "[check] Verifica vulnerabilità (safety)…"
 	poetry run safety scan || true
 
-lint:
-	@echo "[lint] Ruff only…"
-	poetry run ruff check .
-
 format:
-	@echo "[format] Applicazione formattazione…"
+	@echo "[format] Applicazione linting e formattazione…"
 	poetry run black .
 	poetry run isort .
 	ruff format .
@@ -151,13 +148,17 @@ test-cli:
 	@echo "[test-cli] Test CLI rapidi (esclude slow)…"
 	@poetry run pytest tests/test_cli.py -m "not slow"
 
+test-all:
+	@echo "[test-all] Tutti i test Python (CLI + export utils + snapshot)…"
+	@poetry run pytest tests/ -m "not slow"
+
 cli:
 	@echo "[cli] Avvio pipeline interattiva…"
-	poetry run python cli/pipeline.py interactive
+	poetry run python -m cli.pipeline interactive
 
 ci-pipeline:
 	@echo "[ci-pipeline] Avvio pipeline CI…"
-	poetry run python cli/pipeline.py ci-mode
+	poetry run python -m cli.pipeline ci-mode
 
 all:
 	@echo "[all] Esecuzione completa: ci-pipeline + snapshot-test + docs + check"

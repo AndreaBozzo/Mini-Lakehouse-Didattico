@@ -63,6 +63,9 @@
 <!-- AUTO-SECTION:DIAGRAM -->
 
 ```mermaid
+---
+id: 674fdd5f-5687-416d-9e98-c7829294b7cc
+---
 flowchart TD
     subgraph Seeds
         S1[seeds: bilanci_comunali_sample.csv]
@@ -181,7 +184,6 @@ poetry run python cli/pipeline.py
 <!-- AUTO-SECTION:STRUCTURE -->
 
 ```bash
-├── -p
 ├── __init__.py
 ├── audit
 │   ├── __init__.py
@@ -199,7 +201,10 @@ poetry run python cli/pipeline.py
 ├── build.sh
 ├── cli
 │   ├── __init__.py
+│   ├── core.py
+│   ├── export_utils.py
 │   ├── pipeline.py
+│   ├── utils.py
 ├── data
 │   ├── public
 │   │   ├── siope_it
@@ -207,11 +212,6 @@ poetry run python cli/pipeline.py
 │   │   ├── warehouse.duckdb
 ├── dbt
 │   ├── dbt_packages
-│   │   ├── dbt_date
-│   │   ├── dbt_utils
-│   ├── logs
-│   │   ├── dbt.log
-│   │   ├── dbt.log.1
 │   ├── macros
 │   │   ├── audit
 │   │   ├── fix_duckdb_persist_docs.sql
@@ -226,15 +226,6 @@ poetry run python cli/pipeline.py
 │   │   ├── bilanci_comunali_sample.csv
 │   │   ├── bilanci_voci_sample.csv
 │   │   ├── schema.yml
-│   ├── target
-│   │   ├── compiled
-│   │   ├── graph.gpickle
-│   │   ├── graph_summary.json
-│   │   ├── manifest.json
-│   │   ├── partial_parse.msgpack
-│   │   ├── run
-│   │   ├── run_results.json
-│   │   ├── semantic_manifest.json
 │   ├── tests
 │   │   ├── core
 │   │   ├── marts
@@ -275,32 +266,35 @@ poetry run python cli/pipeline.py
 ├── docs
 │   ├── architecture.mmd
 │   ├── catalog.json
-│   ├── compiled
-│   │   ├── main_seeds
 │   ├── graph.gpickle
 │   ├── graph_summary.json
 │   ├── index.html
 │   ├── manifest.json
 │   ├── partial_parse.msgpack
 │   ├── real_data_poc.md
-│   ├── run
-│   │   ├── main_seeds
 │   ├── run_results.json
 │   ├── semantic_manifest.json
 ├── exports
 │   ├── csv
 │   │   ├── agg_entrate_per_categoria.csv
 │   │   ├── fact_bilanci_comunali.csv
+│   │   ├── main_marts__agg_entrate_per_categoria.csv
+│   │   ├── main_marts__mart_finanza_locale.csv
+│   │   ├── main_marts__mart_siope_totali_mensili.csv
 │   │   ├── mart_finanza_locale.csv
 │   │   ├── mart_siope_totali_mensili.csv
 │   ├── parquet
 │   │   ├── agg_entrate_per_categoria.parquet
 │   │   ├── fact_bilanci_comunali.parquet
+│   │   ├── main_marts__agg_entrate_per_categoria.parquet
+│   │   ├── main_marts__mart_finanza_locale.parquet
+│   │   ├── main_marts__mart_siope_totali_mensili.parquet
 │   │   ├── mart_finanza_locale.parquet
 │   │   ├── mart_siope_totali_mensili.parquet
 ├── LICENSE.txt
 ├── logs
 │   ├── dbt.log
+│   ├── dbt.log.1
 ├── Makefile
 ├── notebooks
 ├── package-lock.yml
@@ -325,7 +319,10 @@ poetry run python cli/pipeline.py
 │   │   ├── z_209d042482f181b3_snapshot_create_py.html
 │   │   ├── z_209d042482f181b3_snapshot_test_py.html
 │   │   ├── z_209d042482f181b3_snapshot_utils_py.html
+│   │   ├── z_434c77fc11d56e0c_core_py.html
+│   │   ├── z_434c77fc11d56e0c_export_utils_py.html
 │   │   ├── z_434c77fc11d56e0c_pipeline_py.html
+│   │   ├── z_434c77fc11d56e0c_utils_py.html
 │   │   ├── z_73f802a1d358a589___init___py.html
 │   │   ├── z_a44f0ac069e85531___init___py.html
 │   │   ├── z_a44f0ac069e85531_test_cli_pipeline_py.html
@@ -347,21 +344,22 @@ poetry run python cli/pipeline.py
 ├── target
 │   ├── catalog.json
 │   ├── compiled
-│   │   ├── main_seeds
+│   │   ├── mini_lakehouse
 │   ├── graph.gpickle
 │   ├── graph_summary.json
 │   ├── index.html
 │   ├── manifest.json
 │   ├── partial_parse.msgpack
 │   ├── run
-│   │   ├── main_seeds
+│   │   ├── mini_lakehouse
 │   ├── run_results.json
 │   ├── semantic_manifest.json
 ├── tests
 │   ├── __init__.py
 │   ├── test_cli.py
-│   ├── test_cli_pipeline.py
-│   ├── test_exports_marts.py
+│   ├── test_export_utils.py
+│   ├── test_exposure_link.py
+│   ├── test_snapshot_test.py
 │   ├── test_snapshot_utils.py
 ├── 📦 CHANGELOG.md
 ```
@@ -374,7 +372,17 @@ poetry run python cli/pipeline.py
 ## 📦 Changelog
 
 <!-- AUTO-SECTION:CHANGELOG -->
-_Non ancora disponibile. Il changelog verrà aggiornato automaticamente._
+
+### v0.2.0
+> Seconda release: pipeline CLI, auditing, CI, export intelligenti, docs pubbliche
+
+- 0ba5e92 feat: add update-readme script and architecture diagram to documentation
+
+### v0.1.0
+> Mini Lakehouse v0.1.0 – versione stabile con audit e marts
+
+- d0d838f 🧽 Final polishing for v0.1.0: README, changelog, Makefile
+
 <!-- END-SECTION:CHANGELOG -->
 ---
 

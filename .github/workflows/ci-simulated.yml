@@ -63,7 +63,8 @@ jobs:
       - name: Export marts (simulated only)
         env:
           DUCKDB_PATH: data/warehouse/warehouse.duckdb
-        run: poetry run python cli/pipeline.py export --ci-mode
+        run: poetry run python -m cli.pipeline export --ci-mode
+
 
       - name: Run Python smoke tests
         run: poetry run pytest tests/ --ignore=tests/test_cli.py --maxfail=1 --disable-warnings
