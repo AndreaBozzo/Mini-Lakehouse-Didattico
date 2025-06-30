@@ -60,10 +60,10 @@ jobs:
         run: poetry run dbt docs generate --exclude tag:real
 
       # ────── export & python tests ──────
-      - name: Export marts (simulated only)
+      - name: Full simulated pipeline (run + export + audit)
         env:
           DUCKDB_PATH: data/warehouse/warehouse.duckdb
-        run: poetry run python -m cli.pipeline export --ci-mode
+        run: poetry run python -m cli.pipeline ci-mode
 
 
       - name: Run Python smoke tests
