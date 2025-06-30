@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from datetime import datetime
 
-from audit.export_marts import export_marts
+from audit.export_marts import export_marts_all
 
 
 def main():
@@ -24,7 +24,7 @@ def main():
 
     # Esportazione
     print(f"[snapshot-create] Esportazione snapshot {timestamp}...")
-    export_marts(csv_path=csv_path, parquet_path=parquet_path)
+    export_marts_all(csv_path=csv_path, parquet_path=parquet_path)
     print(
         f"[snapshot-create] ✅ Cmplt in:\n- CSV: {csv_path}\n- Parquet: {parquet_path}"
     )

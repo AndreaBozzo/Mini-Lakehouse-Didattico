@@ -70,5 +70,16 @@ def export_marts_real() -> None:
     export_schemas(DB_PATH, schemas=["marts_real"])
 
 
+def export_marts_all(
+    csv_path: Path = EXPORT_CSV, parquet_path: Path = EXPORT_PARQUET
+) -> None:
+    export_schemas(
+        DB_PATH,
+        schemas=["marts_real", "marts_simulated"],
+        csv_dir=csv_path,
+        parquet_dir=parquet_path,
+    )
+
+
 if __name__ == "__main__":  # pragma: no cover
     export_marts_simulated()
