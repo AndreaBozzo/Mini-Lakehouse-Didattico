@@ -1,4 +1,5 @@
-{{ config(materialized='table') }}
+-- File: dbt/models/audit/core_audit_flags.sql
+{{ config(materialized='table', schema='main_core', tags=["simulated"]) }}
 
 with base as (
 
